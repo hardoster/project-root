@@ -1,0 +1,938 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f4f3f3 !important;
+}
+
+/*START CONTAINTER MAIN*/
+#container {
+  font-family: "Quicksand", sans-serif; 
+  font-optical-sizing: auto; 
+
+
+  height: 85vh !important;
+
+  display: grid;
+  margin: 25px !important;
+  grid-template-columns: 1.5fr 2fr 100px;
+  /* 2 fracciones de columnas*/
+  grid-template-rows: repeat(3 auto);
+  column-gap: 20px;
+  row-gap: 10px;
+
+    grid-template-areas: "tablep     infcustomer1 iconsinf"
+                         "tablep    infcustomer4  infcustomer4"
+                         "tablep    tableregistros tableregistros";
+
+   
+
+}
+
+/*FINISH CONTAINTER MAIN*/
+/*START VISTA MIENTRAS SELECCIONAN UNA PLACA DE LA TABLA*/
+.WaitSelectView{
+  height: 85vh;
+  grid-area: infcustomer1 / infcustomer4 / iconsinf / tableregistros;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+}
+.containerWSV{
+  
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 0.1fr;
+  grid-template-areas: "imgWSV" 
+                       "textWSV";
+}
+
+.imgWSV{
+  margin-top: 20px;
+  grid-area: imgWSV;
+  display: flex;
+  justify-content: center;
+
+}
+#freepik_stories-select{
+  width: 60%;
+}
+
+.textWSV{
+  margin-top: 10px;
+  grid-area: textWSV;
+  display: flex;
+  justify-content: center;
+  color: #BDBDBD;
+  font-size: 20px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+
+}
+
+/*END VISTA MIENTRAS SELECCIONAN UNA PLACA DE LA TABLA*/
+/*iconos para ocultar y mostrar*/
+#container .iconsinf {
+  grid-area: iconsinf;
+  box-shadow: 1px 0px 15px 0px rgba(120, 120, 120, 0.3);
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  background-color: #FFFFFF;
+}
+
+
+#btngpsinf {
+  opacity: 0.5;
+}
+
+#btnvehiculosinf {
+  opacity: 0.5;
+}
+
+#btnclienteinf {
+  opacity: 0.5;
+}
+
+/*-------------------------------*/
+/*START TABLE SIZE*/
+#tablep {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "containertb1";
+
+
+  grid-area: tablep;
+  border-radius: 10px !important;
+  text-align: center;
+  height: 85vh;
+  overflow: auto;
+  margin-bottom: 0% !important;
+  max-width: none !important;
+
+}
+
+.svgtable svg {
+  width: 20px;
+  fill: #7d7d7d;
+
+}
+
+.containertb1 {
+  grid-area: containertb1;
+  overflow-x: auto;
+}
+
+#thead-fixed {
+  position: sticky;
+  top: 0;
+  background-color: white;
+ /* z-index: 2;*/
+}
+
+#tablafontsize {
+  font-size: 12px;
+}
+
+/*FINISH TABLE SIZE*/
+
+/*START INFCUSTOMER1---------------------------------------------------------------------------------------------*/
+/*animacion css de animista.net*/
+.fade-in-right {
+  animation: fade-in-right .8s cubic-bezier(.39, .575, .565, 1.000) both
+}
+
+@keyframes fade-in-right {
+  0% {
+    transform: translateX(50px);
+    opacity: 0
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1
+  }
+}
+
+/*--------------------------------------------------------------------------------*/
+.accounttitle {
+  grid-area: accounttitle;
+
+  background: linear-gradient(96deg,
+      rgba(39, 48, 107, 1) 12%,
+      rgba(233, 245, 253, 1) 84%,
+      rgba(255, 255, 255, 1) 96%);
+  background-blend-mode: normal;
+  color: #FFFFFF;
+  padding: 5px 8px 5px 8px;
+  border-radius: 5px;
+
+
+  font-size: 14px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+}
+
+#container .infcustomer1 {
+  transform-origin: left;
+  grid-area: infcustomer1;
+}
+
+.container1 {
+  box-shadow: 1px 0px 15px 0px rgba(120, 120, 120, 0.3);
+  border-radius: 15px;
+  background-color: #FFFFFF;
+  padding: 15px;
+
+  display: grid;
+  grid-template-columns: 0.8fr 0.4fr 0.8fr;
+  grid-template-rows: 0.2fr auto auto;
+  column-gap: 20px;
+  row-gap: 15px;
+  grid-template-areas: "accounttitle  accounttitle  accounttitle"
+    "formgroup1  formgroup2  formgroup3"
+    "formgroup4  formgroup4  formgroup3";
+}
+
+.container1 .formgroup1 {
+  grid-area: formgroup1;
+  display: flex;
+  flex-direction: column;
+}
+
+.container1 .formgroup1 .input {
+  align-self: self-start;
+}
+
+.container1 .formgroup2 {
+  display: flex;
+  flex-direction: column;
+  grid-area: formgroup2;
+}
+
+.container1 .formgroup3 {
+  display: flex;
+  flex-direction: column;
+  flex-grow: -1;
+  grid-area: formgroup3;
+  border: #E0E0E0 1px solid;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+}
+
+.container1 .formgroup4 {
+  display: flex;
+  flex-direction: column;
+  grid-area: formgroup4;
+  font-size: 12px;
+  border: #E0E0E0 1px solid;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+}
+
+/*span  cuenta tipo cliente*/
+#inputnameaccount {
+  font-size: 14px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+
+  margin-bottom: 5px;
+}
+
+#id_spannameaccount {
+  display: flex;
+  width: auto;
+  background-color: #F5F5F5;
+  border: #E0E0E0 1px solid;
+  height: 100%;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding: 3px 5px 3px 5px;
+  font-size: 12px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+
+}
+
+#inputtypecustomer {
+  /*FUENTE DE GOOGLE PARA TITULOS*/
+  font-size: 14px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  /*-------------------------------*/
+
+  margin-bottom: 5px;
+}
+
+#id_spantypecustomer {
+  width: auto;
+  background: #F5F5F5;
+  border: #E0E0E0 1px solid;
+  height: 100%;
+  border-radius: 5px;
+  /*FUENTE DE GOOGLE PARA SUBTEXTOS*/
+  font-size: 12px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  /*-------------------------------------*/
+  padding: 3px 5px 3px 5px;
+
+}
+
+#inputcontact {
+  font-size: 14px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+
+
+}
+
+#id_spancontact {
+  height: 100%;
+  font-size: 12px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+
+}
+
+#inputinfc {
+  font-size: 14px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+
+}
+
+#id_spaninfc {
+  height: 100%;
+  font-size: 12px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+}
+
+/*END INFCUSTOMER1---------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+/*START INFCUSTOMER2 infomacion de vehiculos--------------------------------------------------------------------*/
+
+#container .infcustomer2 {
+  grid-area: infcustomer1;
+}
+
+.container2 {
+  box-shadow: 1px 0px 15px 0px rgba(120, 120, 120, 0.3);
+  border-radius: 15px;
+  padding: 15px;
+  background-color: #FFFFFF;
+
+
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-gap: 10zpx;
+  grid-template-areas: "datavhtitle  datavhtitle  datavhtitle  datavhtitle datavhtitle"
+    "ilustration_vh marcavh     modelovh      colorvh     aniovh";
+}
+
+.container2 .datavhtitle {
+  grid-area: datavhtitle;
+  /*border: #7E69A4 1px solid;*/
+  background: linear-gradient(96deg, rgba(39, 48, 107, 1) 12%, rgba(233, 245, 253, 1) 84%, rgba(255, 255, 255, 1) 96%);
+  background-blend-mode: normal;
+  color: #FFFFFF;
+  padding: 5px 8px 5px 8px;
+  border-radius: 5px;
+
+
+  font-size: 14px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+
+
+}
+
+/*---------------------------*/
+.ilustration_vh {
+  grid-area: ilustration_vh;
+}
+
+.container2 .marcavh {
+  grid-area: marcavh;
+  display: flex;
+  width: 125px;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#marcaspanvh {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.marcavh label {
+  background-color: rgba(39, 48, 107, 0.2) 1px solid;
+  color: rgba(39, 48, 107, 1);
+  border: rgba(39, 48, 107, 0.2) 1px solid;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/*--------------------------*/
+.container2 .modelovh {
+  grid-area: modelovh;
+  display: flex;
+  width: 125px;
+  justify-content: center;
+
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modelovh label {
+  background-color: rgba(39, 48, 107, 0.2) 1px solid;
+  color: rgba(39, 48, 107, 1);
+  border: rgba(39, 48, 107, 0.2) 1px solid;
+  text-align: center;
+  border-radius: 10px;
+}
+
+#modelospanvh {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+/*--------------------------*/
+.container2 .colorvh {
+  grid-area: colorvh;
+  display: flex;
+  justify-content: center;
+
+  width: 125px;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#colorspanvh {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.colorvh label {
+  background-color: rgba(39, 48, 107, 0.2) 1px solid;
+  color: rgba(39, 48, 107, 1);
+  border: rgba(39, 48, 107, 0.2) 1px solid;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/*----------------------------*/
+.container2 .aniovh {
+  grid-area: aniovh;
+  display: flex;
+  justify-content: center;
+
+  width: 125px;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#aniospanvh {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.aniovh label {
+  background-color: rgba(39, 48, 107, 0.2) 1px solid;
+  color: rgba(39, 48, 107, 1);
+  border: rgba(39, 48, 107, 0.2) 1px solid;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/*---------------------------------*/
+/*END INFCUSTOMER2 infomacion de vehiculos--------------------------------------------------------------------*/
+
+
+
+
+
+
+/*START INFCUSTOMER3 infomacion de GPS--------------------------------------------------------------------*/
+
+#container .infcustomer3 {
+  grid-area: infcustomer1;
+}
+
+.container3 {
+  box-shadow: 1px 0px 15px 0px rgba(120, 120, 120, 0.3);
+  border-radius: 15px;
+  padding: 15px;
+  background-color: #FFFFFF;
+
+
+
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  grid-template-rows: auto auto auto;
+  grid-gap: 10px;
+  grid-template-areas: "datagpstitle       datagpstitle  datagpstitle  datagpstitle  datagpstitle  datagpstitle"
+    "img_gps_seccion   marcagps        marcagps      seriegps      telefonogps   telefonogps"
+    "img_gps_seccion   idgps        idgps       simgps     simgps   simgps";
+}
+
+.container3 .datagpstitle {
+  grid-area: datagpstitle;
+  background: linear-gradient(96deg,
+      rgba(156, 142, 42, 1) 12%,
+      rgba(249, 250, 236, 1) 84%,
+      rgba(255, 255, 255, 1) 96%);
+
+
+  font-size: 14px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  color: #FFFFFF;
+  padding: 5px 8px 5px 8px;
+
+  background-blend-mode: normal;
+  border: #E0E0E0 1px solid;
+  padding-left: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/*----------------------------------*/
+.img_gps_seccion {
+  grid-area: img_gps_seccion;
+  display: flex;
+  justify-content: center;
+}
+
+.container3 .idgps {
+  grid-area: idgps;
+
+  display: flex;
+  width: 125px;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+#idspangps {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.idgps label {
+  background-color: #d5d96b;
+  color: #FFFFFF;
+  border: #EBEBEB 1px solid;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/*----------------------------------*/
+.container3 .marcagps {
+  grid-area: marcagps;
+
+  display: flex;
+  width: 125px;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#marcaspangps {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.marcagps label {
+  background-color: #9c8e2a;
+  color: #FFFFFF;
+  border: #EBEBEB 1px solid;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/*------------------------------------*/
+.container3 .seriegps {
+  grid-area: seriegps;
+
+  display: flex;
+  width: 125px;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#seriespangps {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.seriegps label {
+  background-color: #bdb735;
+  color: #FFFFFF;
+  border: #EBEBEB 1px solid;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/*------------------------------------*/
+.container3 .telefonogps {
+  grid-area: telefonogps;
+
+  display: flex;
+  width: 125px;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#telefonospangps {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.telefonogps label {
+  background-color: #cccc43;
+  color: #FFFFFF;
+  border: #EBEBEB 1px solid;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/*------------------------------------------*/
+
+.container3 .simgps {
+  grid-area: simgps;
+
+  display: flex;
+  width: 125px;
+  flex-direction: column;
+
+  margin-left: 23px;
+  margin-right: 0;
+}
+
+#simspangps {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.simgps label {
+  background-color: #e2e7a1;
+  color: #362912;
+  border: #EBEBEB 1px solid;
+  text-align: center;
+  border-radius: 10px;
+}
+
+
+
+/*END INFCUSTOMER3 infomacion de GPS--------------------------------------------------------------------*/
+
+
+
+/*START INFCUSTOMER4 infomacion de GPS--------------------------------------------------------------------*/
+
+
+#container #infcustomer4 {
+  box-shadow: 1px 0px 15px 0px rgba(120, 120, 120, 0.3);
+  border-radius: 15px;
+  padding: 15px;
+  background-color: #FFFFFF;
+  grid-column-gap: 12px;
+  grid-area: infcustomer4;
+  margin-top: 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.4fr;
+
+  grid-template-areas: "spannotes editspannotev areabtnnotes";
+
+}
+
+#spannotes {
+  box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  grid-area: spannotes;
+  padding: 12px;
+  font-size: 12px;
+  color: #a1a1a1;
+  background-color: #ffffff;
+}
+
+#editspannotev{
+  box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    grid-area: spannotes;
+    padding: 12px;
+    font-size: 14px;
+    color: #a1a1a1;
+    background-color: #ffffff;
+    grid-area: editspannotev;
+}
+
+#txtEditSpanNotes{
+  border: none;
+}
+#txtEditSpanNotes:focus{
+  outline: none;
+  color: #7d7d7d;
+}
+
+#areabtnnotes {
+  grid-area: areabtnnotes;
+  display: flex;
+  flex-direction: column;
+}
+#areabtnnotes hr{
+  margin: 0;
+}
+.spannButtonGeneralTH{
+  text-align: center;
+    font-size: 14px;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+}
+.spannButtonGeneralSUB{
+  font-family: "Quicksand", sans-serif;
+  font-size: 12px;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+.ContainerControlBtn {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+  display: flex;
+  width: 75%;
+  text-align: center;
+  border-radius: 10px;
+  border: #e0e0e0 1px solid;
+  justify-content: center;
+    
+  cursor: pointer;
+}
+
+.form-check {
+  display: block;
+  min-height: 1.5rem;
+  padding-left: 2.5em;
+  margin-top: 0.299rem;
+}
+
+#areabtnnotes hr{
+  margin: auto;
+  width: 68%;
+}
+
+
+/*END INFCUSTOMER4 infomacion de GPS--------------------------------------------------------------------*/
+
+
+/*START tableregistros infomacion de GPS-----------------------------------------------------------------*/
+
+#container #tableregistros {
+  grid-area: tableregistros;
+
+  display: grid;
+  grid-template-columns: 1.7fr 0.3fr;
+  grid-template-rows: 300px;
+  grid-template-areas: "tablep1 filtrosarea";
+
+  font-size: 14px;
+  padding: 0;
+
+}
+
+/*END tableregistros infomacion de GPS---------------------------------------------------------------------------------------------------------*/
+#tablep1 {
+  margin-bottom: 0px !important;
+  border-top-left-radius: 15px !important;
+  border-bottom-left-radius: 15px !important;
+
+  height: 32vh !important;
+
+}
+
+.tablep1 .table0 {
+  grid-area: table0;
+}
+
+.table0 table {
+  text-align: center;
+}
+
+.filtrosarea {
+
+  height: 32vh !important;
+
+  grid-area: filtrosarea;
+  background-color: #FFFFFF;
+  display: flex;
+  box-shadow: 1px 0px 15px 0px rgba(120, 120, 120, 0.3);
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filtrosarea .titlefiltros {
+  margin-top: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.filtrosarea .tecnicosbtn {
+  margin-top: 13px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: #a7a7a7 1px solid;
+  border-radius: 10px;
+}
+
+.filtrosarea .operadorbtn {
+  margin-top: 13px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: #a7a7a7 1px solid;
+  border-radius: 10px;
+}
+
+.filtrosarea .reaccionbtn {
+  margin-top: 13px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: #a7a7a7 1px solid;
+  border-radius: 10px;
+}
+
+
+
+
+/*--------------------filtros de la ultima tabla---------------------------------------------------------------------------------------*/
+
+/*-------------START BACKGROUND SHADOW ADD NOTE--------------------------------------------------------------------------------------*/
+
+#contNoteShadowBacground{
+  place-items: center;
+
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgb(48, 48, 48) 100%);
+}
+
+#FormNotesAdd{
+  display: grid;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.2fr 1fr;
+  grid-template-areas: "iconTitle"
+                        "formNotes";
+
+    place-items: center;
+    padding: 20px;
+    
+    margin: 25px auto auto auto;
+    width: 62.5vh; /* (500 / 800 * 100) */
+    height: 85vh; /* (600 / 800 * 100) */
+
+    overflow:auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    z-index: 1000; /* Asegúrate de que el z-index sea mayor que el del fondo */
+
+}
+.iconTitle{
+  display: flex;
+  flex-direction: column;
+  grid-area: iconTitle;
+  background-color: #ffffff;
+  
+  align-items: center;
+  border-radius: 20px 20px 0px 0px;
+
+
+}
+.iconTitle svg{
+   width: 8%;
+  fill: #7d7d7d;
+
+}
+
+#formNotes {
+  display: flex;
+  flex-direction: column;
+background-color: #ffffff;
+grid-area: formNotes;
+padding: 15px;
+width: 50vh; /* (500 / 800 * 100) */
+height: 65vh; /* (600 / 800 * 100) */
+min-height:  65vh;
+border-radius: 0px 0px 20px 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+
+/*lista del navbar------------------------------*/
+.nav-bar{
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+.nav-bar li{
+display: inline-block;
+}
+.nav-bar ul{
+    background-color: #27306b;
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.nav-bar ul li a{
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 22px 20px;
+}
+
+.nav-bar ul li a:hover{
+    background-color: #5C6BC0;
+}
+.logo{
+    height: 100%;
+    width: 100%;
+    max-width: 200px;
+    min-width: 75px;
+}
+.nav-bar ul a.img-li-padding {
+    padding: 0;
+}
+/*lista del navbar END --------------------------*/
