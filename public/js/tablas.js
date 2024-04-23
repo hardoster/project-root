@@ -186,6 +186,11 @@ $(document).ready(function(){
     document.querySelector('#tableregistros').style.display = 'none';
     document.querySelector('#contNoteShadowBacground').style.display = 'none';
     
+
+   document.querySelector('.tecnicoscmb').style.display = 'none';;
+   document.querySelector('.operadorcmb').style.display = 'none';;
+   document.querySelector('.reaccioncmb').style.display = 'none';;
+ 
 })
 
 /************************************PARA MOSTRAR LA FECHA Y LA HORA*********************************************/ 
@@ -214,6 +219,80 @@ actualizarFechaYHora();
     document.querySelector('.newnotebtn').addEventListener('click', function(){
         POPUPNOTE.style.display = 'grid';
     });
+
+   document.querySelector('#svgClose').addEventListener('click', function(){
+    POPUPNOTE.style.display = 'none'
+    });
+
+    
+/*----------------------*------------------------------------------------------------------------*/
+
+/*---------------------------------SELECCIONAR COMBOBOX CORRECTO******------------------------------*/
+
+const selectElement = document.querySelector('#floatingSelect');
+
+selectElement.addEventListener('change', CMBdinamic);
+
+function CMBdinamic() {
+   
+    const CMBoption = parseInt(selectElement.value);
+    const tecnicosCMB = document.querySelector('.tecnicoscmb');
+    const operadorCMB = document.querySelector('.operadorcmb');
+    const reaccionCMB = document.querySelector('.reaccioncmb');
+    
+    // Oculta todos los elementos antes de mostrar uno nuevo
+    tecnicosCMB.style.display = 'none';
+    operadorCMB.style.display = 'none';
+    reaccionCMB.style.display = 'none';
+    
+    // Muestra el elemento correspondiente según la opción seleccionada
+    switch (CMBoption) {
+        case 1:
+            tecnicosCMB.style.display = 'grid';
+            break;
+        case 2:
+            operadorCMB.style.display = 'grid';
+            break;
+        case 3:
+            reaccionCMB.style.display = 'grid';
+            break;
+        default:
+            tecnicosCMB.style.display = 'grid';
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

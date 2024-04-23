@@ -720,9 +720,10 @@
 
         <div id="contNoteShadowBacground">
             <div id="FormNotesAdd">
-             
-                <div class="iconTitle">
+            <div class="iconTitle">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V173.3c0-17-6.7-33.3-18.7-45.3L352 50.7C340 38.7 323.7 32 306.7 32H64zm0 96c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128zM224 288a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+                <svg  id="svgClose"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#b0b0b0" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+
                 <span>Nueva nota</span>
                 <!--fecha y hora-->
                 <label id="fechaHoraAuto">26/04/2024 08:54:87</label>
@@ -731,36 +732,65 @@
                 <div id="formNotes">
                      <!--input 1-->
              <form action="">
-            
+                            
+                  
                      <!--Select-->
                      <div class="form-floating mb-3">
                     <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                            <option selected>Tecnicos</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                    <option selected>Seleccione la disposicion</option>
+                    <?php foreach ($datos3 as $indexOP1 => $value1) :?>
+                    <option value="<?= $indexOP1 + 1 ?>"><?= $value1['MR_CategoryDisposition_name'] ?></option>
+                    <?php endforeach; ?>
                     </select>
-                    <label for="floatingSelect">Categoria</label>
+                    <label for="floatingSelect">Disposicion</label>
+                    </div>
+                    <!--CATEGORIAS SON 3 EN TOTAL-->
+                     <!--TECNICOS-->
+                     <div class="form-floating mb-3 tecnicoscmb">
+                     <select class="form-select" id="floatingSelect1" aria-label="Floating label select example">
+                     <option selected>Selecciona una categoria</option>
+                     <?php foreach ($datos4 as $indexOP4 => $value4) :?>
+                     <option value="<?= $indexOP4 + 1 ?>"><?= $value4['MR_dispositionName'] ?></option>
+                     <?php endforeach; ?>
+                    </select>
+                    <label for="floatingSelect1">Categoria</label>
                     </div>
 
-                     <div class="form-floating mb-3">
-                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                            <option selected>Empleado</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                     <!--OPERADOR-->
+                    <div class="form-floating mb-3   operadorcmb">
+                     <select class="form-select" id="floatingSelect2" aria-label="Floating label select example">
+                     <option selected>Selecciona una categoria</option>
+                     <?php foreach ($datos5 as $indexOP5 => $value5) :?>
+                     <option value="<?= $indexOP5 + 1 ?>"><?= $value5['MR_dispositionName'] ?></option>
+                     <?php endforeach; ?>
                     </select>
-                    <label for="floatingSelect">Categoria</label>
+                    <label for="floatingSelect2">Categoria</label>
+                    </div>
+                    
+                    <!--REACCION-->
+                    <div class="form-floating mb-3 reaccioncmb">
+                     <select class="form-select" id="floatingSelect3" aria-label="Floating label select example">
+                     <option selected>Selecciona una categoria</option>
+                     <?php foreach ($datos6 as $indexOP6 => $value6) :?>
+                     <option value="<?= $indexOP6 + 1 ?>"><?= $value6['MR_dispositionName'] ?></option>
+                     <?php endforeach; ?>
+                    </select>
+                    <label for="floatingSelect3">Categoria</label>
                     </div>
 
+
+
+
+
+                    
                      <div class="form-floating mb-3">
                           <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                            <option selected>cambio de equipo</option>
+                            <option selected>Adonay Avilez</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
                            </select>
-                            <label for="floatingSelect">Disposicion</label>
+                            <label for="floatingSelect">Empleado</label>
                      </div>
 
                     <div class="form-code-sheet">

@@ -23,9 +23,13 @@ class Inicio extends BaseController
 
         $datos = $md_tablappal->obtenerRegistrostb1();
         $datos2 = $md_tablasec->obtenerRegistrostb2();
+        $datos3 = $md_tablasec -> GetValidationsNotes();
+        $datos4 = $md_tablasec -> GetValidationsNotesCategory1();
+        $datos5 = $md_tablasec -> GetValidationsNotesCategory2();
+        $datos6 = $md_tablasec -> GetValidationsNotesCategory3();
       //  return $this->response->setJSON($datos);  
        
-       return view('vistag', ['datos' => $datos, 'datos2' => $datos2]);
+       return view('vistag', ['datos' => $datos, 'datos2' => $datos2 , 'datos3' => $datos3,'datos4' => $datos4, 'datos5' => $datos5, 'datos6' => $datos6]);
         // return view('vistag', ['datos' => $datos]);
 
     }

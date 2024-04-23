@@ -33,6 +33,69 @@ class MD_tablasec extends Model
 
     public $valsearch;
 
+  
+
+    public function GetValidationsNotes(){
+        $sql3 ="SELECT monitoreorecords.categorydisposition.id_MR_categoryDisposition,
+         monitoreorecords.categorydisposition.MR_CategoryDisposition_name 
+        from monitoreorecords.categorydisposition;
+        ";
+
+                 return $this->db->query($sql3)->getResultArray();
+    }
+    public function GetValidationsNotesCategory1(){
+        $sql4 = "SELECT monitoreorecords.categorydisposition.id_MR_categoryDisposition, monitoreorecords.categorydisposition.MR_CategoryDisposition_name,
+        monitoreorecords.disposition.id_MR_Disposition, 
+        monitoreorecords.disposition.MR_dispositionName 
+        FROM monitoreorecords.disposition
+        INNER JOIN monitoreorecords.categorydisposition ON monitoreorecords.disposition.id_MR_categoryDisposition = monitoreorecords.categorydisposition.id_MR_categoryDisposition
+        WHERE monitoreorecords.disposition.id_MR_categoryDisposition = 1";
+  
+  return $this->db->query($sql4)->getResultArray();
+    }
+
+
+    public function GetValidationsNotesCategory2(){
+        $sql5 = "SELECT monitoreorecords.categorydisposition.id_MR_categoryDisposition, monitoreorecords.categorydisposition.MR_CategoryDisposition_name,
+        monitoreorecords.disposition.id_MR_Disposition, 
+        monitoreorecords.disposition.MR_dispositionName 
+        FROM monitoreorecords.disposition
+        INNER JOIN monitoreorecords.categorydisposition ON monitoreorecords.disposition.id_MR_categoryDisposition = monitoreorecords.categorydisposition.id_MR_categoryDisposition
+        WHERE monitoreorecords.disposition.id_MR_categoryDisposition = 2";
+  
+  return $this->db->query($sql5)->getResultArray();
+    }
+
+
+    public function GetValidationsNotesCategory3(){
+        $sql6 = "SELECT monitoreorecords.categorydisposition.id_MR_categoryDisposition, monitoreorecords.categorydisposition.MR_CategoryDisposition_name,
+        monitoreorecords.disposition.id_MR_Disposition, 
+        monitoreorecords.disposition.MR_dispositionName 
+        FROM monitoreorecords.disposition
+        INNER JOIN monitoreorecords.categorydisposition ON monitoreorecords.disposition.id_MR_categoryDisposition = monitoreorecords.categorydisposition.id_MR_categoryDisposition
+        WHERE monitoreorecords.disposition.id_MR_categoryDisposition = 3";
+  
+  return $this->db->query($sql6)->getResultArray();
+    }
+
+
+
+    public function GetValidationsEmployees(){
+        $sql6 = "SELECT id_MR_employees AS idempleado ,CONCAT(MR_employee_name, ' ',MR_employee_lastName) AS Fullname FROM `mr_employees`";
+  
+  return $this->db->query($sql6)->getResultArray();
+    }
+
+
+
+
+
+
+
+
+
+
+
     public function obtenerRegistrostb2()
     { 
     

@@ -940,7 +940,13 @@ border-radius: 0px 0px 20px 20px;
 .btn-radiobutton{
   display:flex;
   flex-direction: row;
+}
 
+#svgClose{
+  margin-right: -419px;
+  width: 14px;
+  margin-top: -20px;
+  position: absolute;
 }
 
 
