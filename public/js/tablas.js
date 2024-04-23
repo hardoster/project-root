@@ -19,7 +19,7 @@ $(document).ready(function () {
                 "last": "Ultimo",
                 "next": "Siguiente",
                 "previous": "Anterior"
-            } 
+            }  
         }, //para agregar otra propiedad a la datatable
 
         columnDefs: [{
@@ -184,10 +184,50 @@ $(document).ready(function(){
     document.querySelector('.iconsinf').style.display = 'none';
     document.querySelector('#infcustomer4').style.display = 'none';
     document.querySelector('#tableregistros').style.display = 'none';
+    document.querySelector('#contNoteShadowBacground').style.display = 'none';
     
-
-
 })
+
+/************************************PARA MOSTRAR LA FECHA Y LA HORA*********************************************/ 
+
+ function actualizarFechaYHora() {
+    var fechaHora = new Date();
+
+    // Formatear la fecha y hora
+    var fecha = fechaHora.toLocaleDateString();
+    var hora = fechaHora.toLocaleTimeString();
+
+ 
+    document.getElementById('fechaHoraAuto').textContent = fecha + ' ' + hora;
+}
+
+actualizarFechaYHora();
+
+// Llamar a la función cada segundo para que se actualice la fecha y hora
+//setInterval(actualizarFechaYHora, 1000);
+
+
+/*--------------mostrar POPUP DE NOTAS-----------------------------------------------------------*/
+
+    const POPUPNOTE = document.querySelector('#contNoteShadowBacground');
+
+    document.querySelector('.newnotebtn').addEventListener('click', function(){
+        POPUPNOTE.style.display = 'grid';
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

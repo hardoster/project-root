@@ -6,7 +6,7 @@ use App\Models\MD_tablappal;
 use App\Models\MD_tablasec;
 
 class Inicio extends BaseController
-{ 
+{  
    
     private $tb1models;
     private $tb2models;
