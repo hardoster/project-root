@@ -230,11 +230,8 @@ actualizarFechaYHora();
 /*---------------------------------SELECCIONAR COMBOBOX CORRECTO******------------------------------*/
 
 const selectElement = document.querySelector('#floatingSelect');
-
 selectElement.addEventListener('change', CMBdinamic);
-
 function CMBdinamic() {
-   
     const CMBoption = parseInt(selectElement.value);
     const tecnicosCMB = document.querySelector('.tecnicoscmb');
     const operadorCMB = document.querySelector('.operadorcmb');

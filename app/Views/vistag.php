@@ -22,7 +22,7 @@
 
   
     <title>Document</title>
-</head> 
+</head>  
 
 <header>
     <?php require_once('layoutnavbar.php') ?>
@@ -782,16 +782,19 @@
 
 
 
-                    
+                     <!--EMPLEADOS-->
                      <div class="form-floating mb-3">
                           <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                            <option selected>Adonay Avilez</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option selected>Realizado por</option>
+                            <?php foreach ($datos7 as $indexOP7 => $value7) :?>
+                            <option value="<?= $indexOP7 + 1 ?>"><?= $value7['fullname'] ?></option>
+                            <?php endforeach; ?>
                            </select>
                             <label for="floatingSelect">Empleado</label>
                      </div>
+
+
+
 
                     <div class="form-code-sheet">
                     <div class="form-floating mb-3 code-size">

@@ -20,7 +20,7 @@ class MD_tablasec extends Model
     protected $allowedFieldsCTDIS = ['MR_CategoryDisposition_name'];
 
     protected $TB_Disposition   = 'disposition';
-    protected $allowedFieldsDIS = ['MR_dispositionName'];
+    protected $allowedFieldsDIS = ['MR_dispositionName']; 
 
     protected $TB_Employees     = 'mr_employees';
     protected $allowedFieldsEMP = ['MR_employee_name', 'MR_employee_lastName'];

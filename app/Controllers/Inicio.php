@@ -6,7 +6,7 @@ use App\Models\MD_tablappal;
 use App\Models\MD_tablasec;
 
 class Inicio extends BaseController
-{  
+{   
    
     private $tb1models;
     private $tb2models;
@@ -27,9 +27,10 @@ class Inicio extends BaseController
         $datos4 = $md_tablasec -> GetValidationsNotesCategory1();
         $datos5 = $md_tablasec -> GetValidationsNotesCategory2();
         $datos6 = $md_tablasec -> GetValidationsNotesCategory3();
+        $datos7 = $md_tablasec -> GetValidationsEmployees();
       //  return $this->response->setJSON($datos);  
        
-       return view('vistag', ['datos' => $datos, 'datos2' => $datos2 , 'datos3' => $datos3,'datos4' => $datos4, 'datos5' => $datos5, 'datos6' => $datos6]);
+       return view('vistag', ['datos' => $datos, 'datos2' => $datos2 , 'datos3' => $datos3,'datos4' => $datos4, 'datos5' => $datos5, 'datos6' => $datos6, 'datos7' => $datos7]);
         // return view('vistag', ['datos' => $datos]);
 
     }
