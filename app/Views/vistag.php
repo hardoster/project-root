@@ -830,11 +830,11 @@
 
 
                         <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault11"/>
                         <label class="form-check-label spannButtonGeneralSUB" for="flexRadioDefault1"> Activo </label>
                         </div>
                         <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked/>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault22" checked/>
                         <label class="form-check-label spannButtonGeneralSUB" for="flexRadioDefault2"> Finalizado </label>
                         </div>
 

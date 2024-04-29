@@ -27,7 +27,6 @@ $(document).ready(function () {
          visible: false // ocultar columna
         }]
 
-        document.querySelector('#dt-search-0').style = 'border-radius = 0';
 
 
     }); // Cierra la DataTable
@@ -328,7 +327,9 @@ function CMBdinamic() {
 
     
 
-
+    /*para guardar la fecha de adicion de la nota */
+    var dateadd = document.querySelector('#fechaHoraAuto').value
+    console.log(dateadd)
     /*Para obtener el valor disposicion esta en la variable DispositionAdd*/ 
     /*PARA OBTENER EL VEHICULO ID*/ //se esta guardando en la variable valVehicleSelect cuando se da clic a una fila
     /*para obtener el id cliente idclientespann*/
@@ -343,11 +344,51 @@ function CMBdinamic() {
     /*PARA GUARDAR LA NOTA ES LA VARIABLE  */
         var notecode = document.querySelector('#floatingTextarea2').value;
         console.log(notecode)
-    /*para guardar la fecha de adicion de la nota */
-        var dateadd = document.querySelector('#fechaHoraAuto').value
-        console.log(dateadd)
+    /*PARA OBTENER EL ESTADO SI ES ACTIVO O FINALIZADO */
+    var radio1 = document.querySelector("#flexRadioDefault11");
+    // Verificar el estado
+    var estadoRadio1 = radio1.checked;
+    //variable que contrndra se llama statusNote
+    var statusNote;
+    if (estadoRadio1 == true) {
+        statusNote = 'Acitvo';
+        console.log(statusNote)
+    }else if(estadoRadio1 == false){
+        statusNote = 'Finalizado';
+        console.log(statusNote)
+    }   
     
         
+   
+    // Enviar datos  jQuery
+    $.post('inicio/insert_note', {
+         id_MR_disposition: DispositionAdd, 
+         id_vehiculo: valVehicleSelect,
+         id_cliente: idclientespann,
+         id_gps: idgpsspann,
+         id_MR_employee: idclienteval,
+         codigoTec: codetecnico,
+         MR_notes: notecode,
+         MR_date_add: dateadd,
+         MR_date_delete: '',
+         MR_date_edit: '',
+         MR_status: statusNote
+
+        }, function(dataJSnote) {
+      console.log(dataJSnote); 
+    });
+    
+
+
+
+
+
+
+
+
+
+
+
 }
 
 
