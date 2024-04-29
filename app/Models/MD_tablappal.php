@@ -47,7 +47,7 @@ class MD_tablappal extends Model
                 IFNULL(contacto3, ''), ' ',  IFNULL(telcel3, ''),  ' ',  IFNULL(telfijo3, ''))
                  AS datos_contacto, tbclientes.notas, tbvehiculos.marca, tbvehiculos.modelo, 
                  tbvehiculos.ano, tbvehiculos.color, tbgps.id_marca, tbgps.serie, tbgps.num_telefono
-                 , tbgps.sim
+                 , tbgps.sim, tbvehiculos.id_vehiculo, tbvehiculos.id_cliente, tbvehiculos.id_gps
         FROM tbvehiculos 
         INNER JOIN tbclientes ON tbvehiculos.id_cliente = tbclientes.id_cliente 
         INNER JOIN tbgps ON tbvehiculos.id_gps = tbgps.id_gps";

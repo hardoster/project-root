@@ -25,8 +25,8 @@ class MD_tablasec extends Model
     protected $TB_Employees     = 'mr_employees';
     protected $allowedFieldsEMP = ['MR_employee_name', 'MR_employee_lastName'];
 
-    protected $TB_ods = 'ods_records';
-    protected $allowedFieldsODS = ['MR_Code_ods', 'MR_Sheet_ods'];
+    protected $TB_ods = 'codigoTec';
+    
 
     protected $TB_records = 'records';
     protected $allowedFieldsRECORDS = ['MR_notes' , 'MR_status'];
@@ -81,9 +81,9 @@ class MD_tablasec extends Model
 
 
     public function GetValidationsEmployees(){
-        $sql6 = "SELECT id_MR_employees AS idempleado ,CONCAT(MR_employee_name, ' ',MR_employee_lastName) AS Fullname FROM `mr_employees`";
-  
-  return $this->db->query($sql6)->getResultArray();
+      //  $sql7= "SELECT monitoreorecords.mr_employees.id_MR_employees AS idempleado ,CONCAT(monitoreorecords.mr_employees.MR_employee_name, ' ',monitoreorecords.mr_employees.MR_employee_lastName) AS Fullname2 FROM `monitoreorecords.mr_employees`";
+        $sql7 = "SELECT mr_employees.id_MR_employees,CONCAT(mr_employees.MR_employee_name, ' ',mr_employees.MR_employee_lastName) AS Fullname2 FROM monitoreorecords.mr_employees";
+  return $this->db->query($sql7)->getResultArray();
     }
 
 
@@ -106,8 +106,7 @@ class MD_tablasec extends Model
         disposition.MR_dispositionName AS disposition_nombre,
         categorydisposition.MR_CategoryDisposition_name AS NAMECATDISPOSISION,
         records.MR_notes AS notes,
-        ods_records.MR_Code_ods AS ods_code,
-        ods_records.MR_Sheet_ods AS ods_sheet,
+        records.codigoTec AS ods_code,
         mr_employees.MR_employee_name AS employee_name,
         mr_employees.MR_employee_lastName AS employee_lastName,
         records.MR_date_add AS dateadd,
@@ -123,8 +122,7 @@ class MD_tablasec extends Model
         exactrack.tbgps ON records.id_gps = tbgps.id_gps
     JOIN 
         monitoreorecords.MR_employees ON records.id_MR_employee = MR_employees.id_MR_employees
-    JOIN 
-        monitoreorecords.ods_records ON records.id_MR_ods_records = ods_records.id_MR_ods_records
+
     JOIN 
         monitoreorecords.disposition ON records.id_MR_Disposition = disposition.id_MR_Disposition
         JOIN 

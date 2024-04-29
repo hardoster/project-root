@@ -23,9 +23,12 @@ $(document).ready(function () {
         }, //para agregar otra propiedad a la datatable
 
         columnDefs: [{
-            targets: [4, 6, 7, 8 , 9, 10, 11, 12, 13, 14, 15, 16], //  indice a ocultar de la comulma
-            visible: false // ocultar columna
+         targets: [4, 6, 7, 8 , 9, 10, 11, 12, 13, 14, 15, 16,17,18,19], //  indice a ocultar de la comulma
+         visible: false // ocultar columna
         }]
+
+        document.querySelector('#dt-search-0').style = 'border-radius = 0';
+
 
     }); // Cierra la DataTable
 
@@ -46,7 +49,27 @@ $(document).ready(function () {
         document.querySelector('#id_seriegpsspann').textContent = rowData[14];
         document.querySelector('#id_telefonogpsspann').textContent = rowData[15];
         document.querySelector('#id_simgpsspann').textContent = rowData[16];
-        
+
+        document.querySelector('#idvehiculospann').textContent = rowData[17];
+        valVehicleSelect = document.querySelector('#idvehiculospann').innerHTML;
+        console.log(valVehicleSelect) 
+
+        document.querySelector('#idclientespann').textContent = rowData[18];
+        valCustomerSelect = document.querySelector('#idclientespann').innerHTML;
+        console.log(valCustomerSelect) 
+
+        document.querySelector('#idgpsspann').textContent = rowData[19];
+        valgpsSelect = document.querySelector('#idgpsspann').innerHTML;
+        console.log(valgpsSelect) 
+
+
+
+
+
+
+
+
+
         //activar contenedores de informacion
         document.querySelector('.infcustomer1').style.display = 'grid';
         document.querySelector('.iconsinf').style.display = 'grid';
@@ -104,7 +127,7 @@ $(document).ready(function () {
         }, //para agregar otra propiedad a la datatable
 
         columnDefs: [{
-            targets: [1 , 2,4, 5,6,7,8,9], 
+            targets: [1 , 2,4, 5,6,7,8], 
             visible: false // ocultar columna
         }],
 
@@ -256,7 +279,79 @@ function CMBdinamic() {
         default:
             tecnicosCMB.style.display = 'grid';
     }
+
+    const employeesoption = document.querySelector('#floatingSelect4')
+    employeesoption.addEventListener('change' , CMBemployees);
+
+    function CMBemployees (){
+        CBMoptiomEMP = parseInt(employeesoption.value);
+
+        if (CBMoptiomEMP == 5 ) {
+                document.querySelector('.ocultarcodigo').style.display = 'none';
+        }
+        else {
+            document.querySelector('.ocultarcodigo').style.display = 'flex';
+
+        }
+
+    }
+
+    //********************************************para insertar la nota***************************************************** */
+    /*PARA OBTENER LA CATEGORIA Y DISPOSICION*/
+    const reaccionCMB1 = document.querySelector('#floatingSelect3'); //obtener valor seleccionado de combobox reaccion
+    const operadorCMB1 = document.querySelector('#floatingSelect2'); //obtener valor seleccionado de combobox operador
+    const tecnicosCMB1 = document.querySelector('#floatingSelect1'); //obtener valor seleccionado de combobox tecnicos
+    var valorSeleccionado; //valor seleccionado no procesado aun como entero
+
+            reaccionCMB1.addEventListener('change', function() {
+                     valorSeleccionado = parseInt(reaccionCMB1.value)
+                     console.log(valorSeleccionado)
+            });
+            operadorCMB1.addEventListener('change', function() {
+                valorSeleccionado = parseInt(operadorCMB1.value)
+                console.log(valorSeleccionado)
+
+            });
+            tecnicosCMB1.addEventListener('change', function() {
+                valorSeleccionado = parseInt(tecnicosCMB1.value)
+                console.log(valorSeleccionado)
+
+            });
+
+    const empleadoidcmb = document.querySelector('#floatingSelect4'); //obtener valor seleccionado de combobox empleados
+    var idclienteval;
+    empleadoidcmb.addEventListener('change', function(){
+        idclienteval = parseInt(empleadoidcmb.value)
+        console.log(idclienteval)
+    })
+
+
+    
+
+
+    /*Para obtener el valor disposicion esta en la variable DispositionAdd*/ 
+    /*PARA OBTENER EL VEHICULO ID*/ //se esta guardando en la variable valVehicleSelect cuando se da clic a una fila
+    /*para obtener el id cliente idclientespann*/
+    /*para obtener el id gps idgpsspann*/
+    /*para obtener id mr employees esta en la variable idclienteval*/
+     /*PARA OBTENER EL CODIGO DE TECNICOS ES LA VARIABLE */
+        //COLOCAR SIGUIENTE COODIGO EN EL BOTON SUBMIT
+        var codetecnicoselector = document.querySelector('#floatingInputc1').value;
+        var hojatecnicoselector = document.querySelector('#floatingInputh1').value;
+        codetecnico = console.log(codetecnicoselector +  '//' + hojatecnicoselector ); 
+        console.log(codetecnico)
+    /*PARA GUARDAR LA NOTA ES LA VARIABLE  */
+        var notecode = document.querySelector('#floatingTextarea2').value;
+        console.log(notecode)
+    /*para guardar la fecha de adicion de la nota */
+        var dateadd = document.querySelector('#fechaHoraAuto').value
+        console.log(dateadd)
+    
+        
 }
+
+
+
 
 
 
