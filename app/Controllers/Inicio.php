@@ -16,7 +16,7 @@ class Inicio extends BaseController
     {
         $this->tb1models = new MD_tablappal();
         $this->tb2models = new MD_tablasec();
-        $this->insertModel = new MD_INSERT_NOTE();
+        // $insertModel = new MD_INSERT_NOTE();
     }
 
     public function cargartablappal()
@@ -41,7 +41,60 @@ class Inicio extends BaseController
 
 
 
-    
+    public function insert_note(){
+      $insertModel = new MD_INSERT_NOTE();
+
+        $idmr_disposition = $this->request->getPost('dispositionadd');
+        $idmr_vehiculo = $this->request->getPost('idvehicleadd');
+        $idmr_cliente = $this->request->getPost('idclienteadd');
+        $idmr_gps = $this->request->getPost('idgpsadd');
+        $idmr_employee = $this->request->getPost('idemployeeadd');
+        $codigotec = $this->request->getPost('codetecnicosadd');
+        $mr_notes = $this -> request->getPost('notecodeadd');
+      
+        $mr_status = $this->request->getPost('statusNoteadd');
+
+        $dataNote = array(
+            'id_MR_disposition' => $idmr_disposition,
+            'id_vehiculo' => $idmr_vehiculo,
+            'id_cliente' => $idmr_cliente,
+            'id_gps' => $idmr_gps,
+            'id_MR_employee' => $idmr_employee,
+            'codigoTec' => $codigotec,
+            'MR_notes' => $mr_notes,
+            
+            'MR_status' => $mr_status
+          );
+
+          if (($insertModel)->insert($dataNote)) {
+            return redirect()->to(site_url('inicio'))->with('success', '¡Registro exitoso! Ahora puedes iniciar sesión.');
+        } else {
+            // Hubo un error al insertar en la base de datos, redirigir de nuevo al formulario de registro
+            return redirect()->to(site_url('inicio'))->with('error', 'Hubo un error al procesar el registro. Por favor, inténtalo de nuevo.');
+        }
+
+    }
+
+    /*
+       if ((new MD_INSERT_NOTE())->insert($this->request->getPost())) {
+            return redirect()->to(site_url('inicio'))->with('success', '¡Registro exitoso! Ahora puedes iniciar sesión.');
+        } else {
+            // Hubo un error al insertar en la base de datos, redirigir de nuevo al formulario de registro
+            return redirect()->to(site_url('inicio'))->with('error', 'Hubo un error al procesar el registro. Por favor, inténtalo de nuevo.');
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function insert_note($idmr_disposition, $idmr_vehiculo, $idmr_cliente, $idmr_gps, $idmr_employee,
      $codigotec,$mr_notes, $date_add, $date_delete, $date_edit, $mr_status){
 
@@ -66,6 +119,6 @@ class Inicio extends BaseController
             echo "datos no se guardaron correctamente";
          }
 
-    }
+    }*/
 
 }

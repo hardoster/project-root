@@ -6,10 +6,11 @@ use CodeIgniter\Model;
  
 class MD_INSERT_NOTE extends Model
 { 
-
+    protected $DBGroup = 'monitoreorecords';
     protected $table = 'records'; 
     protected $primaryKey = 'id_MR_records'; 
     protected $useAtoIncrement = true;
+    protected $useSoftDeletes = true;
     protected $returnType = 'array';
     
     protected $allowedFields = [
@@ -20,11 +21,14 @@ class MD_INSERT_NOTE extends Model
         'id_MR_employee',
         'codigoTec',
         'MR_notes',
-        'MR_date_add',
-        'MR_date_delete',
-        'MR_date_edit',
         'MR_status'
     ]; 
+
+    protected $useTimestamps = true;
+    protected $dateFormat    = 'datetime';
+    protected $createdField  = 'MR_date_add';
+    protected $updatedField  = 'MR_date_edit';
+    protected $deletedField  = 'MR_date_delete';
 
     
 

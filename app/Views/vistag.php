@@ -20,9 +20,9 @@
     <!--DATA TABLE DE JQUERY-->
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />
 
-  
+
     <title>Document</title>
-</head>  
+</head>
 
 <header>
     <?php require_once('layoutnavbar.php') ?>
@@ -61,7 +61,7 @@
                             <th>tempidcar</th>
                             <th>tempidcliente</th>
                             <th>tempidgps</th>
-                            
+
 
                         </tr>
                     </thead>
@@ -82,11 +82,17 @@
                                 <td><?= $car['estado'] ?></td>
                                 <!--5-->
                                 <td>
-                                <!--button class="view-data-btn" data-index="<?= $index ?>">Ver datos</button-->
-                                <img class="view-data-btn" data-index="<?= $index ?>" width="20px" src="../public/img/cargardatosbtn.png">
+                                    <!--button class="view-data-btn" data-index="<?= $index ?>">Ver datos</button-->
+                                    <img class="view-data-btn" data-index="<?= $index ?>" width="20px" src="../public/img/cargardatosbtn.png">
                                 </td>
                                 <!--6-->
-                                <td><?php if ($car['tipo_cliente'] == 1){echo 'Acceso Web';} elseif ($car['tipo_cliente'] == 2){echo 'monitoreo';} else {echo 'basico';}   ?></td>
+                                <td><?php if ($car['tipo_cliente'] == 1) {
+                                        echo 'Acceso Web';
+                                    } elseif ($car['tipo_cliente'] == 2) {
+                                        echo 'monitoreo';
+                                    } else {
+                                        echo 'basico';
+                                    }   ?></td>
                                 <!--7-->
                                 <td><?= $car['notas']          ?></td>
                                 <!--8-->
@@ -97,43 +103,44 @@
                                 <td><?= $car['color']   ?></td> <!--12-->
                                 <td><?= $car['ano']   ?></td> <!--1-->
                                 <td>
-                                    <?php 
-                                        $marca = $car['id_marca'] ;
-                                        switch($marca) {
-                                            case 8:
-                                                echo 'SYRUS';
+                                    <?php
+                                    $marca = $car['id_marca'];
+                                    switch ($marca) {
+                                        case 8:
+                                            echo 'SYRUS';
                                             break;
-                                            case 15:
-                                                echo 'MEITRACK';
+                                        case 15:
+                                            echo 'MEITRACK';
                                             break;
-                                            case 16:
-                                                echo 'BOFAN';
+                                        case 16:
+                                            echo 'BOFAN';
                                             break;
-                                            case 17:
-                                                echo 'TELTONIKA';
+                                        case 17:
+                                            echo 'TELTONIKA';
                                             break;
-                                            case 18:
-                                                echo 'CELLOCATOR';
+                                        case 18:
+                                            echo 'CELLOCATOR';
                                             break;
-                                            case 19:
-                                                echo 'CONCOX';
+                                        case 19:
+                                            echo 'CONCOX';
                                             break;
-                                            default :
+                                        default:
                                             echo 'UNDEFINED';
-                                                break;}
-                                     ?>
+                                            break;
+                                    }
+                                    ?>
                                 </td> <!--13-->
                                 <td><?= $car['serie'] ?></td> <!--14-->
-                                <td><?= $car['num_telefono']?></td> <!--15-->
-                                <td><?= $car['sim']?></td><!--16-->
-                                <td><?= $car['id_vehiculo']?></td>
-                                <td><?= $car['id_cliente']?></td>
-                                <td><?= $car['id_gps']?></td>
+                                <td><?= $car['num_telefono'] ?></td> <!--15-->
+                                <td><?= $car['sim'] ?></td><!--16-->
+                                <td><?= $car['id_vehiculo'] ?></td>
+                                <td><?= $car['id_cliente'] ?></td>
+                                <td><?= $car['id_gps'] ?></td>
 
-                            
+
                             </tr><!--16-->
 
-                            <?php endforeach; ?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
 
@@ -297,15 +304,15 @@
             <div id="areabtnnotes">
                 <span class="spannButtonGeneralTH">Acciones</span>
                 <hr>
-                
+
                 <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
-                <label class="form-check-label spannButtonGeneralSUB" for="flexRadioDefault1"> Activo </label>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                    <label class="form-check-label spannButtonGeneralSUB" for="flexRadioDefault1"> Activo </label>
                 </div>
 
                 <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked/>
-                <label class="form-check-label spannButtonGeneralSUB" for="flexRadioDefault2"> Finalizado </label>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
+                    <label class="form-check-label spannButtonGeneralSUB" for="flexRadioDefault2"> Finalizado </label>
                 </div>
 
                 <div class="ContainerControlBtn">
@@ -340,35 +347,39 @@
                             </tr>
                         </thead>
                         <tbody>
-                    <?php foreach ($datos2 as $index => $tb2) :?>
-                            <tr>
-                                <!--0-->
-                                <td><?= $tb2['placa'] ?></td>
-                                <!--1-->
-                                <td><?= $tb2['cliente_nombre_cuenta'] ?></td>
-                                <!--2-->
-                                <td><?= $tb2['gps_identificador'] ?></td>
-                                <!--3-->
-                                <td><?= $tb2['disposition_nombre'] ?></td>
-                                <!--4-->
-                                <td><?= $tb2['NAMECATDISPOSISION'] ?></td>
-                                <!--5-->
-                                <td><?= $tb2['notes'] ?></td>
-                                <!--6-->
-                                <td><?= $tb2['ods_code'] ?></td>
-                                <!--7-->
-                                <td><?= $tb2['employee_name']          ?></td>
-                                <!--8-->
-                                <td><?= $tb2['employee_lastName'] ?></td>
-                                <!--9-->
-                                <td><?php if ($tb2['status'] == 0) { echo 'Finalizado'; } else {echo 'Abierto';}?></td>
+                            <?php foreach ($datos2 as $index => $tb2) : ?>
+                                <tr>
+                                    <!--0-->
+                                    <td><?= $tb2['placa'] ?></td>
+                                    <!--1-->
+                                    <td><?= $tb2['cliente_nombre_cuenta'] ?></td>
+                                    <!--2-->
+                                    <td><?= $tb2['gps_identificador'] ?></td>
+                                    <!--3-->
+                                    <td><?= $tb2['disposition_nombre'] ?></td>
+                                    <!--4-->
+                                    <td><?= $tb2['NAMECATDISPOSISION'] ?></td>
+                                    <!--5-->
+                                    <td><?= $tb2['notes'] ?></td>
+                                    <!--6-->
+                                    <td><?= $tb2['ods_code'] ?></td>
+                                    <!--7-->
+                                    <td><?= $tb2['employee_name']          ?></td>
+                                    <!--8-->
+                                    <td><?= $tb2['employee_lastName'] ?></td>
+                                    <!--9-->
+                                    <td><?php if ($tb2['status'] == 0) {
+                                            echo 'Finalizado';
+                                        } else {
+                                            echo 'Abierto';
+                                        } ?></td>
 
-                                <td><?= $tb2['dateadd']?></td> 
-                                <!--10-->
-                                <td><img id="accionbutontb2" width="20px" src="../public/img/accionbutontb2.png"></td>
+                                    <td><?= $tb2['dateadd'] ?></td>
+                                    <!--10-->
+                                    <td><img id="accionbutontb2" width="20px" src="../public/img/accionbutontb2.png"></td>
 
-                            <?php endforeach; ?> 
-                    </tbody>
+                                <?php endforeach; ?>
+                        </tbody>
                     </table>
 
                 </div>
@@ -730,128 +741,138 @@
 
         <div id="contNoteShadowBacground">
             <div id="FormNotesAdd">
-            <div class="iconTitle">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V173.3c0-17-6.7-33.3-18.7-45.3L352 50.7C340 38.7 323.7 32 306.7 32H64zm0 96c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128zM224 288a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
-                <svg  id="svgClose"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#b0b0b0" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+                <div class="iconTitle">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        <path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V173.3c0-17-6.7-33.3-18.7-45.3L352 50.7C340 38.7 323.7 32 306.7 32H64zm0 96c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128zM224 288a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
+                    </svg>
+                    <svg id="svgClose" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        <path fill="#b0b0b0" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                    </svg>
 
-                <span>Nueva nota</span>
-                <!--fecha y hora-->
-                <label id="fechaHoraAuto">26/04/2024 08:54:87</label>
+                    <span>Nueva nota</span>
+                    <!--fecha y hora-->
+                    <label id="fechaHoraAuto">26/04/2024 08:54:87</label>
                 </div>
 
-                <div id="formNotes">
-                     <!--input 1-->
-             <form action="">
-                            
-                  
-                     <!--Select-->
-                     <div class="form-floating mb-3">
-                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                    <option selected>Seleccione la disposicion</option>
-                    <?php foreach ($datos3 as $indexOP1 => $value1) :?>
-                    <option value="<?= $indexOP1 + 1 ?>"><?= $value1['MR_CategoryDisposition_name'] ?></option>
-                    <?php endforeach; ?>
-                    </select>
-                    <label for="floatingSelect">Disposicion</label>
-                    </div>
-                    <!--CATEGORIAS SON 3 EN TOTAL-->
-                     <!--TECNICOS-->
-                     <div class="form-floating mb-3 tecnicoscmb">
-                     <select class="form-select" id="floatingSelect1" aria-label="Floating label select example">
-                     <option selected>Selecciona una categoria</option>
-                     <?php foreach ($datos4 as $indexOP4 => $value4) :?>
-                     <option value="<?= $indexOP4 + 1 ?>"><?= $value4['MR_dispositionName'] ?></option>
-                     <?php endforeach; ?>
-                    </select>
-                    <label for="floatingSelect1">Categoria</label>
-                    </div>
-
-                     <!--OPERADOR-->
-                    <div class="form-floating mb-3   operadorcmb">
-                     <select class="form-select" id="floatingSelect2" aria-label="Floating label select example">
-                     <option selected>Selecciona una categoria</option>
-                     <?php foreach ($datos5 as $indexOP5 => $value5) :?>
-                     <option value="<?= $indexOP5 + 1 ?>"><?= $value5['MR_dispositionName'] ?></option>
-                     <?php endforeach; ?>
-                    </select>
-                    <label for="floatingSelect2">Categoria</label>
-                    </div>
-                    
-                    <!--REACCION-->
-                    <div class="form-floating mb-3 reaccioncmb">
-                     <select class="form-select" id="floatingSelect3" aria-label="Floating label select example">
-                     <option selected>Selecciona una categoria</option>
-                     <?php foreach ($datos6 as $indexOP6 => $value6) :?>
-                     <option value="<?= $indexOP6 + 1 ?>"><?= $value6['MR_dispositionName'] ?></option>
-                     <?php endforeach; ?>
-                    </select>
-                    <label for="floatingSelect3">Categoria</label>
-                    </div>
+                <div id="formNotes" >
+                 
 
 
 
 
 
-                     <!--EMPLEADOS-->
-                     <div class="form-floating mb-3">
-                          <select class="form-select" id="floatingSelect4" aria-label="Floating label select example">
-                            <option selected>Realizado por</option>
-                            <?php foreach ($datos7 as $indexOP7 => $value7) :?>
-                            <option value="<?= $indexOP7 + 1 ?>"><?= $value7['Fullname2'] ?></option>
-                            <?php endforeach; ?>
-                           </select>
+
+
+
+
+                    <form id="FormAddNoteppal" method="post" action="<?= site_url('/Inicio/AddNotes')?>">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                <option selected>Seleccione la disposicion</option>
+                                <?php foreach ($datos3 as $indexOP1 => $value1) : ?>
+                                    <option value="<?= $indexOP1 + 1 ?>"><?= $value1['MR_CategoryDisposition_name'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <label for="floatingSelect">Disposicion</label>
+                        </div>
+                        <!--CATEGORIAS SON 3 EN TOTAL-->
+                        <!--TECNICOS-->
+                        <div class="form-floating mb-3 tecnicoscmb">
+                            <select class="form-select" id="floatingSelect1" aria-label="Floating label select example">
+                                <option selected>Selecciona una categoria</option>
+                                <?php foreach ($datos4 as $indexOP4 => $value4) : ?>
+                                    <option value="<?= $indexOP4 + 1 ?>"><?= $value4['MR_dispositionName'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <label for="floatingSelect1">Categoria</label>
+                        </div>
+
+                        <!--OPERADOR-->
+                        <div class="form-floating mb-3   operadorcmb">
+                            <select class="form-select" id="floatingSelect2" aria-label="Floating label select example">
+                                <option selected>Selecciona una categoria</option>
+                                <?php foreach ($datos5 as $indexOP5 => $value5) : ?>
+                                    <option value="<?= $indexOP5 + 1 ?>"><?= $value5['MR_dispositionName'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <label for="floatingSelect2">Categoria</label>
+                        </div>
+
+                        <!--REACCION-->
+                        <div class="form-floating mb-3 reaccioncmb">
+                            <select class="form-select" id="floatingSelect3" aria-label="Floating label select example">
+                                <option selected>Selecciona una categoria</option>
+                                <?php foreach ($datos6 as $indexOP6 => $value6) : ?>
+                                    <option value="<?= $indexOP6 + 1 ?>"><?= $value6['MR_dispositionName'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <label for="floatingSelect3">Categoria</label>
+                        </div>
+
+
+
+
+
+                        <!--EMPLEADOS-->
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="floatingSelect4" aria-label="Floating label select example">
+                                <option selected>Realizado por</option>
+                                <?php foreach ($datos7 as $indexOP7 => $value7) : ?>
+                                    <option value="<?= $indexOP7 + 1 ?>"><?= $value7['Fullname2'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
                             <label for="floatingSelect">Empleado</label>
-                     </div>
+                        </div>
 
 
 
 
 
-                    <div class="form-code-sheet ocultarcodigo">
-                        <div class="form-floating mb-3 code-size">
-                        <input type="email" class="form-control" id="floatingInputc1" placeholder="name@example.com">
-                        <label for="floatingInputc1">Codigo</label>
-                         </div>
-                        
-                         <div class="form-floating mb-3 sheet-size">
-                         <input type="email" class="form-control" id="floatingInputh1" placeholder="name@example.com">
-                         <label for="floatingInputh1">Hoja</label>
-                         </div>
-                     </div>
-                    
-                      <!--Text area-->
-                      <div class="form-floating mb-3">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                    <label for="floatingTextarea2">Nota</label>
-                    </div>
+                        <div class="form-code-sheet ocultarcodigo">
+                            <div class="form-floating mb-3 code-size">
+                                <input type="text" class="form-control" id="floatingInputc1" placeholder="name@example.com">
+                                <label for="floatingInputc1">Codigo</label>
+                            </div>
+
+                            <div class="form-floating mb-3 sheet-size">
+                                <input type="text" class="form-control" id="floatingInputh1" placeholder="name@example.com">
+                                <label for="floatingInputh1">Hoja</label>
+                            </div>
+                        </div>
+
+                        <!--Text area-->
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">Nota</label>
+                        </div>
 
                         <div class="btn-radiobutton">
-                        <button type="" class="btn btn-primary" id="BtnSendNote">Submit</button>
+                            <button type="submit" class="btn btn-primary" id="BtnSendNote">Submit</button>
 
 
-                        <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault11"/>
-                        <label class="form-check-label spannButtonGeneralSUB" for="flexRadioDefault1"> Activo </label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault11" />
+                                <label class="form-check-label spannButtonGeneralSUB" for="flexRadioDefault1"> Activo </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault22" checked />
+                                <label class="form-check-label spannButtonGeneralSUB" for="flexRadioDefault2"> Finalizado </label>
+                            </div>
+
+                            <!--OTROS NECESARIOS PARA GUARDAR UNA NOTA-->
+                            <span id="idvehiculospann" style="display: none;"></span>
+                            <span id="idclientespann" style="display: none;"></span>
+                            <span id="idgpsspann" style="display: none;"></span>
+                            <span id="idclientespann" style="display: none;"></span>
+
+
                         </div>
-                        <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault22" checked/>
-                        <label class="form-check-label spannButtonGeneralSUB" for="flexRadioDefault2"> Finalizado </label>
-                        </div>
-
-               <!--OTROS NECESARIOS PARA GUARDAR UNA NOTA-->
-               <span id="idvehiculospann" style="display: none;"></span>
-               <span id="idclientespann" style="display: none;"></span>
-               <span id="idgpsspann" style="display: none;"></span>
-               <span id="idclientespann" style="display: none;"></span>
 
 
+                    </form>
                 </div>
-                    
 
-                </form>
-                </div>
-                
-               
+
             </div>
         </div>
 
@@ -871,5 +892,37 @@
         </script>
 
 </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </html>

@@ -61,6 +61,8 @@ $(document).ready(function () {
         valgpsSelect = document.querySelector('#idgpsspann').innerHTML;
         console.log(valgpsSelect) 
 
+       
+
 
 
 
@@ -76,8 +78,6 @@ $(document).ready(function () {
         document.querySelector('#tableregistros').style.display = 'grid';
 
         document.querySelector('.WaitSelectView').style.display = 'none';
-
-        fetch() 
 
 
 
@@ -318,38 +318,43 @@ function CMBdinamic() {
             });
 
     const empleadoidcmb = document.querySelector('#floatingSelect4'); //obtener valor seleccionado de combobox empleados
-    var idclienteval;
+    var idemployee;
     empleadoidcmb.addEventListener('change', function(){
-        idclienteval = parseInt(empleadoidcmb.value)
-        console.log(idclienteval)
+        idemployee = parseInt(empleadoidcmb.value)
+        console.log(idemployee)
     })
 
-
-    
-
-    /*para guardar la fecha de adicion de la nota */
-    var dateadd = document.querySelector('#fechaHoraAuto').value
-    console.log(dateadd)
-    /*Para obtener el valor disposicion esta en la variable DispositionAdd*/ 
+ 
+    /*Para obtener el valor disposicion esta en la variable valorSeleccionado*/ 
     /*PARA OBTENER EL VEHICULO ID*/ //se esta guardando en la variable valVehicleSelect cuando se da clic a una fila
-    /*para obtener el id cliente idclientespann*/
+    /*para obtener el id cliente valCustomerSelect*/
     /*para obtener el id gps idgpsspann*/
-    /*para obtener id mr employees esta en la variable idclienteval*/
+    /*para obtener id mr employees esta en la variable idemployee*/
      /*PARA OBTENER EL CODIGO DE TECNICOS ES LA VARIABLE */
-        //COLOCAR SIGUIENTE COODIGO EN EL BOTON SUBMIT
-        var codetecnicoselector = document.querySelector('#floatingInputc1').value;
-        var hojatecnicoselector = document.querySelector('#floatingInputh1').value;
-        codetecnico = console.log(codetecnicoselector +  '//' + hojatecnicoselector ); 
-        console.log(codetecnico)
-    /*PARA GUARDAR LA NOTA ES LA VARIABLE  */
+       
+        
+    
+  
+    
+    document.querySelector('#BtnSendNote').addEventListener('click', function(event) {
+        
+        codetecnico = document.querySelector('#floatingInputc1').value + '/' + document.querySelector('#floatingInputh1').value
+        console.log(codetecnico);
+
+        /*PARA GUARDAR LA NOTA ES LA VARIABLE  */
         var notecode = document.querySelector('#floatingTextarea2').value;
         console.log(notecode)
-    /*PARA OBTENER EL ESTADO SI ES ACTIVO O FINALIZADO */
-    var radio1 = document.querySelector("#flexRadioDefault11");
-    // Verificar el estado
-    var estadoRadio1 = radio1.checked;
-    //variable que contrndra se llama statusNote
-    var statusNote;
+
+          /*PARA OBTENER EL ESTADO SI ES ACTIVO O FINALIZADO */
+            var radio1 = document.querySelector("#flexRadioDefault11");
+            // Verificar el estado
+            var estadoRadio1 = radio1.checked;
+            //variable que contrndra se llama statusNote
+            var statusNote;
+
+           
+
+
     if (estadoRadio1 == true) {
         statusNote = 'Acitvo';
         console.log(statusNote)
@@ -357,16 +362,101 @@ function CMBdinamic() {
         statusNote = 'Finalizado';
         console.log(statusNote)
     }   
-    
+
+        $('<input>').attr({
+            type: 'hidden',
+            name: 'dispositionadd',
+            value: valorSeleccionado
+        }).appendTo('#FormAddNoteppal');
+
+
+        $('<input>').attr({
+            type: 'hidden',
+            name: 'idvehicleadd',
+            value: valVehicleSelect
+        }).appendTo('#FormAddNoteppal');
+
+        $('<input>').attr({
+            type: 'hidden',
+            name: 'idclienteadd',
+            value: valCustomerSelect
+        }).appendTo('#FormAddNoteppal');
+
+        $('<input>').attr({
+            type: 'hidden',
+            name: 'idgpsadd',
+            value: valgpsSelect
+        }).appendTo('#FormAddNoteppal');
+
+        $('<input>').attr({
+            type: 'hidden',
+            name: 'idemployeeadd',
+            value: idemployee
+        }).appendTo('#FormAddNoteppal');
+
+        $('<input>').attr({
+            type: 'hidden',
+            name: 'codetecnicosadd',
+            value: codetecnico
+        }).appendTo('#FormAddNoteppal');
+
+        $('<input>').attr({
+            type: 'hidden',
+            name: 'notecodeadd',
+            value: notecode
+        }).appendTo('#FormAddNoteppal');
+
+        $('<input>').attr({
+            type: 'hidden',
+            name: 'dateaddadd',
+            value: dateadd
+        }).appendTo('#FormAddNoteppal');
+
+        $('<input>').attr({
+            type: 'hidden',
+            name: 'dateeditadd',
+            value: ''
+        }).appendTo('#FormAddNoteppal');
+
+        $('<input>').attr({
+            type: 'hidden',
+            name: 'datedeleteadd',
+            value: ''
+        }).appendTo('#FormAddNoteppal');
+
+        $('<input>').attr({
+            type: 'hidden',
+            name: 'statusNoteadd',
+            value: statusNote
+        }).appendTo('#FormAddNoteppal');
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
    
     // Enviar datos  jQuery
+    /*
     $.post('inicio/insert_note', {
          id_MR_disposition: DispositionAdd, 
          id_vehiculo: valVehicleSelect,
          id_cliente: idclientespann,
          id_gps: idgpsspann,
-         id_MR_employee: idclienteval,
+         id_MR_employee: idemployee,
          codigoTec: codetecnico,
          MR_notes: notecode,
          MR_date_add: dateadd,
@@ -377,7 +467,7 @@ function CMBdinamic() {
         }, function(dataJSnote) {
       console.log(dataJSnote); 
     });
-    
+    */
 
 
 
