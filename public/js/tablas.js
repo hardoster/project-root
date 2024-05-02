@@ -50,7 +50,7 @@ $(document).ready(function () {
         document.querySelector('#id_simgpsspann').textContent = rowData[16];
 
         document.querySelector('#idvehiculospann').textContent = rowData[17];
-        valVehicleSelect = document.querySelector('#idvehiculospann').innerHTML;
+        valVehicleSelect = parseInt(document.querySelector('#idvehiculospann').innerHTML);
         console.log(valVehicleSelect) 
 
         document.querySelector('#idclientespann').textContent = rowData[18];
@@ -62,14 +62,46 @@ $(document).ready(function () {
         console.log(valgpsSelect) 
 
        
+        $.ajax({
+            type: 'POST', 
+            url: 'tablaRegistro', 
+            data: { valVehicleSelect: valVehicleSelect }, 
+            dataType: 'json',
+            success: function(response) {
+                console.log('Respuesta del servidor:', response);
+        
+                $datos2 = response.datos2;
+        
 
+                var table2 = $('#table2').DataTable();
+                table2.clear().draw();
+                
+                // Agregar las nuevas filas con los datos recibidos
+                $.each($datos2, function(index, tb2) {
+                    table2.row.add([
+                        tb2.placa,
+                        tb2.cliente_nombre_cuenta,
+                        tb2.gps_identificador,
+                        tb2.disposition_nombre,
+                        tb2.NAMECATDISPOSISION,
+                        tb2.notes,
+                        tb2.ods_code,
+                        tb2.employee_name,
+                        tb2.employee_lastName,
+                        tb2.dateadd,
+                        tb2.status
+                     
+                    ]).draw();
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error('Error:', error);
+            }
+        });
 
+     
 
-
-
-
-
-
+      
 
         //activar contenedores de informacion
         document.querySelector('.infcustomer1').style.display = 'grid';
@@ -102,8 +134,8 @@ $(document).ready(function () {
 
 
 
-$(document).ready(function () {
-    var table = $('#table2').DataTable({
+$(document).ready(function() {
+    var table2 = $('#table2').DataTable({
         language: {
             "decimal": "",
             "emptyTable": "No hay información",
@@ -133,12 +165,30 @@ $(document).ready(function () {
         searching: false,
         paging: false
 
+
     }); // Cierra la DataTable
 
-  
+    $('#table2 tbody').on('click', 'tr', function() {
+        var rowData2 = table2.row(this).data();
+    
+        console.log(rowData2);
+
+        });
 
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*botones intercambiables */
@@ -296,26 +346,9 @@ function CMBdinamic() {
     }
 
     //********************************************para insertar la nota***************************************************** */
-    /*PARA OBTENER LA CATEGORIA Y DISPOSICION*/
-    const reaccionCMB1 = document.querySelector('#floatingSelect3'); //obtener valor seleccionado de combobox reaccion
-    const operadorCMB1 = document.querySelector('#floatingSelect2'); //obtener valor seleccionado de combobox operador
-    const tecnicosCMB1 = document.querySelector('#floatingSelect1'); //obtener valor seleccionado de combobox tecnicos
-    var valorSeleccionado; //valor seleccionado no procesado aun como entero
+   
 
-            reaccionCMB1.addEventListener('change', function() {
-                     valorSeleccionado = parseInt(reaccionCMB1.value)
-                     console.log(valorSeleccionado)
-            });
-            operadorCMB1.addEventListener('change', function() {
-                valorSeleccionado = parseInt(operadorCMB1.value)
-                console.log(valorSeleccionado)
 
-            });
-            tecnicosCMB1.addEventListener('change', function() {
-                valorSeleccionado = parseInt(tecnicosCMB1.value)
-                console.log(valorSeleccionado)
-
-            });
 
     const empleadoidcmb = document.querySelector('#floatingSelect4'); //obtener valor seleccionado de combobox empleados
     var idemployee;
@@ -332,7 +365,129 @@ function CMBdinamic() {
     /*para obtener id mr employees esta en la variable idemployee*/
      /*PARA OBTENER EL CODIGO DE TECNICOS ES LA VARIABLE */
        
-        
+         /*PARA OBTENER LA CATEGORIA Y DISPOSICION*/
+    const reaccionCMB1 = document.querySelector('#floatingSelect3'); //obtener valor seleccionado de combobox reaccion
+    const operadorCMB1 = document.querySelector('#floatingSelect2'); //obtener valor seleccionado de combobox operador
+    const tecnicosCMB1 = document.querySelector('#floatingSelect1'); //obtener valor seleccionado de combobox tecnicos
+    var valorSeleccionado; //valor seleccionado no procesado aun como entero
+
+            reaccionCMB1.addEventListener('change', function() {
+                valorSeleccionado = reaccionCMB1.options[reaccionCMB1.selectedIndex].text;
+                procesarSeleccion();
+            });
+            operadorCMB1.addEventListener('change', function() {
+               valorSeleccionado = operadorCMB1.options[operadorCMB1.selectedIndex].text;
+               procesarSeleccion();
+            });
+            tecnicosCMB1.addEventListener('change', function() {
+               valorSeleccionado = tecnicosCMB1.options[tecnicosCMB1.selectedIndex].text;
+               procesarSeleccion();
+            });
+            
+            function procesarSeleccion(){
+                switch (valorSeleccionado) {
+                    case 'Cambio de equipo':
+                        valorSeleccionado = 1
+                        break;
+                    case 'Camio de SIM':
+                        valorSeleccionado = 2
+                        break;
+                        
+                    case 'Reprogramacion':
+                        valorSeleccionado = 3
+                        break;
+                        
+                    case 'Instalacion de adicionales':
+                        valorSeleccionado = 4
+                        break;
+                        
+                    case 'Desmontaje':
+                        valorSeleccionado = 5
+                        break;
+                        
+                    case 'Montaje':
+                        valorSeleccionado = 6
+                        break;
+                        
+                    case 'Traslado':
+                        valorSeleccionado = 7
+                        break;
+                        
+                    case 'Revision General':
+                        valorSeleccionado = 8
+                        break;
+                        
+                    case 'Revision de adicionales':
+                        valorSeleccionado = 9
+                        break;
+                        
+                    case 'otros':
+                        valorSeleccionado = 10
+                        break;
+                        
+                    case 'Llamada Telefonica':
+                        valorSeleccionado = 11
+                        break;
+                        
+                    case 'Incomunicacion':
+                        valorSeleccionado = 12
+                        break;
+                        
+                    case 'Queja':
+                        valorSeleccionado = 13
+                        break;
+                        
+                    case 'Renovacion':
+                        valorSeleccionado = 14
+                        break;
+                        
+                    case 'Cambio Razon':
+                        valorSeleccionado = 15
+                        break;
+                        
+                    case 'Reactivacion':
+                        valorSeleccionado = 16
+                        break;
+                        
+                    case 'Suspension':
+                        valorSeleccionado = 17
+                        break;
+                        
+                    case 'OTROS':
+                        valorSeleccionado = 18
+                        break;
+                        
+                    case 'Recuperacion':
+                        valorSeleccionado = 19
+                        break;
+                        
+                    case 'Evento Confirmado':
+                        valorSeleccionado = 20
+                        break;
+                        
+                    case 'Reaccion Cosase':
+                        valorSeleccionado = 21
+                        break;
+                        
+                    case 'Reaccion PNC':
+                        valorSeleccionado = 22
+                        break;
+                        
+                    case 'Asesoria':
+                        valorSeleccionado = 23
+                        break;
+                        
+                    case 'Nueva instalacion':
+                        valorSeleccionado = 24
+                        break;
+    
+                    default:
+                        valorSeleccionado = 404
+    
+                        break;
+                }
+             }
+           
     
   
     
@@ -353,6 +508,7 @@ function CMBdinamic() {
             var statusNote;
 
            
+
 
 
     if (estadoRadio1 == true) {

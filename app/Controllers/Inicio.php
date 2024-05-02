@@ -19,23 +19,35 @@ class Inicio extends BaseController
         // $insertModel = new MD_INSERT_NOTE();
     }
 
+   
+
     public function cargartablappal()
     {
         $md_tablappal = new MD_tablappal();
         $md_tablasec = new MD_tablasec();
-
         $datos = $md_tablappal->obtenerRegistrostb1();
-        $datos2 = $md_tablasec->obtenerRegistrostb2();
         $datos3 = $md_tablasec -> GetValidationsNotes();
         $datos4 = $md_tablasec -> GetValidationsNotesCategory1();
         $datos5 = $md_tablasec -> GetValidationsNotesCategory2();
         $datos6 = $md_tablasec -> GetValidationsNotesCategory3();
         $datos7 = $md_tablasec -> GetValidationsEmployees();
-      //  return $this->response->setJSON($datos);  
-       
-       return view('vistag', ['datos' => $datos, 'datos2' => $datos2 , 'datos3' => $datos3,'datos4' => $datos4, 'datos5' => $datos5, 'datos6' => $datos6, 'datos7' => $datos7]);
-        // return view('vistag', ['datos' => $datos]);
 
+       return view('vistag', ['datos' => $datos, 'datos3' => $datos3,'datos4' => $datos4, 'datos5' => $datos5, 'datos6' => $datos6, 'datos7' => $datos7]);
+  
+    }
+
+    public function cargarTb2(){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $valVehicleSelect = $_POST['valVehicleSelect'];
+            $md_tablasec = new MD_tablasec();
+            $datos2 = $md_tablasec->obtenerRegistrostb2($valVehicleSelect);
+            
+            // Devolver los datos en formato JSON
+            echo json_encode(['datos2' => $datos2]);
+        } else {
+            // Maneja el caso en que no se reciba una solicitud POST
+            echo json_encode(['error' => 'Solicitud incorrecta']);
+        }
     }
 
 
@@ -67,10 +79,10 @@ class Inicio extends BaseController
           );
 
           if (($insertModel)->insert($dataNote)) {
-            return redirect()->to(site_url('inicio'))->with('success', '¡Registro exitoso! Ahora puedes iniciar sesión.');
+            return redirect()->to(site_url('/inicio'))->with('success', '¡Registro exitoso! Ahora puedes iniciar sesión.');
         } else {
             // Hubo un error al insertar en la base de datos, redirigir de nuevo al formulario de registro
-            return redirect()->to(site_url('inicio'))->with('error', 'Hubo un error al procesar el registro. Por favor, inténtalo de nuevo.');
+            return redirect()->to(site_url('/inicio'))->with('error', 'Hubo un error al procesar el registro. Por favor, inténtalo de nuevo.');
         }
 
     }

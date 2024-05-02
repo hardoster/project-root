@@ -82,8 +82,8 @@
                                 <td><?= $car['estado'] ?></td>
                                 <!--5-->
                                 <td>
-                                    <!--button class="view-data-btn" data-index="<?= $index ?>">Ver datos</button-->
-                                    <img class="view-data-btn" data-index="<?= $index ?>" width="20px" src="../public/img/cargardatosbtn.png">
+                  
+                                    <img class="view-data-btn" data-index="<?= $index ?>" width="20px" src="../public/img/cargardatosbtn.png" id="cargarDatosBtn">
                                 </td>
                                 <!--6-->
                                 <td><?php if ($car['tipo_cliente'] == 1) {
@@ -343,42 +343,26 @@
                                 <th>Employee last</th>
                                 <th>status</th>
                                 <th>Fecha</th>
-                                <th>acciones</th>
+                             
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($datos2 as $index => $tb2) : ?>
-                                <tr>
-                                    <!--0-->
-                                    <td><?= $tb2['placa'] ?></td>
-                                    <!--1-->
-                                    <td><?= $tb2['cliente_nombre_cuenta'] ?></td>
-                                    <!--2-->
-                                    <td><?= $tb2['gps_identificador'] ?></td>
-                                    <!--3-->
-                                    <td><?= $tb2['disposition_nombre'] ?></td>
-                                    <!--4-->
-                                    <td><?= $tb2['NAMECATDISPOSISION'] ?></td>
-                                    <!--5-->
-                                    <td><?= $tb2['notes'] ?></td>
-                                    <!--6-->
-                                    <td><?= $tb2['ods_code'] ?></td>
-                                    <!--7-->
-                                    <td><?= $tb2['employee_name']          ?></td>
-                                    <!--8-->
-                                    <td><?= $tb2['employee_lastName'] ?></td>
-                                    <!--9-->
-                                    <td><?php if ($tb2['status'] == 0) {
-                                            echo 'Finalizado';
-                                        } else {
-                                            echo 'Abierto';
-                                        } ?></td>
-
-                                    <td><?= $tb2['dateadd'] ?></td>
-                                    <!--10-->
-                                    <td><img id="accionbutontb2" width="20px" src="../public/img/accionbutontb2.png"></td>
-
-                                <?php endforeach; ?>
+                        
+                              <tr>  
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                    
+                                </tr>
+                                    
                         </tbody>
                     </table>
 
