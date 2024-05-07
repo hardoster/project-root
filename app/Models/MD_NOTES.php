@@ -7,20 +7,17 @@ use CodeIgniter\Model;
 class MD_INSERT_NOTE extends Model
 { 
     protected $DBGroup = 'exactrack';
-    protected $table = 'tb_mr_records'; 
-    protected $primaryKey = 'id_mr_records'; 
+    protected $table = 'tb_mr_notes'; 
+    protected $primaryKey = 'id_mr_note'; 
     protected $useAtoIncrement = true;
     protected $useSoftDeletes = true;
     protected $returnType = 'array';
     
     protected $allowedFields = [
-        'id_mr_disposition',
-        'id_vehiculo',
-        'id_cliente',
-        'id_gps',
-        'id_empleado',
-        'TecCode',
-        'status',
+        'id_mr_records',
+        'id_usuario',
+        'mr_note',
+  
       
     ]; 
 
@@ -30,19 +27,5 @@ class MD_INSERT_NOTE extends Model
     protected $updatedField  = 'date_edit';
     protected $deletedField  = 'date_delete';
 
-    
-
-
-
-
-
-
-
-
-
-
-  
-
- 
-
 } 
+

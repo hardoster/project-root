@@ -793,7 +793,8 @@ body {
   margin-bottom: 0px !important;
   border-top-left-radius: 15px !important;
   border-bottom-left-radius: 15px !important;
-
+  border-radius: 10px !important;
+  overflow: auto;
   height: 32vh !important;
 
 }

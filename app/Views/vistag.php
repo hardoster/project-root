@@ -30,6 +30,14 @@
 
 <body>
 
+    <?php 
+    
+     $session = session();
+     $session->set('User', 'Baguilar');
+     $session->get('User');
+   // $session->remove('User');
+        ?>
+
     <div id="container">
         <div class="shadow p-3 mb-5 bg-body rounded" id="tablep">
 
@@ -177,6 +185,8 @@
                     <span id="id_spaninfc"></span>
                 </div>
 
+                <input type="text" value="<?php echo $session->get('Supervisor'); ?>">
+
 
             </div>
         </div>
@@ -290,7 +300,6 @@
 
         <div id="infcustomer4"><!--notas-------------------------------------------------------------------------------------------->
 
-
             <div id="spannotes">
                 <span>NUEVA SERVICIO SOLO ACCESO WEB NO PANICO NO AUDIO NO ROAMING SI APAGADO EQUIPO ARRENDADO PLAZO DE 18 MESES CON CUOTA DE $11.00+ IVA ASESOR: JORGE NOSTHAS ORDEN: 2709
                 </span>
@@ -298,6 +307,7 @@
 
 
             <div id="editspannotev">
+
                 <textarea name="" id="txtEditSpanNotes" style="width: 100%; height: 100%;" rows="5" placeholder="Escribe tu nota de seguimiento"></textarea>
             </div>
 
@@ -324,6 +334,7 @@
             </div>
 
         </div>
+        
 
         <div id="tableregistros">
             <div class="tablep1 shadow p-3 mb-5 bg-body rounded" id="tablep1">

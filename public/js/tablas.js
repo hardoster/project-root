@@ -88,8 +88,9 @@ $(document).ready(function () {
                         tb2.ods_code,
                         tb2.employee_name,
                         tb2.employee_lastName,
-                        tb2.dateadd,
-                        tb2.status
+                        tb2.status,
+                        tb2.dateadd
+                        
                      
                     ]).draw();
                 });
@@ -158,7 +159,7 @@ $(document).ready(function() {
         }, //para agregar otra propiedad a la datatable
 
         columnDefs: [{
-            targets: [1 , 2,4, 5,6,7,8], 
+            targets: [1,2], 
             visible: false // ocultar columna
         }],
 

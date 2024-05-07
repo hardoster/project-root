@@ -13,7 +13,7 @@ class MD_tablasec extends Model
     protected $allowedFields;
     
     public function vehiculos(){
-        $this-> DBGroup ='exactrack';
+        $this-> DBGroup ='default';
         $this -> table = 'tbvehiculos';
         $this -> primaryKey = 'id_vehiculo';
         $this -> allowedFields = ['placa'];    
@@ -22,7 +22,7 @@ class MD_tablasec extends Model
    
     
     public function gps(){
-        $this-> DBGroup ='exactrack';
+        $this-> DBGroup ='default';
         $this -> table = 'tbgps';
         $this -> primaryKey =  'id_gps';
         $this -> allowedFields = ['identificador'];
@@ -30,54 +30,43 @@ class MD_tablasec extends Model
     }
     
     public function clientes(){
-        $this-> DBGroup ='exactrack';
+        $this-> DBGroup ='default';
         $this -> table = 'tbclientes';
         $this -> primaryKey =  'id_cliente';
         $this -> allowedFields = ['nombre_cuenta'];
         return $this;
     }
     
-    //PARA BASE DE DATOS MONITOREORECORDS
     public function CatDisposition(){
-    $this-> DBGroup = 'monitoreorecords';
-        $this->table = 'categorydisposition';
-        $this -> primaryKey =  'id_MR_categoryDisposition';
-    $this->allowedFields = ['MR_CategoryDisposition_name'];
+    $this-> DBGroup = 'default';
+        $this->table = 'tb_mr_categorydisposition';
+        $this -> primaryKey =  'id_mr_categoryDisposition';
+    $this->allowedFields = ['mr_CategoryDisposition_name'];
     return $this;
     }
     public function disposition(){
-        $this-> DBGroup = 'monitoreorecords';
-        $this->table   = 'disposition';
-        $this -> primaryKey =  'id_MR_Disposition';
-         $this->allowedFields = ['MR_dispositionName']; 
+        $this-> DBGroup = 'default';
+        $this->table   = 'tb_mr_disposition';
+        $this -> primaryKey =  'id_mr_disposition';
+         $this->allowedFields = ['id_mr_categoryDisposition','mr_dispositionName']; 
          return $this;
     }
     public function empleados(){
-        $this-> DBGroup = 'monitoreorecords';
-        $this-> table     = 'mr_employees';
+        $this-> DBGroup = 'default';
+        $this-> table     = 'tbempleados';
         $this -> primaryKey =  'id_MR_employees';
-        $this-> allowedFields = ['MR_employee_name', 'MR_employee_lastName'];
+        $this-> allowedFields = ['id_empleado', 'No_empleado','Nombre', 'Cargo'];
         return $this;
     }
     public function records(){
-        $this-> DBGroup = 'monitoreorecords';
-     $this->table = 'records';
-     $this -> primaryKey =  'id_MR_records';
-      $this->allowedFields= ['MR_notes' ,'codigoTec', 'MR_status'];
+        $this-> DBGroup = 'default';
+     $this->table = 'tb_mr_records';
+     $this -> primaryKey =  'id_mr_records';
+      $this->allowedFields= ['id_mr_disposition' ,'id_vehiculo', 'id_cliente','id_gps','id_empleado','TecCode','status'];
       return $this;
     }
     
-    
-  
 
-    public function GetValidationsNotes(){
-        $query = $this->db->table('monitoreorecords.categorydisposition')
-        ->select('monitoreorecords.categorydisposition.id_MR_categoryDisposition,
-        monitoreorecords.categorydisposition.MR_CategoryDisposition_name');
-
-
-        return $query->get()->getResultArray();
-    }
     public function GetValidationsNotesCategory1(){
         $query = $this->db->table('monitoreorecords.disposition')
         ->select('monitoreorecords.categorydisposition.id_MR_categoryDisposition, monitoreorecords.categorydisposition.MR_CategoryDisposition_name,
