@@ -16,9 +16,6 @@ class MD_disposition extends Model
     protected $allowedFields = [
         'id_mr_categoryDisposition',
         'mr_dispositionName',
-
-  
-      
     ]; 
 
     protected $useTimestamps = true;

@@ -6,6 +6,7 @@ use App\Models\MD_INSERT_NOTE;
 use App\Models\MD_tablappal;
 use App\Models\MD_tablasec;
 use App\Models\MD_categoryDisposition;
+use App\Models\MD_disposition;
 
 class Inicio extends BaseController
 {   
@@ -22,6 +23,7 @@ class Inicio extends BaseController
 
 
 
+
    
 
     public function cargartablappal()
@@ -29,14 +31,16 @@ class Inicio extends BaseController
         $md_tablappal = new MD_tablappal();
         $md_tablasec = new MD_tablasec();
         $md_catDisposition = new MD_categoryDisposition();
+        $md_disposition = new MD_disposition();
     
         // Obtener los datos de $md_catDisposition y asegurarse de que sea un array
         $datos3 = $md_catDisposition->findAll();
-  
+
+        $datos4 = $md_disposition->where('id_mr_categoryDisposition', 1)->findAll();
+        $datos5 = $md_disposition->where('id_mr_categoryDisposition', 2)->findAll();
+        $datos6 = $md_disposition->where('id_mr_categoryDisposition', 3)->findAll();
+
         $datos = $md_tablappal->obtenerRegistrostb1();
-        $datos4 = $md_tablasec->GetValidationsNotesCategory1();
-        $datos5 = $md_tablasec->GetValidationsNotesCategory2();
-        $datos6 = $md_tablasec->GetValidationsNotesCategory3();
         $datos7 = $md_tablasec->GetValidationsEmployees();
     
         return view('vistag', [

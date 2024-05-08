@@ -303,7 +303,9 @@ actualizarFechaYHora();
 /*---------------------------------SELECCIONAR COMBOBOX CORRECTO******------------------------------*/
 
 const selectElement = document.querySelector('#floatingSelect');
+
 selectElement.addEventListener('change', CMBdinamic);
+
 function CMBdinamic() {
     const CMBoption = parseInt(selectElement.value);
     const tecnicosCMB = document.querySelector('.tecnicoscmb');
@@ -319,6 +321,7 @@ function CMBdinamic() {
     switch (CMBoption) {
         case 1:
             tecnicosCMB.style.display = 'grid';
+            
             break;
         case 2:
             operadorCMB.style.display = 'grid';
@@ -374,120 +377,18 @@ function CMBdinamic() {
 
             reaccionCMB1.addEventListener('change', function() {
                 valorSeleccionado = reaccionCMB1.options[reaccionCMB1.selectedIndex].text;
-                procesarSeleccion();
+            
             });
             operadorCMB1.addEventListener('change', function() {
                valorSeleccionado = operadorCMB1.options[operadorCMB1.selectedIndex].text;
-               procesarSeleccion();
+  
             });
             tecnicosCMB1.addEventListener('change', function() {
                valorSeleccionado = tecnicosCMB1.options[tecnicosCMB1.selectedIndex].text;
-               procesarSeleccion();
+              
             });
             
-            function procesarSeleccion(){
-                switch (valorSeleccionado) {
-                    case 'Cambio de equipo':
-                        valorSeleccionado = 1
-                        break;
-                    case 'Camio de SIM':
-                        valorSeleccionado = 2
-                        break;
-                        
-                    case 'Reprogramacion':
-                        valorSeleccionado = 3
-                        break;
-                        
-                    case 'Instalacion de adicionales':
-                        valorSeleccionado = 4
-                        break;
-                        
-                    case 'Desmontaje':
-                        valorSeleccionado = 5
-                        break;
-                        
-                    case 'Montaje':
-                        valorSeleccionado = 6
-                        break;
-                        
-                    case 'Traslado':
-                        valorSeleccionado = 7
-                        break;
-                        
-                    case 'Revision General':
-                        valorSeleccionado = 8
-                        break;
-                        
-                    case 'Revision de adicionales':
-                        valorSeleccionado = 9
-                        break;
-                        
-                    case 'otros':
-                        valorSeleccionado = 10
-                        break;
-                        
-                    case 'Llamada Telefonica':
-                        valorSeleccionado = 11
-                        break;
-                        
-                    case 'Incomunicacion':
-                        valorSeleccionado = 12
-                        break;
-                        
-                    case 'Queja':
-                        valorSeleccionado = 13
-                        break;
-                        
-                    case 'Renovacion':
-                        valorSeleccionado = 14
-                        break;
-                        
-                    case 'Cambio Razon':
-                        valorSeleccionado = 15
-                        break;
-                        
-                    case 'Reactivacion':
-                        valorSeleccionado = 16
-                        break;
-                        
-                    case 'Suspension':
-                        valorSeleccionado = 17
-                        break;
-                        
-                    case 'OTROS':
-                        valorSeleccionado = 18
-                        break;
-                        
-                    case 'Recuperacion':
-                        valorSeleccionado = 19
-                        break;
-                        
-                    case 'Evento Confirmado':
-                        valorSeleccionado = 20
-                        break;
-                        
-                    case 'Reaccion Cosase':
-                        valorSeleccionado = 21
-                        break;
-                        
-                    case 'Reaccion PNC':
-                        valorSeleccionado = 22
-                        break;
-                        
-                    case 'Asesoria':
-                        valorSeleccionado = 23
-                        break;
-                        
-                    case 'Nueva instalacion':
-                        valorSeleccionado = 24
-                        break;
-    
-                    default:
-                        valorSeleccionado = 404
-    
-                        break;
-                }
-             }
+           
            
     
   

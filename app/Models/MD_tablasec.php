@@ -67,7 +67,7 @@ class MD_tablasec extends Model
     }
     
 
-    public function GetValidationsNotesCategory1(){
+   /* public function GetValidationsNotesCategory1(){
         $query = $this->db->table('monitoreorecords.disposition')
         ->select('monitoreorecords.categorydisposition.id_MR_categoryDisposition, monitoreorecords.categorydisposition.MR_CategoryDisposition_name,
         monitoreorecords.disposition.id_MR_Disposition, 
@@ -77,9 +77,9 @@ class MD_tablasec extends Model
     
   
        return $query->get()->getResultArray();
-    }
+    }*/
 
-
+/*
     public function GetValidationsNotesCategory2(){
         $query = $this->db->table('monitoreorecords.disposition')
         ->select('monitoreorecords.categorydisposition.id_MR_categoryDisposition, monitoreorecords.categorydisposition.MR_CategoryDisposition_name,
@@ -89,9 +89,9 @@ class MD_tablasec extends Model
         ->where('monitoreorecords.disposition.id_MR_categoryDisposition = 2');
   
         return $query->get()->getResultArray();
-    }
+    }*/
 
-
+/*
     public function GetValidationsNotesCategory3(){
         $query = $this->db->table('monitoreorecords.disposition')
         ->select('monitoreorecords.categorydisposition.id_MR_categoryDisposition, monitoreorecords.categorydisposition.MR_CategoryDisposition_name,
@@ -101,7 +101,7 @@ class MD_tablasec extends Model
         ->where('monitoreorecords.disposition.id_MR_categoryDisposition = 3');
   
         return $query->get()->getResultArray();
-    }
+    }*/
 
 
 
