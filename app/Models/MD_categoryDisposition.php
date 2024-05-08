@@ -13,11 +13,10 @@ class MD_categoryDisposition extends Model
     protected $useSoftDeletes = true;
     protected $returnType = 'array';
     
-    protected $allowedFields = [
-        'mr_CategoryDisposition_name',
 
-  
-      
+
+    protected $allowedFields = [
+        'mr_CategoryDisposition_name'
     ]; 
 
     protected $useTimestamps = true;

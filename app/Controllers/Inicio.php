@@ -29,22 +29,26 @@ class Inicio extends BaseController
         $md_tablappal = new MD_tablappal();
         $md_tablasec = new MD_tablasec();
         $md_catDisposition = new MD_categoryDisposition();
-
-
-        $md_catDisposition->setTable('tb_mr_categorydisposition'); 
-
-
-        $datos = $md_tablappal->obtenerRegistrostb1();
+    
+        // Obtener los datos de $md_catDisposition y asegurarse de que sea un array
         $datos3 = $md_catDisposition->findAll();
-
-        $datos4 = $md_tablasec -> GetValidationsNotesCategory1();
-        $datos5 = $md_tablasec -> GetValidationsNotesCategory2();
-        $datos6 = $md_tablasec -> GetValidationsNotesCategory3();
-        $datos7 = $md_tablasec -> GetValidationsEmployees();
-
-       return view('vistag', ['datos' => $datos, 'datos3' => $datos3,'datos4' => $datos4, 'datos5' => $datos5, 'datos6' => $datos6, 'datos7' => $datos7]);
   
+        $datos = $md_tablappal->obtenerRegistrostb1();
+        $datos4 = $md_tablasec->GetValidationsNotesCategory1();
+        $datos5 = $md_tablasec->GetValidationsNotesCategory2();
+        $datos6 = $md_tablasec->GetValidationsNotesCategory3();
+        $datos7 = $md_tablasec->GetValidationsEmployees();
+    
+        return view('vistag', [
+            'datos' => $datos,
+            'datos3' => $datos3,
+            'datos4' => $datos4,
+            'datos5' => $datos5,
+            'datos6' => $datos6,
+            'datos7' => $datos7
+        ]);
     }
+    
 
     public function cargarTb2(){
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

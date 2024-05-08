@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;  
  
-class MD_INSERT_NOTE extends Model
+class MD_disposition extends Model
 { 
-    protected $DBGroup = 'exactrack';
+    protected $DBGroup = 'default';
     protected $table = 'tb_mr_disposition'; 
     protected $primaryKey = 'id_mr_disposition'; 
     protected $useAtoIncrement = true;

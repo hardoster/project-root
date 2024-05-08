@@ -762,12 +762,13 @@
 
                     <form id="FormAddNoteppal" method="post" action="<?= site_url('/Inicio/AddNotes')?>">
                         <div class="form-floating mb-3">
-                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
                                 <option selected>Seleccione la disposicion</option>
                                 <?php foreach ($datos3 as $indexOP1 => $value1) : ?>
-                                    <option value="<?= $indexOP1 + 1 ?>"><?= $value1['MR_CategoryDisposition_name'] ?></option>
+                                    <option value="<?= $indexOP1 + 1 ?>"><?= $value1['mr_CategoryDisposition_name'] ?></option>
                                 <?php endforeach; ?>
                             </select>
+
                             <label for="floatingSelect">Disposicion</label>
                         </div>
                         <!--CATEGORIAS SON 3 EN TOTAL-->
@@ -885,6 +886,8 @@
         <script>
             const baseUrl = '<?= base_url() ?>';
         </script>
+
+
 
 </body>
 
