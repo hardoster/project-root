@@ -260,9 +260,9 @@ $(document).ready(function(){
     document.querySelector('#contNoteShadowBacground').style.display = 'none';
     
 
-   document.querySelector('.tecnicoscmb').style.display = 'none';;
-   document.querySelector('.operadorcmb').style.display = 'none';;
-   document.querySelector('.reaccioncmb').style.display = 'none';;
+   document.querySelector('.tecnicoscmb').style.display = 'none';
+   document.querySelector('.operadorcmb').style.display = 'none';
+   document.querySelector('.reaccioncmb').style.display = 'none';
  
 })
 

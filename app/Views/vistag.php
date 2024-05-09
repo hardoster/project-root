@@ -775,10 +775,10 @@
                         <!--CATEGORIAS SON 3 EN TOTAL-->
                         <!--TECNICOS-->
                         <div class="form-floating mb-3 tecnicoscmb">
-                            <select class="form-select" id="floatingSelect1" aria-label="Floating label select example">
+                            <select class="form-select" name="dispositionSelected1" id="floatingSelect1" aria-label="Floating label select example">
                                 <option selected>Selecciona una categoria</option>
-                                <?php foreach ($datos4 as $indexOP4 => $value4) : ?>
-                                    <option value="<?= $indexOP4 + 1 ?>"><?= $value4['id_mr_disposition'] . '-' . $value4['mr_dispositionName']?></option>
+                                <?php foreach ($datos4 as $indexOP4 => $valueP) : ?>
+                                    <option value="<?= $indexOP4 + 1 ?>"><?= $valueP['mr_dispositionName']?></option>
                                 <?php endforeach; ?>
                             </select>
                             <label for="floatingSelect1">Categoria</label>
@@ -786,10 +786,10 @@
 
                         <!--OPERADOR-->
                         <div class="form-floating mb-3   operadorcmb">
-                            <select class="form-select" id="floatingSelect2" aria-label="Floating label select example">
+                            <select class="form-select" name="dispositionSelected2" id="floatingSelect2" aria-label="Floating label select example">
                                 <option selected>Selecciona una categoria</option>
-                                <?php foreach ($datos5 as $indexOP5 => $value5) : ?>
-                                    <option value="<?= $indexOP5 + 1 ?>"><?= $value5['id_mr_disposition'] . '-' . $value5['mr_dispositionName']?></option>
+                                <?php foreach ($datos5 as $indexOP5 => $valueP) : ?>
+                                    <option value="<?= $indexOP5 + 1 ?>"><?= $valueP['mr_dispositionName']   ?></option>
                                 <?php endforeach; ?>
                             </select>
                             <label for="floatingSelect2">Categoria</label>
@@ -797,10 +797,10 @@
 
                         <!--REACCION-->
                         <div class="form-floating mb-3 reaccioncmb">
-                            <select class="form-select" id="floatingSelect3" aria-label="Floating label select example">
+                            <select class="form-select" name="dispositionSelected3" id="floatingSelect3" aria-label="Floating label select example">
                                 <option selected>Selecciona una categoria</option>
-                                <?php foreach ($datos6 as $indexOP6 => $value6) : ?>
-                                    <option value="<?= $indexOP6 + 1 ?>"><?= $value6['id_mr_disposition'] . '-' . $value6['mr_dispositionName']  ?></option>
+                                <?php foreach ($datos6 as $indexOP6 => $valueP) : ?>
+                                    <option value="<?= $indexOP6 + 1 ?>"><?=  $valueP['mr_dispositionName']  ?></option>
                                 <?php endforeach; ?>
                             </select>
                             <label for="floatingSelect3">Categoria</label>
