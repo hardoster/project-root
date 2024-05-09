@@ -185,7 +185,6 @@
                     <span id="id_spaninfc"></span>
                 </div>
 
-                <input type="text" value="<?php echo $session->get('Supervisor'); ?>">
 
 
             </div>
@@ -348,12 +347,10 @@
                                 <th>Identificador</th>
                                 <th>disposicion</th>
                                 <th>categoriadisposicion</th>
-                                <th>notas</th>
                                 <th>odscode</th>
                                 <th>Employee name</th>
-                                <th>Employee last</th>
-                                <th>status</th>
                                 <th>Fecha</th>
+                                <th>status</th>
                              
                             </tr>
                         </thead>
@@ -369,9 +366,6 @@
                            <td></td>
                            <td></td>
                            <td></td>
-                           <td></td>
-                           <td></td>
-                    
                                 </tr>
                                     
                         </tbody>
@@ -775,33 +769,32 @@
                         <!--CATEGORIAS SON 3 EN TOTAL-->
                         <!--TECNICOS-->
                         <div class="form-floating mb-3 tecnicoscmb">
-                            <select class="form-select" name="dispositionSelected1" id="floatingSelect1" aria-label="Floating label select example">
-                                <option selected>Selecciona una categoria</option>
-                                <?php foreach ($datos4 as $indexOP4 => $valueP) : ?>
-                                    <option value="<?= $indexOP4 + 1 ?>"><?= $valueP['mr_dispositionName']?></option>
-                                <?php endforeach; ?>
-                            </select>
+                        <select class="form-select" name="dispositionSelected" id="floatingSelect1" aria-label="Floating label select example">
+                            <option selected>Selecciona una categoria</option>
+                            <?php foreach ($datos4 as $indexOP4 => $valueP) : ?>
+                                <option value="<?= $valueP['id_mr_disposition'] ?>"><?= $valueP['mr_dispositionName']?></option>
+                            <?php endforeach; ?>
+                        </select>
+
                             <label for="floatingSelect1">Categoria</label>
                         </div>
 
                         <!--OPERADOR-->
                         <div class="form-floating mb-3   operadorcmb">
-                            <select class="form-select" name="dispositionSelected2" id="floatingSelect2" aria-label="Floating label select example">
+                            <select class="form-select" name="dispositionSelected" id="floatingSelect2" aria-label="Floating label select example">
                                 <option selected>Selecciona una categoria</option>
-                                <?php foreach ($datos5 as $indexOP5 => $valueP) : ?>
-                                    <option value="<?= $indexOP5 + 1 ?>"><?= $valueP['mr_dispositionName']   ?></option>
-                                <?php endforeach; ?>
+                                <?php foreach ($datos5 as $indexOP4 => $valueP) : ?>
+                                    <option value="<?= $valueP['id_mr_disposition'] ?>"><?= $valueP['mr_dispositionName']?></option>                                <?php endforeach; ?>
                             </select>
                             <label for="floatingSelect2">Categoria</label>
                         </div>
 
                         <!--REACCION-->
                         <div class="form-floating mb-3 reaccioncmb">
-                            <select class="form-select" name="dispositionSelected3" id="floatingSelect3" aria-label="Floating label select example">
+                            <select class="form-select" name="dispositionSelected" id="floatingSelect3" aria-label="Floating label select example">
                                 <option selected>Selecciona una categoria</option>
-                                <?php foreach ($datos6 as $indexOP6 => $valueP) : ?>
-                                    <option value="<?= $indexOP6 + 1 ?>"><?=  $valueP['mr_dispositionName']  ?></option>
-                                <?php endforeach; ?>
+                                <?php foreach ($datos6 as $indexOP4 => $valueP) : ?>
+                                    <option value="<?= $valueP['id_mr_disposition'] ?>"><?= $valueP['mr_dispositionName']?></option>                                <?php endforeach; ?>
                             </select>
                             <label for="floatingSelect3">Categoria</label>
                         </div>
@@ -812,10 +805,10 @@
 
                         <!--EMPLEADOS-->
                         <div class="form-floating mb-3">
-                            <select class="form-select" id="floatingSelect4" aria-label="Floating label select example">
+                            <select class="form-select" name="idempleado" id="floatingSelect4" aria-label="Floating label select example">
                                 <option selected>Realizado por</option>
                                 <?php foreach ($datos7 as $indexOP7 => $value7) : ?>
-                                    <option value="<?= $indexOP7 + 1 ?>"><?= $value7['Fullname2'] ?></option>
+                                    <option value="<?= $value7['id_empleado'] ?>"><?= $value7['Nombre']?></option>
                                 <?php endforeach; ?>
                             </select>
                             <label for="floatingSelect">Empleado</label>
@@ -841,6 +834,8 @@
                         <div class="form-floating mb-3">
                             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                             <label for="floatingTextarea2">Nota</label>
+                            <input type="hidden" name="idusuario" id="inputUser" value="<?php echo $session->get('User'); ?>">
+
                         </div>
 
                         <div class="btn-radiobutton">

@@ -6,7 +6,7 @@ use CodeIgniter\Model;
  
 class MD_INSERT_NOTE extends Model
 { 
-    protected $DBGroup = 'exactrack';
+    protected $DBGroup = 'default';
     protected $table = 'tb_mr_records'; 
     protected $primaryKey = 'id_mr_records'; 
     protected $useAtoIncrement = true;
@@ -16,7 +16,7 @@ class MD_INSERT_NOTE extends Model
     protected $allowedFields = [
         'id_mr_disposition',
         'id_vehiculo',
-        'id_cliente',
+        'id_cliente', 
         'id_gps',
         'id_empleado',
         'TecCode',

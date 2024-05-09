@@ -7,6 +7,8 @@ use App\Models\MD_tablappal;
 use App\Models\MD_tablasec;
 use App\Models\MD_categoryDisposition;
 use App\Models\MD_disposition;
+use App\Models\MD_NOTES;
+use App\Models\MD_empleados;
 
 class Inicio extends BaseController
 {   
@@ -32,6 +34,7 @@ class Inicio extends BaseController
         $md_tablasec = new MD_tablasec();
         $md_catDisposition = new MD_categoryDisposition();
         $md_disposition = new MD_disposition();
+        $md_empleados = new MD_empleados();
     
         // Obtener los datos de $md_catDisposition y asegurarse de que sea un array
         $datos3 = $md_catDisposition->findAll();
@@ -39,10 +42,11 @@ class Inicio extends BaseController
         $datos4 = $md_disposition->where('id_mr_categoryDisposition', 1)->findAll();
         $datos5 = $md_disposition->where('id_mr_categoryDisposition', 2)->findAll();
         $datos6 = $md_disposition->where('id_mr_categoryDisposition', 3)->findAll();
+        $datos7 = $md_empleados->findAll();
 
         $datos = $md_tablappal->obtenerRegistrostb1();
-        $datos7 = $md_tablasec->GetValidationsEmployees();
-    
+
+        
         return view('vistag', [
             'datos' => $datos,
             'datos3' => $datos3,
@@ -72,31 +76,43 @@ class Inicio extends BaseController
 
 
     public function insert_note(){
-      $insertModel = new MD_INSERT_NOTE();
+        $insertModel = new MD_INSERT_NOTE();
+        $insertModelNote = new MD_NOTES();
 
-        $idmr_disposition = $this->request->getPost('dispositionadd');
-        $idmr_vehiculo = $this->request->getPost('idvehicleadd');
-        $idmr_cliente = $this->request->getPost('idclienteadd');
-        $idmr_gps = $this->request->getPost('idgpsadd');
-        $idmr_employee = $this->request->getPost('idemployeeadd');
-        $codigotec = $this->request->getPost('codetecnicosadd');
-        $mr_notes = $this -> request->getPost('notecodeadd');
-      
-        $mr_status = $this->request->getPost('statusNoteadd');
+        $idmr_disposition = $this->request->getPost('dispositionadd'); //disposicion
+        $idmr_vehiculo = $this->request->getPost('idvehicleadd');      //id vehiculo
+        $idmr_cliente = $this->request->getPost('idclienteadd');       //id cliente
+        $idmr_gps = $this->request->getPost('idgpsadd');               //id gps
+        $idmr_employee = $this->request->getPost('idempleado');     //id empleado
+        $codigotec = $this->request->getPost('codetecnicosadd');       //codigo tecnicos
+        $mr_status = $this->request->getPost('statusNoteadd');         //estado de notas
 
-        $dataNote = array(
-            'id_MR_disposition' => $idmr_disposition,
+
+        $mr_notes = $this -> request->getPost('notecodeadd');          //notas
+        $iduser = $this -> request->getPost('idusuario');
+
+        $dataRegister = array(
+            'id_mr_disposition' => $idmr_disposition,
             'id_vehiculo' => $idmr_vehiculo,
             'id_cliente' => $idmr_cliente,
             'id_gps' => $idmr_gps,
-            'id_MR_employee' => $idmr_employee,
-            'codigoTec' => $codigotec,
-            'MR_notes' => $mr_notes,
-            
-            'MR_status' => $mr_status
+            'id_empleado' => $idmr_employee,
+            'TecCode' => $codigotec,
+            'status' => $mr_status
           );
 
-          if (($insertModel)->insert($dataNote)) {
+          $insertModel->insert($dataRegister);
+          $id_mr_records  = $insertModel ->insertID(); //obtener el id insertado
+
+            $dataNote = array(
+                'id_mr_records' =>$id_mr_records,
+                'usuario' => $iduser ,
+                'mr_note' => $mr_notes
+
+            );
+
+
+        if (($insertModelNote)->insert($dataNote)) {
             return redirect()->to(site_url('/inicio'))->with('success', '¡Registro exitoso! Ahora puedes iniciar sesión.');
         } else {
             // Hubo un error al insertar en la base de datos, redirigir de nuevo al formulario de registro

@@ -83,13 +83,11 @@ $(document).ready(function () {
                         tb2.cliente_nombre_cuenta,
                         tb2.gps_identificador,
                         tb2.disposition_nombre,
-                        tb2.NAMECATDISPOSISION,
-                        tb2.notes,
+                        tb2.NAMECATDISPOSITION,                       
                         tb2.ods_code,
                         tb2.employee_name,
-                        tb2.employee_lastName,
-                        tb2.status,
-                        tb2.dateadd
+                        tb2.dateadd,
+                        tb2.status
                         
                      
                     ]).draw();
@@ -159,7 +157,7 @@ $(document).ready(function() {
         }, //para agregar otra propiedad a la datatable
 
         columnDefs: [{
-            targets: [1,2], 
+          targets: [1,2,5,6], 
             visible: false // ocultar columna
         }],
 
@@ -350,49 +348,26 @@ function CMBdinamic() {
     }
 
     //********************************************para insertar la nota***************************************************** */
-   
 
+    var ultimoSeleccionado;
 
-
-    const empleadoidcmb = document.querySelector('#floatingSelect4'); //obtener valor seleccionado de combobox empleados
-    var idemployee;
-    empleadoidcmb.addEventListener('change', function(){
-        idemployee = parseInt(empleadoidcmb.value)
-        console.log(idemployee)
-    })
-
- 
-    /*Para obtener el valor disposicion esta en la variable valorSeleccionado*/ 
+    document.querySelectorAll('select[name = "dispositionSelected"]').forEach(function(select){
+        select.addEventListener('change', function(){
+            ultimoSeleccionado = this.value;
+            console.log(ultimoSeleccionado)
+        })
+    });
+      
     /*PARA OBTENER EL VEHICULO ID*/ //se esta guardando en la variable valVehicleSelect cuando se da clic a una fila
     /*para obtener el id cliente valCustomerSelect*/
     /*para obtener el id gps idgpsspann*/
-    /*para obtener id mr employees esta en la variable idemployee*/
      /*PARA OBTENER EL CODIGO DE TECNICOS ES LA VARIABLE */
        
          /*PARA OBTENER LA CATEGORIA Y DISPOSICION*/
     const reaccionCMB1 = document.querySelector('#floatingSelect3'); //obtener valor seleccionado de combobox reaccion
     const operadorCMB1 = document.querySelector('#floatingSelect2'); //obtener valor seleccionado de combobox operador
     const tecnicosCMB1 = document.querySelector('#floatingSelect1'); //obtener valor seleccionado de combobox tecnicos
-    var valorSeleccionado; //valor seleccionado no procesado aun como entero
-
-            reaccionCMB1.addEventListener('change', function() {
-                valorSeleccionado = reaccionCMB1.options[reaccionCMB1.selectedIndex].text;
-            
-            });
-            operadorCMB1.addEventListener('change', function() {
-               valorSeleccionado = operadorCMB1.options[operadorCMB1.selectedIndex].text;
   
-            });
-            tecnicosCMB1.addEventListener('change', function() {
-               valorSeleccionado = tecnicosCMB1.options[tecnicosCMB1.selectedIndex].text;
-              
-            });
-            
-           
-           
-    
-  
-    
     document.querySelector('#BtnSendNote').addEventListener('click', function(event) {
         
         codetecnico = document.querySelector('#floatingInputc1').value + '/' + document.querySelector('#floatingInputh1').value
@@ -409,7 +384,7 @@ function CMBdinamic() {
             //variable que contrndra se llama statusNote
             var statusNote;
 
-           
+
 
 
 
@@ -424,7 +399,7 @@ function CMBdinamic() {
         $('<input>').attr({
             type: 'hidden',
             name: 'dispositionadd',
-            value: valorSeleccionado
+            value: ultimoSeleccionado
         }).appendTo('#FormAddNoteppal');
 
 
@@ -448,12 +423,6 @@ function CMBdinamic() {
 
         $('<input>').attr({
             type: 'hidden',
-            name: 'idemployeeadd',
-            value: idemployee
-        }).appendTo('#FormAddNoteppal');
-
-        $('<input>').attr({
-            type: 'hidden',
             name: 'codetecnicosadd',
             value: codetecnico
         }).appendTo('#FormAddNoteppal');
@@ -462,24 +431,6 @@ function CMBdinamic() {
             type: 'hidden',
             name: 'notecodeadd',
             value: notecode
-        }).appendTo('#FormAddNoteppal');
-
-        $('<input>').attr({
-            type: 'hidden',
-            name: 'dateaddadd',
-            value: dateadd
-        }).appendTo('#FormAddNoteppal');
-
-        $('<input>').attr({
-            type: 'hidden',
-            name: 'dateeditadd',
-            value: ''
-        }).appendTo('#FormAddNoteppal');
-
-        $('<input>').attr({
-            type: 'hidden',
-            name: 'datedeleteadd',
-            value: ''
         }).appendTo('#FormAddNoteppal');
 
         $('<input>').attr({
