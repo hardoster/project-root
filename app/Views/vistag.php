@@ -300,8 +300,8 @@
         <div id="infcustomer4"><!--notas-------------------------------------------------------------------------------------------->
 
             <div id="spannotes">
-                <span>NUEVA SERVICIO SOLO ACCESO WEB NO PANICO NO AUDIO NO ROAMING SI APAGADO EQUIPO ARRENDADO PLAZO DE 18 MESES CON CUOTA DE $11.00+ IVA ASESOR: JORGE NOSTHAS ORDEN: 2709
-                </span>
+                <textarea id="txtAreaNotes">
+                </textarea>
             </div>
 
 
@@ -325,7 +325,8 @@
                 </div>
 
                 <div class="ContainerControlBtn">
-                    <span class="spannButtonGeneralSUB">Agregar</span>
+                    <input type="text" name="idusuario" id="temp_id_record" value=""><!--almacenara temporalmente el id del registro a mostrar para luego insertarlo-->
+                    <span class="spannButtonGeneralSUB" id="addUpdateNote">Agregar</span>
                 </div>
                 <div class="ContainerControlBtn newnotebtn">
                     <span class="spannButtonGeneralSUB">nuevo</span>
@@ -351,12 +352,13 @@
                                 <th>Employee name</th>
                                 <th>Fecha</th>
                                 <th>status</th>
-                             
+                                <th>id_mr_records</th>
                             </tr>
                         </thead>
                         <tbody>
                         
                               <tr>  
+                           <td></td>
                            <td></td>
                            <td></td>
                            <td></td>

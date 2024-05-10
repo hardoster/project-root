@@ -73,7 +73,51 @@ class Inicio extends BaseController
     }
 
 
+    public function SelectRowTB2(){
+        $SelectRecord = $this->request->getPost('SelectRecord');
+        $md_notes = new MD_NOTES();
 
+        $data = $md_notes->where('id_mr_records', $SelectRecord)->findAll();
+
+        return $this->response->setJSON(['data' => $data]);
+    }
+
+    public function UpdateNote(){
+        $insertModelNote = new MD_NOTES();
+
+        $JSON_Update_Notes = $this->request->getJSON();
+        $id_mr_records = $JSON_Update_Notes->id_mr_records;
+        $usuario = $JSON_Update_Notes->usuario;
+         $mr_note = $JSON_Update_Notes->mr_note;
+
+      $response = [
+          'id_mr_records' => $id_mr_records,
+          'usuario' => $usuario,
+          'mr_note' => $mr_note
+         ];
+           $insertModelNote ->insert($response);
+           return $this->response->setJSON($response);
+        }
+   /* public function UpdateNote(){
+        $insertModelNote = new MD_NOTES();
+
+        $JSON_Update_Notes = $this->request->getJSON();
+
+           $id_mr_records = $JSON_Update_Notes->id_mr_records;
+          $usuario = $JSON_Update_Notes->usuario;
+           $mr_note = $JSON_Update_Notes->mr_note;
+      
+        
+          $JsonData = array(
+                'id_mr_records' => $id_mr_records,
+                'usuario' => $usuario,
+                'mr_note' => $mr_note
+            );
+
+           return $insertModelNote ->insert($JsonData);
+    
+        }
+*/
 
     public function insert_note(){
         $insertModel = new MD_INSERT_NOTE();

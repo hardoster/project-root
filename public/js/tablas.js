@@ -70,14 +70,14 @@ $(document).ready(function () {
             success: function(response) {
                 console.log('Respuesta del servidor:', response);
         
-                $datos2 = response.datos2;
+                var datos2 = response.datos2;
         
 
                 var table2 = $('#table2').DataTable();
                 table2.clear().draw();
                 
                 // Agregar las nuevas filas con los datos recibidos
-                $.each($datos2, function(index, tb2) {
+                $.each(datos2, function(index, tb2) {
                     table2.row.add([
                         tb2.placa,
                         tb2.cliente_nombre_cuenta,
@@ -87,7 +87,8 @@ $(document).ready(function () {
                         tb2.ods_code,
                         tb2.employee_name,
                         tb2.dateadd,
-                        tb2.status
+                        tb2.status,
+                        tb2.id_mr_records
                         
                      
                     ]).draw();
@@ -157,7 +158,7 @@ $(document).ready(function() {
         }, //para agregar otra propiedad a la datatable
 
         columnDefs: [{
-          targets: [1,2,5,6], 
+          targets: [1,2,5,6,9], 
             visible: false // ocultar columna
         }],
 
@@ -167,20 +168,73 @@ $(document).ready(function() {
 
     }); // Cierra la DataTable
 
-    $('#table2 tbody').on('click', 'tr', function() {
-        var rowData2 = table2.row(this).data();
-    
-        console.log(rowData2);
+   
 
+    $('#table2 tbody').on('click', 'tr', function(ReloadNote) {
+        var rowData2 = table2.row(this).data();
+      
+        console.log(rowData2);
+        var SelectRecord = rowData2[9];
+
+        document.querySelector('#temp_id_record').value = rowData2[9];
+
+        $.ajax({ 
+            type: 'POST', 
+            url: 'RowTb2', 
+            data: { SelectRecord: SelectRecord}, 
+            dataType: 'json',
+            success: function(response) {
+                console.log('Respuesta del servidor:', response);
+        
+                var datosR = response.data; 
+
+                var contador1 = ''; 
+
+                datosR.forEach(function(nota) {
+                    var date_add = nota.date_add;
+                    var mr_note = nota.mr_note;
+                    var usuario = nota.usuario;
+
+                    var contador = date_add + ' ' + usuario + ' ' + mr_note + '\n' + '\n';
+                    contador1 = contador1 + contador; 
+                });
+                
+                document.querySelector('#txtAreaNotes').textContent = contador1;
+
+
+            },
+            error: function(xhr, status, error) {
+                console.error('Error:', error);
+            }
+        });
         });
 
 
-});
+});                
 
+                                     
+                        document.querySelector('#addUpdateNote').addEventListener('click' , function(){
+                            var temp_ready_send_idrecords = document.querySelector('#temp_id_record').value // variable lista para enviar y guardar mis datos
+                            var temp_ready_send_note = document.querySelector('#txtEditSpanNotes').value
+                            var temp_ready_send_user = document.querySelector('#inputUser').value
+                            var url = "UpdateNotes";
+                                var dataUpNote = { 
+                                    id_mr_records : temp_ready_send_idrecords,
+                                          usuario : temp_ready_send_user,
+                                          mr_note : temp_ready_send_note
+                                    };
 
-
-
-
+                                        fetch(url , {
+                                            method: "POST",
+                                            body: JSON.stringify(dataUpNote),
+                                            headers: {
+                                                "Content-Type": "application/json",
+                                              },
+                                        })
+                                        .then((res) => res.json())
+                                        .catch((error) => console.error("Error", error))
+                                        .then((response) => console.log("Success:", response) , ReloadNote());       
+                                        });
 
 
 

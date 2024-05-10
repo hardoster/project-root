@@ -79,7 +79,8 @@ class MD_tablasec extends Model
         tb_mr_records.TecCode AS ods_code,
         tbempleados.Nombre AS employee_name,
         tb_mr_records.date_add AS dateadd,
-        tb_mr_records.status AS status')
+        tb_mr_records.status AS status,
+        tb_mr_records.id_mr_records AS id_mr_records')
         ->join('tbclientes', 'tb_mr_records.id_cliente = tbclientes.id_cliente')
         ->join('tbvehiculos', 'tb_mr_records.id_vehiculo = tbvehiculos.id_vehiculo')
         ->join('tbgps', 'tb_mr_records.id_gps = tbgps.id_gps')
