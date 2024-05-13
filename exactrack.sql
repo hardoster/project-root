@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-05-2024 a las 23:34:46
+-- Tiempo de generación: 13-05-2024 a las 17:24:32
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -79,8 +79,20 @@ CREATE TABLE `tbempleados` (
   `id_empleado` int(11) NOT NULL,
   `No_empleado` int(11) NOT NULL,
   `Nombre` varchar(150) NOT NULL,
-  `Cargo` varchar(150) NOT NULL
+  `Cargo` varchar(150) NOT NULL,
+  `Date_add` datetime NOT NULL,
+  `Date_edit` datetime NOT NULL,
+  `Date_delete` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tbempleados`
+--
+
+INSERT INTO `tbempleados` (`id_empleado`, `No_empleado`, `Nombre`, `Cargo`, `Date_add`, `Date_edit`, `Date_delete`) VALUES
+(1, 1, 'Adonay Avilez', 'Tecnico', '2024-05-09 18:03:51', '2024-05-09 18:03:51', NULL),
+(2, 2, 'Rudy Rivera', 'tecnico', '2024-05-09 18:03:51', '2024-05-09 18:03:51', NULL),
+(3, 3, 'Mauricio Castro', 'tecnico', '2024-05-09 18:04:58', '2024-05-09 18:04:58', NULL);
 
 -- --------------------------------------------------------
 
@@ -1839,8 +1851,17 @@ CREATE TABLE `tb_mr_categorydisposition` (
   `mr_CategoryDisposition_name` varchar(255) NOT NULL,
   `Date_add` datetime NOT NULL,
   `Date_edit` datetime NOT NULL,
-  `Date_delete` datetime NOT NULL
+  `Date_delete` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tb_mr_categorydisposition`
+--
+
+INSERT INTO `tb_mr_categorydisposition` (`id_mr_categoryDisposition`, `mr_CategoryDisposition_name`, `Date_add`, `Date_edit`, `Date_delete`) VALUES
+(1, 'Tecnicos', '2024-05-08 00:37:22', '2024-05-08 00:37:22', NULL),
+(2, 'Operador', '2024-05-08 19:13:50', '2024-05-08 19:13:50', NULL),
+(3, 'Reaccion', '2024-05-08 19:13:50', '2024-05-08 19:13:50', NULL);
 
 -- --------------------------------------------------------
 
@@ -1851,11 +1872,41 @@ CREATE TABLE `tb_mr_categorydisposition` (
 CREATE TABLE `tb_mr_disposition` (
   `id_mr_disposition` int(11) NOT NULL,
   `id_mr_categoryDisposition` int(11) NOT NULL,
-  `mr_dispositionName` int(11) NOT NULL,
+  `mr_dispositionName` varchar(255) NOT NULL,
   `Date_add` datetime NOT NULL,
   `Date_edit` datetime NOT NULL,
-  `Date_delete` datetime NOT NULL
+  `Date_delete` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tb_mr_disposition`
+--
+
+INSERT INTO `tb_mr_disposition` (`id_mr_disposition`, `id_mr_categoryDisposition`, `mr_dispositionName`, `Date_add`, `Date_edit`, `Date_delete`) VALUES
+(1, 1, 'Cambio de equipo', '2024-05-08 19:16:04', '2024-05-08 19:16:04', NULL),
+(2, 1, 'Nueva instalacion', '2024-05-08 19:16:04', '2024-05-08 19:16:04', NULL),
+(3, 1, 'otros', '2024-05-08 19:16:04', '2024-05-08 19:16:04', NULL),
+(4, 1, 'Revision de adicionales', '2024-05-08 19:16:04', '2024-05-08 19:16:04', NULL),
+(5, 1, 'Revision General', '2024-05-08 19:16:04', '2024-05-08 19:16:04', NULL),
+(6, 1, 'Traslado', '2024-05-08 19:16:04', '2024-05-08 19:16:04', NULL),
+(7, 1, 'Montaje', '2024-05-08 19:16:04', '2024-05-08 19:16:04', NULL),
+(8, 1, 'Desmontaje', '2024-05-08 19:16:04', '2024-05-08 19:16:04', NULL),
+(9, 1, 'Instalacion de adicionales', '2024-05-08 19:16:04', '2024-05-08 19:16:04', NULL),
+(10, 1, 'Reprogramacion', '2024-05-08 19:16:04', '2024-05-08 19:16:04', NULL),
+(11, 1, 'Cambio de SIM', '2024-05-08 19:16:04', '2024-05-08 19:16:04', NULL),
+(12, 2, 'Asesoria', '2024-05-08 19:16:04', '2024-05-08 19:16:04', NULL),
+(13, 2, 'OTROS', '2024-05-08 19:16:04', '2024-05-08 19:16:04', NULL),
+(14, 2, 'Suspension', '2024-05-08 19:16:04', '2024-05-08 19:16:04', NULL),
+(15, 2, 'Reactivacion', '2024-05-08 19:16:04', '2024-05-08 19:16:04', NULL),
+(16, 2, 'Cambio Razon', '2024-05-08 19:16:04', '2024-05-08 19:16:04', NULL),
+(17, 2, 'Renovacion', '2024-05-08 19:16:04', '2024-05-08 19:16:04', NULL),
+(18, 2, 'Incomunicacion', '2024-05-08 19:16:04', '2024-05-08 19:16:04', NULL),
+(19, 2, 'Llamada Telefonica', '2024-05-08 19:16:04', '2024-05-08 19:16:04', NULL),
+(20, 2, 'Queja', '2024-05-08 19:16:04', '2024-05-08 19:16:04', NULL),
+(21, 3, 'Recuperacion', '2024-05-08 19:19:19', '2024-05-08 19:19:19', NULL),
+(22, 3, 'Evento Confirmado', '2024-05-08 19:19:19', '2024-05-08 19:19:19', NULL),
+(23, 3, 'Reaccion Cosase', '2024-05-08 19:19:19', '2024-05-08 19:19:19', NULL),
+(24, 3, 'Reaccion PNC', '2024-05-08 19:19:19', '2024-05-08 19:19:19', NULL);
 
 -- --------------------------------------------------------
 
@@ -1866,12 +1917,30 @@ CREATE TABLE `tb_mr_disposition` (
 CREATE TABLE `tb_mr_notes` (
   `id_mr_note` int(11) NOT NULL,
   `id_mr_records` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
+  `usuario` varchar(150) NOT NULL,
   `mr_note` varchar(255) NOT NULL,
   `date_add` datetime NOT NULL,
   `date_edit` datetime NOT NULL,
-  `date_delete` datetime NOT NULL
+  `date_delete` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tb_mr_notes`
+--
+
+INSERT INTO `tb_mr_notes` (`id_mr_note`, `id_mr_records`, `usuario`, `mr_note`, `date_add`, `date_edit`, `date_delete`) VALUES
+(1, 1, '0', 'prueba 1', '2024-05-09 16:21:27', '2024-05-09 16:21:27', NULL),
+(2, 3, '', 'reprogramacion no se hace ningun cambio', '2024-05-09 16:29:49', '2024-05-09 16:29:49', NULL),
+(3, 4, '', 'se hace cambio de sim antes tenia tigo ahora queda con claro', '2024-05-09 17:02:25', '2024-05-09 17:02:25', NULL),
+(4, 5, 'Baguilar', 'cracion de nota prueba ahora ya tendria que guardar el usuario', '2024-05-09 17:48:46', '2024-05-09 17:48:46', NULL),
+(5, 5, 'Baguilar\r\n', 'seguimiento de nota esto para probar xd', '2024-05-10 17:32:07', '2024-05-10 17:32:07', NULL),
+(6, 5, 'Baguilar', 'tercer seguimiento para probar el scroll ', '2024-05-10 19:12:50', '2024-05-10 19:12:50', NULL),
+(8, 4, 'PostMan', '', '2024-05-10 19:59:01', '2024-05-10 19:59:01', NULL),
+(17, 4, 'Baguilar', '', '2024-05-10 21:16:49', '2024-05-10 21:16:49', NULL),
+(18, 4, 'Baguilar', '', '2024-05-10 21:18:55', '2024-05-10 21:18:55', NULL),
+(28, 4, 'Baguilar', 'funciona basura', '2024-05-10 22:24:53', '2024-05-10 22:24:53', NULL),
+(29, 4, 'Baguilar', 'funciona basura 2', '2024-05-10 22:30:33', '2024-05-10 22:30:33', NULL),
+(30, 4, 'Baguilar', 'prueba fetch ', '2024-05-10 22:33:43', '2024-05-10 22:33:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -1890,8 +1959,18 @@ CREATE TABLE `tb_mr_records` (
   `status` varchar(150) NOT NULL,
   `date_add` datetime NOT NULL,
   `date_edit` datetime NOT NULL,
-  `date_delete` datetime NOT NULL
+  `date_delete` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tb_mr_records`
+--
+
+INSERT INTO `tb_mr_records` (`id_mr_records`, `id_mr_disposition`, `id_vehiculo`, `id_cliente`, `id_gps`, `id_empleado`, `TecCode`, `status`, `date_add`, `date_edit`, `date_delete`) VALUES
+(1, 22, 9322, 1779, 17931, 2, '456456/456456', 'Acitvo', '2024-05-09 16:21:27', '2024-05-09 16:21:27', NULL),
+(3, 23, 12927, 1779, 29343, 2, '5347/0587/BHA/6458SD/1748', 'Acitvo', '2024-05-09 16:29:49', '2024-05-09 16:29:49', NULL),
+(4, 11, 12927, 1779, 29343, 1, '5347/1101/BHA/1574DD/0875', 'Acitvo', '2024-05-09 17:02:25', '2024-05-09 17:02:25', NULL),
+(5, 4, 12927, 1779, 29343, 3, '5347/1148/BHA/3587FS/1748', 'Acitvo', '2024-05-09 17:48:46', '2024-05-09 17:48:46', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -1927,7 +2006,7 @@ ALTER TABLE `tb_mr_disposition`
 --
 ALTER TABLE `tb_mr_notes`
   ADD PRIMARY KEY (`id_mr_note`),
-  ADD KEY `id_mr_records` (`id_mr_records`,`id_usuario`);
+  ADD KEY `id_mr_records` (`id_mr_records`,`usuario`);
 
 --
 -- Indices de la tabla `tb_mr_records`
@@ -1945,31 +2024,31 @@ ALTER TABLE `tb_mr_records`
 -- AUTO_INCREMENT de la tabla `tbempleados`
 --
 ALTER TABLE `tbempleados`
-  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_mr_categorydisposition`
 --
 ALTER TABLE `tb_mr_categorydisposition`
-  MODIFY `id_mr_categoryDisposition` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_mr_categoryDisposition` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_mr_disposition`
 --
 ALTER TABLE `tb_mr_disposition`
-  MODIFY `id_mr_disposition` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_mr_disposition` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_mr_notes`
 --
 ALTER TABLE `tb_mr_notes`
-  MODIFY `id_mr_note` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_mr_note` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_mr_records`
 --
 ALTER TABLE `tb_mr_records`
-  MODIFY `id_mr_records` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_mr_records` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
