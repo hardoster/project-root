@@ -7,7 +7,7 @@ $(document).ready(function () {
             "info": " _START_ a _END_ de _TOTAL_",
             "infoEmpty": "",
             "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-            "infoPostFix": "", 
+            "infoPostFix": "",
             "thousands": ",",
             "lengthMenu": " _MENU_ ",
             "loadingRecords": "Cargando...",
@@ -19,12 +19,12 @@ $(document).ready(function () {
                 "last": "Ultimo",
                 "next": "Siguiente",
                 "previous": "Anterior"
-            }  
+            }
         }, //para agregar otra propiedad a la datatable
 
         columnDefs: [{
-         targets: [4, 6, 7, 8 , 9, 10, 11, 12, 13, 14, 15, 16,17,18,19], //  indice a ocultar de la comulma
-         visible: false // ocultar columna
+            targets: [4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], //  indice a ocultar de la comulma
+            visible: false // ocultar columna
         }]
 
 
@@ -39,7 +39,7 @@ $(document).ready(function () {
         document.querySelector('#id_spaninfc').textContent = rowData[7]; //notas del contrato
         document.querySelector('#id_spancontact').textContent = rowData[8]; //contactos a llamar
         document.querySelector('#id_spanPlacaTitle').textContent = 'Datos del Vehiculo: ' + rowData[2]; //contactos a llamar
-        document.querySelector('#id_MarcaVH').textContent = rowData[9]; 
+        document.querySelector('#id_MarcaVH').textContent = rowData[9];
         document.querySelector('#id_modelovhspann').textContent = rowData[10];
         document.querySelector('#id_colorvhspann').textContent = rowData[11];
         document.querySelector('#id_aniospann').textContent = rowData[12];
@@ -51,57 +51,57 @@ $(document).ready(function () {
 
         document.querySelector('#idvehiculospann').textContent = rowData[17];
         valVehicleSelect = parseInt(document.querySelector('#idvehiculospann').innerHTML);
-        console.log(valVehicleSelect) 
+        console.log(valVehicleSelect)
 
         document.querySelector('#idclientespann').textContent = rowData[18];
         valCustomerSelect = document.querySelector('#idclientespann').innerHTML;
-        console.log(valCustomerSelect) 
+        console.log(valCustomerSelect)
 
         document.querySelector('#idgpsspann').textContent = rowData[19];
         valgpsSelect = document.querySelector('#idgpsspann').innerHTML;
-        console.log(valgpsSelect) 
+        console.log(valgpsSelect)
 
-       
+
         $.ajax({
-            type: 'POST', 
-            url: 'tablaRegistro', 
-            data: { valVehicleSelect: valVehicleSelect }, 
+            type: 'POST',
+            url: 'tablaRegistro',
+            data: { valVehicleSelect: valVehicleSelect },
             dataType: 'json',
-            success: function(response) {
+            success: function (response) {
                 console.log('Respuesta del servidor:', response);
-        
-                var datos2 = response.datos2;
-        
 
+                var datos2 = response.datos2;
+
+                
                 var table2 = $('#table2').DataTable();
                 table2.clear().draw();
-                
+
                 // Agregar las nuevas filas con los datos recibidos
-                $.each(datos2, function(index, tb2) {
+                $.each(datos2, function (index, tb2) {
                     table2.row.add([
                         tb2.placa,
                         tb2.cliente_nombre_cuenta,
                         tb2.gps_identificador,
                         tb2.disposition_nombre,
-                        tb2.NAMECATDISPOSITION,                       
+                        tb2.NAMECATDISPOSITION,
                         tb2.ods_code,
                         tb2.employee_name,
                         tb2.dateadd,
                         tb2.status,
                         tb2.id_mr_records
-                        
-                     
+
+
                     ]).draw();
                 });
             },
-            error: function(xhr, status, error) {
+            error: function (xhr, status, error) {
                 console.error('Error:', error);
             }
         });
 
-     
 
-      
+
+
 
         //activar contenedores de informacion
         document.querySelector('.infcustomer1').style.display = 'grid';
@@ -134,7 +134,7 @@ $(document).ready(function () {
 
 
 
-$(document).ready(function() {
+$(document).ready(function () {
     var table2 = $('#table2').DataTable({
         language: {
             "decimal": "",
@@ -154,87 +154,99 @@ $(document).ready(function() {
                 "last": "Ultimo",
                 "next": "Siguiente",
                 "previous": "Anterior"
-            } 
+            }
         }, //para agregar otra propiedad a la datatable
 
         columnDefs: [{
-          targets: [1,2,5,6,9], 
+            targets: [1, 2, 5, 6, 9],
             visible: false // ocultar columna
         }],
 
         searching: false,
-        paging: false
+        paging: true
 
 
     }); // Cierra la DataTable
 
-   
 
-    $('#table2 tbody').on('click', 'tr', function(ReloadNote) {
+
+    $('#table2 tbody').on('click', 'tr', function () {
         var rowData2 = table2.row(this).data();
+
+        console.log('de la fila', rowData2);
+
       
-        console.log(rowData2);
-        var SelectRecord = rowData2[9];
 
-        document.querySelector('#temp_id_record').value = rowData2[9];
-
-        $.ajax({ 
-            type: 'POST', 
-            url: 'RowTb2', 
-            data: { SelectRecord: SelectRecord}, 
+        $.ajax({
+            type: 'POST',
+            url: 'RowTb2',
+            data: { SelectRecord: SelectRecord },
             dataType: 'json',
-            success: function(response) {
+            success: function (response) {
                 console.log('Respuesta del servidor:', response);
-        
-                var datosR = response.data; 
 
-                var contador1 = ''; 
+                var datosR = response.data;
 
-                datosR.forEach(function(nota) {
+                var contador1 = '';
+
+                datosR.forEach(function (nota) {
                     var date_add = nota.date_add;
                     var mr_note = nota.mr_note;
                     var usuario = nota.usuario;
 
                     var contador = date_add + ' ' + usuario + ' ' + mr_note + '\n' + '\n';
-                    contador1 = contador1 + contador; 
+                    contador1 = contador1 + contador;
                 });
-                
+
                 document.querySelector('#txtAreaNotes').textContent = contador1;
 
 
             },
-            error: function(xhr, status, error) {
+            error: function (xhr, status, error) {
                 console.error('Error:', error);
             }
         });
-        });
+
+        if (rowData2[8] == "Activo") {
+            flexRadioDefault1.checked = true;
+            flexRadioDefault2.checked = false;
+            document.querySelector('#addUpdateNote').style.display = 'flex';
+
+        } else {
+            flexRadioDefault1.checked = false;
+            flexRadioDefault2.checked = true;
+            document.querySelector('#addUpdateNote').style.display = 'none';
+        }
 
 
-});                
+    });
 
-                                     
-                        document.querySelector('#addUpdateNote').addEventListener('click' , function(){
-                            var temp_ready_send_idrecords = document.querySelector('#temp_id_record').value // variable lista para enviar y guardar mis datos
-                            var temp_ready_send_note = document.querySelector('#txtEditSpanNotes').value
-                            var temp_ready_send_user = document.querySelector('#inputUser').value
-                            var url = "UpdateNotes";
-                                var dataUpNote = { 
-                                    id_mr_records : temp_ready_send_idrecords,
-                                          usuario : temp_ready_send_user,
-                                          mr_note : temp_ready_send_note
-                                    };
 
-                                        fetch(url , {
-                                            method: "POST",
-                                            body: JSON.stringify(dataUpNote),
-                                            headers: {
-                                                "Content-Type": "application/json",
-                                              },
-                                        })
-                                        .then((res) => res.json())
-                                        .catch((error) => console.error("Error", error))
-                                        .then((response) => console.log("Success:", response) , ReloadNote());       
-                                        });
+});
+
+
+document.querySelector('#addUpdateNote').addEventListener('click', function () {
+    var temp_ready_send_idrecords = document.querySelector('#temp_id_record').value // variable lista para enviar y guardar mis datos
+    var temp_ready_send_note = document.querySelector('#txtEditSpanNotes').value
+    var temp_ready_send_user = document.querySelector('#inputUser').value
+    var url = "UpdateNotes";
+    var dataUpNote = {
+        id_mr_records: temp_ready_send_idrecords,
+        usuario: temp_ready_send_user,
+        mr_note: temp_ready_send_note
+    };
+
+    fetch(url, {
+        method: "POST",
+        body: JSON.stringify(dataUpNote),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+        .then((res) => res.json())
+        .catch((error) => console.error("Error", error))
+        .then((response) => console.log("Success:", response), ReloadNote());
+});
 
 
 
@@ -303,31 +315,44 @@ function mostrarInfo(numero) {
 /*************************************************************************************************************/
 
 /* se apagan las vistas solo para poder trabajar el diseño de la carga de espera*/
-$(document).ready(function(){
+$(document).ready(function () {
 
     document.querySelector('.infcustomer1').style.display = 'none';
     document.querySelector('.iconsinf').style.display = 'none';
     document.querySelector('#infcustomer4').style.display = 'none';
     document.querySelector('#tableregistros').style.display = 'none';
     document.querySelector('#contNoteShadowBacground').style.display = 'none';
-    
 
-   document.querySelector('.tecnicoscmb').style.display = 'none';
-   document.querySelector('.operadorcmb').style.display = 'none';
-   document.querySelector('.reaccioncmb').style.display = 'none';
- 
+
+    document.querySelector('.tecnicoscmb').style.display = 'none';
+    document.querySelector('.operadorcmb').style.display = 'none';
+    document.querySelector('.reaccioncmb').style.display = 'none';
+
+    //campos desabilitados del formulario
+    document.querySelector('#floatingSelect4').disabled = 'true';
+    document.querySelector('#floatingInputc1').disabled = 'true';
+    document.querySelector('#floatingInputh1').disabled = 'true';
+    document.querySelector('#floatingTextarea2').disabled = 'true';
+
+    document.querySelector('#BtnSendNote').disabled = true;
+
+    document.querySelector('#addUpdateNote').style.display = 'none';
+
+
+
+
 })
 
-/************************************PARA MOSTRAR LA FECHA Y LA HORA*********************************************/ 
+/************************************PARA MOSTRAR LA FECHA Y LA HORA*********************************************/
 
- function actualizarFechaYHora() {
+function actualizarFechaYHora() {
     var fechaHora = new Date();
 
     // Formatear la fecha y hora
     var fecha = fechaHora.toLocaleDateString();
     var hora = fechaHora.toLocaleTimeString();
 
- 
+
     document.getElementById('fechaHoraAuto').textContent = fecha + ' ' + hora;
 }
 
@@ -339,17 +364,17 @@ actualizarFechaYHora();
 
 /*--------------mostrar POPUP DE NOTAS-----------------------------------------------------------*/
 
-    const POPUPNOTE = document.querySelector('#contNoteShadowBacground');
+const POPUPNOTE = document.querySelector('#contNoteShadowBacground');
 
-    document.querySelector('.newnotebtn').addEventListener('click', function(){
-        POPUPNOTE.style.display = 'grid';
-    });
+document.querySelector('.newnotebtn').addEventListener('click', function () {
+    POPUPNOTE.style.display = 'grid';
+});
 
-   document.querySelector('#svgClose').addEventListener('click', function(){
+document.querySelector('#svgClose').addEventListener('click', function () {
     POPUPNOTE.style.display = 'none'
-    });
+});
 
-    
+
 /*----------------------*------------------------------------------------------------------------*/
 
 /*---------------------------------SELECCIONAR COMBOBOX CORRECTO******------------------------------*/
@@ -363,191 +388,238 @@ function CMBdinamic() {
     const tecnicosCMB = document.querySelector('.tecnicoscmb');
     const operadorCMB = document.querySelector('.operadorcmb');
     const reaccionCMB = document.querySelector('.reaccioncmb');
-    
+
+
     // Oculta todos los elementos antes de mostrar uno nuevo
     tecnicosCMB.style.display = 'none';
     operadorCMB.style.display = 'none';
     reaccionCMB.style.display = 'none';
-    
+
     // Muestra el elemento correspondiente según la opción seleccionada
     switch (CMBoption) {
         case 1:
             tecnicosCMB.style.display = 'grid';
-            
+            document.querySelector('.ocultarcodigo').style.display = 'flex';
+            document.querySelector('#floatingSelect4').disabled = false;
+            document.querySelector('#floatingInputc1').disabled = false;
+
+            keyupValuesTextArea();
             break;
         case 2:
             operadorCMB.style.display = 'grid';
+            document.querySelector('#IdocultarCodigo').style.display = 'none';
+            document.querySelector('.ocultarcodigo').style.display = 'none';
+            document.querySelector('#floatingSelect4').disabled = true;
+
+
+            keyupValuesTextArea();
+
             break;
         case 3:
             reaccionCMB.style.display = 'grid';
+            document.querySelector('.ocultarcodigo').style.display = 'none';
+            document.querySelector('#floatingSelect4').disabled = true;
+
+            keyupValuesTextArea();
             break;
         default:
             tecnicosCMB.style.display = 'grid';
     }
+}
 
-    const employeesoption = document.querySelector('#floatingSelect4')
-    employeesoption.addEventListener('change' , CMBemployees);
 
-    function CMBemployees (){
-        CBMoptiomEMP = parseInt(employeesoption.value);
 
-        if (CBMoptiomEMP == 5 ) {
-                document.querySelector('.ocultarcodigo').style.display = 'none';
+//********************************************para insertar la nota***************************************************** */
+
+var ultimoSeleccionado;
+
+document.querySelectorAll('select[name = "dispositionSelected"]').forEach(function (select) {
+    select.addEventListener('change', function () {
+        ultimoSeleccionado = this.value;
+        console.log(ultimoSeleccionado)
+    })
+});
+
+/*PARA OBTENER EL VEHICULO ID*/ //se esta guardando en la variable valVehicleSelect cuando se da clic a una fila
+/*para obtener el id cliente valCustomerSelect*/
+/*para obtener el id gps idgpsspann*/
+/*PARA OBTENER EL CODIGO DE TECNICOS ES LA VARIABLE */
+
+/*PARA OBTENER LA CATEGORIA Y DISPOSICION*/
+const reaccionCMB1 = document.querySelector('#floatingSelect3'); //obtener valor seleccionado de combobox reaccion
+const operadorCMB1 = document.querySelector('#floatingSelect2'); //obtener valor seleccionado de combobox operador
+const tecnicosCMB1 = document.querySelector('#floatingSelect1'); //obtener valor seleccionado de combobox tecnicos
+
+document.querySelector('#floatingInputc1').addEventListener('click', function () {
+    document.querySelector('#floatingInputh1').disabled = false;
+    document.querySelector('#floatingTextarea2').disabled = false;
+
+
+
+});
+
+
+reaccionCMB1.addEventListener('change', function () {
+    document.querySelector('#floatingTextarea2').disabled = false;
+    keyupValuesTextArea();
+});
+
+
+operadorCMB1.addEventListener('change', function () {
+    document.querySelector('#floatingTextarea2').disabled = false;
+
+    keyupValuesTextArea();
+});
+
+
+function keyupValuesTextArea() {
+    var textarea = document.querySelector('#floatingTextarea2');
+    var btnSendNote = document.querySelector('#BtnSendNote');
+
+    textarea.addEventListener('keyup', function () {
+        var textLength = this.value.length;
+
+        if (textLength > 2) {
+            btnSendNote.disabled = false;
+        } else {
+            btnSendNote.disabled = true;
         }
-        else {
-            document.querySelector('.ocultarcodigo').style.display = 'flex';
-
-        }
-
-    }
-
-    //********************************************para insertar la nota***************************************************** */
-
-    var ultimoSeleccionado;
-
-    document.querySelectorAll('select[name = "dispositionSelected"]').forEach(function(select){
-        select.addEventListener('change', function(){
-            ultimoSeleccionado = this.value;
-            console.log(ultimoSeleccionado)
-        })
     });
-      
-    /*PARA OBTENER EL VEHICULO ID*/ //se esta guardando en la variable valVehicleSelect cuando se da clic a una fila
-    /*para obtener el id cliente valCustomerSelect*/
-    /*para obtener el id gps idgpsspann*/
-     /*PARA OBTENER EL CODIGO DE TECNICOS ES LA VARIABLE */
-       
-         /*PARA OBTENER LA CATEGORIA Y DISPOSICION*/
-    const reaccionCMB1 = document.querySelector('#floatingSelect3'); //obtener valor seleccionado de combobox reaccion
-    const operadorCMB1 = document.querySelector('#floatingSelect2'); //obtener valor seleccionado de combobox operador
-    const tecnicosCMB1 = document.querySelector('#floatingSelect1'); //obtener valor seleccionado de combobox tecnicos
-  
-    document.querySelector('#BtnSendNote').addEventListener('click', function(event) {
-        
-        codetecnico = document.querySelector('#floatingInputc1').value + '/' + document.querySelector('#floatingInputh1').value
-        console.log(codetecnico);
+}
 
-        /*PARA GUARDAR LA NOTA ES LA VARIABLE  */
-        var notecode = document.querySelector('#floatingTextarea2').value;
-        console.log(notecode)
 
-          /*PARA OBTENER EL ESTADO SI ES ACTIVO O FINALIZADO */
-            var radio1 = document.querySelector("#flexRadioDefault11");
-            // Verificar el estado
-            var estadoRadio1 = radio1.checked;
-            //variable que contrndra se llama statusNote
-            var statusNote;
+
+
+document.querySelector('#BtnSendNote').addEventListener('click', function (event) {
+
+    codetecnico = document.querySelector('#floatingInputc1').value + '/' + document.querySelector('#floatingInputh1').value
+    console.log(codetecnico);
+
+    /*PARA GUARDAR LA NOTA ES LA VARIABLE  */
+    var notecode = document.querySelector('#floatingTextarea2').value;
+    console.log(notecode)
+
+    /*PARA OBTENER EL ESTADO SI ES ACTIVO O FINALIZADO */
+    var radio1 = document.querySelector("#flexRadioDefault11");
+    // Verificar el estado
+    var estadoRadio1 = radio1.checked;
+    //variable que contrndra se llama statusNote
+    var statusNote;
 
 
 
 
 
     if (estadoRadio1 == true) {
-        statusNote = 'Acitvo';
+        statusNote = 'Activo';
         console.log(statusNote)
-    }else if(estadoRadio1 == false){
+    } else if (estadoRadio1 == false) {
         statusNote = 'Finalizado';
         console.log(statusNote)
-    }   
+    }
 
-        $('<input>').attr({
-            type: 'hidden',
-            name: 'dispositionadd',
-            value: ultimoSeleccionado
-        }).appendTo('#FormAddNoteppal');
-
-
-        $('<input>').attr({
-            type: 'hidden',
-            name: 'idvehicleadd',
-            value: valVehicleSelect
-        }).appendTo('#FormAddNoteppal');
-
-        $('<input>').attr({
-            type: 'hidden',
-            name: 'idclienteadd',
-            value: valCustomerSelect
-        }).appendTo('#FormAddNoteppal');
-
-        $('<input>').attr({
-            type: 'hidden',
-            name: 'idgpsadd',
-            value: valgpsSelect
-        }).appendTo('#FormAddNoteppal');
-
-        $('<input>').attr({
-            type: 'hidden',
-            name: 'codetecnicosadd',
-            value: codetecnico
-        }).appendTo('#FormAddNoteppal');
-
-        $('<input>').attr({
-            type: 'hidden',
-            name: 'notecodeadd',
-            value: notecode
-        }).appendTo('#FormAddNoteppal');
-
-        $('<input>').attr({
-            type: 'hidden',
-            name: 'statusNoteadd',
-            value: statusNote
-        }).appendTo('#FormAddNoteppal');
-
-    });
+    $('<input>').attr({
+        type: 'hidden',
+        name: 'dispositionadd',
+        value: ultimoSeleccionado
+    }).appendTo('#FormAddNoteppal');
 
 
+    $('<input>').attr({
+        type: 'hidden',
+        name: 'idvehicleadd',
+        value: valVehicleSelect
+    }).appendTo('#FormAddNoteppal');
+
+    $('<input>').attr({
+        type: 'hidden',
+        name: 'idclienteadd',
+        value: valCustomerSelect
+    }).appendTo('#FormAddNoteppal');
+
+    $('<input>').attr({
+        type: 'hidden',
+        name: 'idgpsadd',
+        value: valgpsSelect
+    }).appendTo('#FormAddNoteppal');
+
+    $('<input>').attr({
+        type: 'hidden',
+        name: 'codetecnicosadd',
+        value: codetecnico
+    }).appendTo('#FormAddNoteppal');
+
+    $('<input>').attr({
+        type: 'hidden',
+        name: 'notecodeadd',
+        value: notecode
+    }).appendTo('#FormAddNoteppal');
+
+    $('<input>').attr({
+        type: 'hidden',
+        name: 'statusNoteadd',
+        value: statusNote
+    }).appendTo('#FormAddNoteppal');
+
+});
 
 
 
 
+/*********************************************************************FILTROS DE TB2************************************************************************ */
+
+$(document).ready(function () {
 
 
+    const btnFilterTec = document.querySelector('#btnFilterTec');
+    btnFilterTec.addEventListener('click', filtrarTecnicos);
+    
+  
+
+    function filtrarTecnicos(){
+       // var temp_id_record = document.querySelector('#temp_id_record').value ;
+console.log(valVehicleSelect)
+        $.ajax({
+            type: 'POST',
+            url: 'filterT',
+            data: { valVehicleSelect: valVehicleSelect },
+            dataType: 'json',
+            success: function (response) {
+                console.log('Respuesta del servidor:', response);
+    
+                var dataFT = response.dataFT;
+    
+    
+                var table2 = $('#table2').DataTable();
+                table2.clear().draw();
+    
+                // Agregar las nuevas filas con los datos recibidos
+                $.each(dataFT, function (index, tb2) {
+                    table2.row.add([
+                        tb2.placa,
+                        tb2.cliente_nombre_cuenta,
+                        tb2.gps_identificador,
+                        tb2.disposition_nombre,
+                        tb2.NAMECATDISPOSITION,
+                        tb2.ods_code,
+                        tb2.employee_name,
+                        tb2.dateadd,
+                        tb2.status,
+                        tb2.id_mr_records
+    
+    
+                    ]).draw();
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error('Error:', error);
+            }
+        });
+    
+    }
 
 
-
-
-
-
-
-
-        
-   
-    // Enviar datos  jQuery
-    /*
-    $.post('inicio/insert_note', {
-         id_MR_disposition: DispositionAdd, 
-         id_vehiculo: valVehicleSelect,
-         id_cliente: idclientespann,
-         id_gps: idgpsspann,
-         id_MR_employee: idemployee,
-         codigoTec: codetecnico,
-         MR_notes: notecode,
-         MR_date_add: dateadd,
-         MR_date_delete: '',
-         MR_date_edit: '',
-         MR_status: statusNote
-
-        }, function(dataJSnote) {
-      console.log(dataJSnote); 
-    });
-    */
-
-
-
-
-
-
-
-
-
-
-
-}
-
-
-
-
-
+});
 
 
 

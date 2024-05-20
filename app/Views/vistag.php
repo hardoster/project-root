@@ -325,11 +325,13 @@
                 </div>
 
                 <div class="ContainerControlBtn">
-                    <input type="text" name="idusuario" id="temp_id_record" value=""><!--almacenara temporalmente el id del registro a mostrar para luego insertarlo-->
+                    <input type="hidden" name="idregister" id="temp_id_record" value= "0">
+                    <!--almacenara temporalmente el id del registro a mostrar para luego insertarlo-->
+                    
                     <span class="spannButtonGeneralSUB" id="addUpdateNote">Agregar</span>
                 </div>
                 <div class="ContainerControlBtn newnotebtn">
-                    <span class="spannButtonGeneralSUB">nuevo</span>
+                    <span id="Btn_NewData" class="spannButtonGeneralSUB">nuevo</span>
                 </div>
             </div>
 
@@ -346,12 +348,12 @@
                                 <th>Placa</th>
                                 <th>Cliente</th>
                                 <th>Identificador</th>
-                                <th>disposicion</th>
-                                <th>categoriadisposicion</th>
-                                <th>odscode</th>
+                                <th>Disposicion</th>
+                                <th>Categoria</th>
+                                <th>Codigo</th>
                                 <th>Employee name</th>
                                 <th>Fecha</th>
-                                <th>status</th>
+                                <th>Estado</th>
                                 <th>id_mr_records</th>
                             </tr>
                         </thead>
@@ -382,7 +384,7 @@
                     <hr>
                 </div>
                 <div class="tecnicosbtn">
-                    <span>Tecnicos</span>
+                    <span id="btnFilterTec">Tecnicos</span>
                 </div>
                 <div class="operadorbtn">
                     <span>Operador</span>
@@ -746,16 +748,7 @@
                 </div>
 
                 <div id="formNotes" >
-                 
-
-
-
-
-
-
-
-
-
+                
                     <form id="FormAddNoteppal" method="post" action="<?= site_url('/Inicio/AddNotes')?>">
                         <div class="form-floating mb-3">
                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
@@ -820,7 +813,7 @@
 
 
 
-                        <div class="form-code-sheet ocultarcodigo">
+                        <div id="IdocultarCodigo" class="form-code-sheet ocultarcodigo">
                             <div class="form-floating mb-3 code-size">
                                 <input type="text" class="form-control" id="floatingInputc1" placeholder="name@example.com">
                                 <label for="floatingInputc1">Codigo</label>
@@ -841,7 +834,7 @@
                         </div>
 
                         <div class="btn-radiobutton">
-                            <button type="submit" class="btn btn-primary" id="BtnSendNote">Submit</button>
+                            <button type="submit" class="btn btn-primary" id="BtnSendNote">Guardar</button>
 
 
                             <div class="form-check">

@@ -675,7 +675,7 @@ body {
 
 
 
-/*START INFCUSTOMER4 infomacion de GPS--------------------------------------------------------------------*/
+/*START INFCUSTOMER4 --------------------------------------------------------------------*/
 
 
 #container #infcustomer4 {
@@ -842,6 +842,10 @@ body {
   padding-right: 15px;
   border: #a7a7a7 1px solid;
   border-radius: 10px;
+}
+
+#btnFilterTec{
+  cursor: pointer;
 }
 
 .filtrosarea .operadorbtn {
