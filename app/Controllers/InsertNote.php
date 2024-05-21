@@ -44,13 +44,12 @@ class InsertNote extends BaseController
 
             );
 
-
-        if (($insertModelNote)->insert($dataNote)) {
+            $insertModelNote->insert($dataNote);
+       /* if (($insertModelNote)->insert($dataNote)) {
             return redirect()->to(site_url('/inicio'))->with('success', '¡Registro exitoso! Ahora puedes iniciar sesión.');
         } else {
-            // Hubo un error al insertar en la base de datos, redirigir de nuevo al formulario de registro
             return redirect()->to(site_url('/inicio'))->with('error', 'Hubo un error al procesar el registro. Por favor, inténtalo de nuevo.');
-        }
+        }*/
 
     }
 

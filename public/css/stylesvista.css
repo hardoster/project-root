@@ -350,17 +350,17 @@ body {
 
 
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto 1fr;
-  grid-gap: 10zpx;
-  grid-template-areas: "datavhtitle  datavhtitle  datavhtitle  datavhtitle datavhtitle"
-    "ilustration_vh marcavh     modelovh      colorvh     aniovh";
+  grid-gap: 10px;
+  grid-template-areas: " datavhtitle  datavhtitle  datavhtitle datavhtitle"
+                            " marcavh     modelovh      colorvh     aniovh";
 }
 
 .container2 .datavhtitle {
   grid-area: datavhtitle;
   /*border: #7E69A4 1px solid;*/
-  background: linear-gradient(96deg, rgba(39, 48, 107, 1) 12%, rgba(233, 245, 253, 1) 84%, rgba(255, 255, 255, 1) 96%);
+  background: linear-gradient(96deg, rgb(38, 47, 107) 12%, rgba(233, 245, 253, 1) 84%, rgba(255, 255, 255, 1) 96%);
   background-blend-mode: normal;
   color: #FFFFFF;
   padding: 5px 8px 5px 8px;
@@ -376,9 +376,7 @@ body {
 }
 
 /*---------------------------*/
-.ilustration_vh {
-  grid-area: ilustration_vh;
-}
+
 
 .container2 .marcavh {
   grid-area: marcavh;
@@ -516,11 +514,10 @@ body {
 .container3 .datagpstitle {
   grid-area: datagpstitle;
   background: linear-gradient(96deg,
-      rgba(156, 142, 42, 1) 12%,
-      rgba(249, 250, 236, 1) 84%,
-      rgba(255, 255, 255, 1) 96%);
-
-
+  rgba(39, 48, 107, 1) 12%,
+  rgba(233, 245, 253, 1) 84%,
+  rgba(255, 255, 255, 1) 96%);
+  border: none;
   font-size: 14px;
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
@@ -529,7 +526,6 @@ body {
   padding: 5px 8px 5px 8px;
 
   background-blend-mode: normal;
-  border: #E0E0E0 1px solid;
   padding-left: 10px;
   border-radius: 5px;
   margin-bottom: 10px;
@@ -554,15 +550,16 @@ body {
 }
 
 #idspangps {
+  color: #00000091;
   display: flex;
   justify-content: center;
   margin-top: 5px;
 }
 
 .idgps label {
-  background-color: #d5d96b;
-  color: #FFFFFF;
-  border: #EBEBEB 1px solid;
+
+  color: #6d6d6d;
+  border: 1px solid rgba(39, 48, 107, 0.267);
   text-align: center;
   border-radius: 10px;
 }
@@ -579,15 +576,15 @@ body {
 }
 
 #marcaspangps {
+  color: #00000091;
   display: flex;
   justify-content: center;
   margin-top: 5px;
 }
 
 .marcagps label {
-  background-color: #9c8e2a;
-  color: #FFFFFF;
-  border: #EBEBEB 1px solid;
+  color: #6d6d6d;
+  border: 1px solid rgba(39, 48, 107, 0.267);
   text-align: center;
   border-radius: 10px;
 }
@@ -604,15 +601,15 @@ body {
 }
 
 #seriespangps {
+  color: #00000091;
   display: flex;
   justify-content: center;
   margin-top: 5px;
 }
 
 .seriegps label {
-  background-color: #bdb735;
-  color: #FFFFFF;
-  border: #EBEBEB 1px solid;
+  color: #6d6d6d;
+  border: 1px solid rgba(39, 48, 107, 0.267);
   text-align: center;
   border-radius: 10px;
 }
@@ -629,15 +626,15 @@ body {
 }
 
 #telefonospangps {
+  color: #00000091;
   display: flex;
   justify-content: center;
   margin-top: 5px;
 }
 
 .telefonogps label {
-  background-color: #cccc43;
-  color: #FFFFFF;
-  border: #EBEBEB 1px solid;
+  color: #6d6d6d;
+  border: 1px solid rgba(39, 48, 107, 0.267);
   text-align: center;
   border-radius: 10px;
 }
@@ -656,15 +653,15 @@ body {
 }
 
 #simspangps {
+  color: #00000091;
   display: flex;
   justify-content: center;
   margin-top: 5px;
 }
 
 .simgps label {
-  background-color: #e2e7a1;
-  color: #362912;
-  border: #EBEBEB 1px solid;
+  color: #6d6d6d;
+  border: 1px solid rgba(39, 48, 107, 0.267);
   text-align: center;
   border-radius: 10px;
 }

@@ -33,7 +33,10 @@ $(document).ready(function () {
 
     //para mostrar elemtos recuperados
     $('#tablafontsize tbody').on('click', 'tr', function () {
+        document.querySelector('#txtAreaNotes').value = '000000';
+
         var rowData = table.row(this).data();
+
         document.querySelector('#id_spannameaccount').textContent = rowData[1]; //nombre cliente 
         document.querySelector('#id_spantypecustomer').textContent = rowData[6]; //tipo de cliente
         document.querySelector('#id_spaninfc').textContent = rowData[7]; //notas del contrato
@@ -93,6 +96,7 @@ $(document).ready(function () {
 
                     ]).draw();
                 });
+
             },
             error: function (xhr, status, error) {
                 console.error('Error:', error);
@@ -175,7 +179,8 @@ $(document).ready(function () {
         var rowData2 = table2.row(this).data();
 
         console.log('de la fila', rowData2);
-
+        var SelectRecord = document.querySelector('#SelectRecord').value = rowData2[9];
+        console.log(SelectRecord);
       
 
         $.ajax({

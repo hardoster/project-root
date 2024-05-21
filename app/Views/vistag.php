@@ -185,6 +185,7 @@
                     <span id="id_spaninfc"></span>
                 </div>
 
+                <input type="hidden" name="SelectRecord" id="SelectRecord" value="">
 
 
             </div>
@@ -212,10 +213,7 @@
                     <span id="id_spanPlacaTitle">Datos</span>
                 </div>
 
-                <div class="ilustration_vh">
-                    <img id="il_vh" width="150px" src="../public/img/ilust_auto.png" alt="ilustracion 1">
-
-                </div>
+          
 
                 <div class="marcavh">
                     <label>Marca</label>
@@ -257,10 +255,7 @@
                 <div class="datagpstitle">
                     <span>Datos del GPS</span>
                 </div>
-                <div class="img_gps_seccion">
-                    <img id="il_gps" width="150px" src="../public/img/gps_seccion.png" alt="ilustracion 1">
-
-                </div>
+             
                 <div class="idgps">
                     <label>Identificador</label>
                     <div id="idspangps">
