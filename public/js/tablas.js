@@ -123,7 +123,6 @@ $(document).ready(function () {
     document.querySelector('#dt-search-0').style.borderRadius = '10px';
 
     document.querySelector('#tablafontsize_info').style.fontSize = '14px';
-
     document.querySelector('div.dt-container .dt-input').style.border = 'none';
     document.querySelector('div.dt-container .dt-input').style.fontSize = '14px';
     document.querySelector('#dt-search-0').style.border = '1px solid rgba(100, 100, 100, 0.4)';
@@ -163,7 +162,9 @@ $(document).ready(function () {
         }],
 
         searching: false,
-        paging: true
+        paging: true,
+        pageLength: 3
+
 
 
     }); // Cierra la DataTable
@@ -572,13 +573,17 @@ $(document).ready(function () {
 
 
     const btnFilterTec = document.querySelector('#btnFilterTec');
+    const btnFilterOp  = document.querySelector('#btnOperadorFilter');
+    const btnFilterRe = document.querySelector('#btnFilterReaccion');
+
     btnFilterTec.addEventListener('click', filtrarTecnicos);
-    
+    btnFilterOp.addEventListener('click' , filterOpe);
+    btnFilterRe.addEventListener('click' , filterReact);
   
 
     function filtrarTecnicos(){
        // var temp_id_record = document.querySelector('#temp_id_record').value ;
-console.log(valVehicleSelect)
+        console.log(valVehicleSelect)
         $.ajax({
             type: 'POST',
             url: 'filterT',
@@ -616,6 +621,86 @@ console.log(valVehicleSelect)
             }
         });
     
+    }
+
+    function filterOpe(){
+
+        console.log(valVehicleSelect)
+        $.ajax({
+            type: 'POST',
+            url: 'filterO',
+            data: { valVehicleSelect: valVehicleSelect },
+            dataType: 'json',
+            success: function (response) {
+                console.log('Respuesta del servidor:', response);
+    
+                var dataFO = response.dataFO;
+    
+                var table2 = $('#table2').DataTable();
+                table2.clear().draw();
+    
+                // Agregar las nuevas filas con los datos recibidos
+                $.each(dataFO, function (index, tb2) {
+                    table2.row.add([
+                        tb2.placa,
+                        tb2.cliente_nombre_cuenta,
+                        tb2.gps_identificador,
+                        tb2.disposition_nombre,
+                        tb2.NAMECATDISPOSITION,
+                        tb2.ods_code,
+                        tb2.employee_name,
+                        tb2.dateadd,
+                        tb2.status,
+                        tb2.id_mr_records
+    
+    
+                    ]).draw();
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error('Error:', error);
+            }
+        });
+    }
+
+    function filterReact(){
+
+        console.log(valVehicleSelect)
+        $.ajax({
+            type: 'POST',
+            url: 'filterR',
+            data: { valVehicleSelect: valVehicleSelect },
+            dataType: 'json',
+            success: function (response) {
+                console.log('Respuesta del servidor:', response);
+    
+                var dataRE = response.dataRE;
+    
+                var table2 = $('#table2').DataTable();
+                table2.clear().draw();
+    
+                // Agregar las nuevas filas con los datos recibidos
+                $.each(dataRE, function (index, tb2) {
+                    table2.row.add([
+                        tb2.placa,
+                        tb2.cliente_nombre_cuenta,
+                        tb2.gps_identificador,
+                        tb2.disposition_nombre,
+                        tb2.NAMECATDISPOSITION,
+                        tb2.ods_code,
+                        tb2.employee_name,
+                        tb2.dateadd,
+                        tb2.status,
+                        tb2.id_mr_records
+    
+    
+                    ]).draw();
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error('Error:', error);
+            }
+        });
     }
 
 

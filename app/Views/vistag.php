@@ -387,10 +387,10 @@
                     <span id="btnFilterTec">Tecnicos</span>
                 </div>
                 <div class="operadorbtn">
-                    <span>Operador</span>
+                    <span id="btnOperadorFilter">Operador</span>
                 </div>
                 <div class="reaccionbtn">
-                    <span>Reaccion</span>
+                    <span id="btnFilterReaccion">Reaccion</span>
                 </div>
             </div>
         </div>

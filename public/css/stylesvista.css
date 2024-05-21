@@ -810,6 +810,9 @@ body {
 
 .tablep1 .table0 {
   grid-area: table0;
+  margin-top: -55px;
+
+  
 }
 
 .table0 table {
@@ -855,6 +858,9 @@ body {
   border: #a7a7a7 1px solid;
   border-radius: 10px;
 }
+#btnOperadorFilter{
+  cursor: pointer;
+}
 
 .filtrosarea .reaccionbtn {
   margin-top: 13px;
@@ -862,6 +868,10 @@ body {
   padding-right: 12px;
   border: #a7a7a7 1px solid;
   border-radius: 10px;
+}
+
+#btnFilterReaccion{
+  cursor: pointer;
 }
 
 

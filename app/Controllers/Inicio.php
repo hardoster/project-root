@@ -2,7 +2,6 @@
  
 namespace App\Controllers;
 
-use App\Models\MD_INSERT_NOTE;
 use App\Models\MD_tablappal;
 use App\Models\MD_tablasec;
 use App\Models\MD_categoryDisposition;
@@ -20,7 +19,6 @@ class Inicio extends BaseController
     {
         $this->tb1models = new MD_tablappal();
         $this->tb2models = new MD_tablasec();
-        // $insertModel = new MD_INSERT_NOTE();
     }
 
 

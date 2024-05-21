@@ -11,7 +11,11 @@ $routes->get('/', 'Home::index');
 $routes->get('/inicio', 'Inicio::cargartablappal'); // inicio general
 
 $routes->post('/tablaRegistro', 'Inicio::cargarTb2'); //cargar tb2 con los datos seleccionados de la tb1
+
 $routes->post('/filterT', 'FilterTb2::FilterTec'); //para el boton de filtros 
+$routes->post('/filterO', 'FilterTb2::FilterOp');  //para boton de filtros
+$routes->post('/filterR', 'FilterTb2::FilterReac');  //para boton de filtros
+
 
 $routes->post('/Inicio/AddNotes', 'InsertNote::insert_note'); // guardar nota nueva
 

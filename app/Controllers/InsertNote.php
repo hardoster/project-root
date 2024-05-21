@@ -2,14 +2,14 @@
  
 namespace App\Controllers;
 
-use App\Models\MD_INSERT_NOTE;
-use App\Models\MD_NOTES;
 
+use App\Models\MD_NOTES;
+use App\Models\MD_RECORDS;
 
 class InsertNote extends BaseController
 {   
     public function insert_note(){
-        $insertModel = new MD_INSERT_NOTE();
+        $insertModel = new MD_RECORDS();
         $insertModelNote = new MD_NOTES();
 
         $idmr_disposition = $this->request->getPost('dispositionadd'); //disposicion
