@@ -19,7 +19,7 @@ class MD_RECORDS extends Model
         'id_cliente', 
         'id_gps',
         'id_empleado',
-        'TecCode',
+      'TecCode',
         'status',
       
     ]; 

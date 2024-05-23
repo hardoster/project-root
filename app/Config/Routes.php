@@ -20,6 +20,7 @@ $routes->post('/filterR', 'FilterTb2::FilterReac');  //para boton de filtros
 $routes->post('/Inicio/AddNotes', 'InsertNote::insert_note'); // guardar nota nueva
 
 $routes->post('/UpdateNotes' , 'UpdateNote::UpdateNote'); //actualizar nota
+$routes->post('/UpdateRecord' , 'UpdateRecord::UpdateRecord'); //actualizar registro de nota activo o finalizado
 
 $routes ->post('/RowTb2' , 'Inicio::SelectRowTB2'); //para llamar la nota
 

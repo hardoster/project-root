@@ -16,7 +16,8 @@ class MD_NOTES extends Model
     protected $allowedFields = [
         'id_mr_records',
         'usuario',
-        'mr_note',
+        'mr_note'
+       
   
       
     ]; 

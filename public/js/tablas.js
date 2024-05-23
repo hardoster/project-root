@@ -249,20 +249,24 @@ document.querySelector('#addUpdateNote').addEventListener('click', function () {
     if (flexRadioDefault1.checked == true) {
         temp_ready_send_status = 'Activo';
     } else {
-        temp_ready_send_status = 'Finalizado'
+        temp_ready_send_status = 'Finalizado';
     }
 
-    var url = "UpdateNotes";
+    var url1 = "UpdateNotes";
+    var url2 = "UpdateRecord";
+ 
     var dataUpNote = {
         id_mr_records: temp_ready_send_idrecords,
         usuario: temp_ready_send_user,
         mr_note: temp_ready_send_note,
-        newstatus: temp_ready_send_status
     };
 
+    var responseStatus ={
+        id_mr_records: temp_ready_send_idrecords,
+        status: temp_ready_send_status
+    }
 
-
-    fetch(url, {
+    fetch(url1, {
         method: "POST",
         body: JSON.stringify(dataUpNote),
         headers: {
@@ -272,7 +276,18 @@ document.querySelector('#addUpdateNote').addEventListener('click', function () {
         .then((res) => res.json())
         .catch((error) => console.error("Error", error))
         .then((response) => console.log("Success:", response));
-});
+
+    fetch(url2, {
+        method: "POST",
+        body: JSON.stringify(responseStatus),
+        headers:{
+            "Content-Type": "application/json",
+        },
+    })
+    .then((res) => res.json())
+    .catch((error) => console.error("Error", error))
+    .then((response) => console.log("Success:", response));
+    });
 
 
 
