@@ -83,7 +83,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   position: relative;
   z-index: 1;
@@ -366,7 +366,6 @@ body {
   padding: 5px 8px 5px 8px;
   border-radius: 5px;
 
-
   font-size: 14px;
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
@@ -374,6 +373,12 @@ body {
 
 
 }
+
+.datagpstitle{
+  height: 2rem ;
+
+}
+
 
 /*---------------------------*/
 
@@ -484,10 +489,6 @@ body {
 /*END INFCUSTOMER2 infomacion de vehiculos--------------------------------------------------------------------*/
 
 
-
-
-
-
 /*START INFCUSTOMER3 infomacion de GPS--------------------------------------------------------------------*/
 
 #container .infcustomer3 {
@@ -500,15 +501,13 @@ body {
   padding: 15px;
   background-color: #FFFFFF;
 
-
-
   display: grid;
-  grid-template-columns: repeat(6, auto);
-  grid-template-rows: auto auto auto;
-  grid-gap: 10px;
-  grid-template-areas: "datagpstitle       datagpstitle  datagpstitle  datagpstitle  datagpstitle  datagpstitle"
-    "img_gps_seccion   marcagps        marcagps      seriegps      telefonogps   telefonogps"
-    "img_gps_seccion   idgps        idgps       simgps     simgps   simgps";
+  grid-template-columns: repeat(5, auto);
+  grid-template-rows: auto auto  ;
+  grid-gap: 0px;
+  grid-template-areas: "              datagpstitle  datagpstitle  datagpstitle   datagpstitle   datagpstitle"
+                
+                        "              seriegps      simgps   simgps     idgps          telefonogps   " ;
 }
 
 .container3 .datagpstitle {
@@ -531,12 +530,12 @@ body {
   margin-bottom: 10px;
 }
 
-/*----------------------------------*/
-.img_gps_seccion {
-  grid-area: img_gps_seccion;
-  display: flex;
-  justify-content: center;
+.linehr{
+  margin: 10px;
 }
+
+/*----------------------------------*/
+
 
 .container3 .idgps {
   grid-area: idgps;
@@ -559,34 +558,7 @@ body {
 .idgps label {
 
   color: #6d6d6d;
-  border: 1px solid rgba(39, 48, 107, 0.267);
   text-align: center;
-  border-radius: 10px;
-}
-
-/*----------------------------------*/
-.container3 .marcagps {
-  grid-area: marcagps;
-
-  display: flex;
-  width: 125px;
-  flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#marcaspangps {
-  color: #00000091;
-  display: flex;
-  justify-content: center;
-  margin-top: 5px;
-}
-
-.marcagps label {
-  color: #6d6d6d;
-  border: 1px solid rgba(39, 48, 107, 0.267);
-  text-align: center;
-  border-radius: 10px;
 }
 
 /*------------------------------------*/
@@ -609,9 +581,8 @@ body {
 
 .seriegps label {
   color: #6d6d6d;
-  border: 1px solid rgba(39, 48, 107, 0.267);
   text-align: center;
-  border-radius: 10px;
+
 }
 
 /*------------------------------------*/
@@ -634,9 +605,7 @@ body {
 
 .telefonogps label {
   color: #6d6d6d;
-  border: 1px solid rgba(39, 48, 107, 0.267);
   text-align: center;
-  border-radius: 10px;
 }
 
 /*------------------------------------------*/
@@ -645,10 +614,7 @@ body {
   grid-area: simgps;
 
   display: flex;
-  width: 125px;
   flex-direction: column;
-
-  margin-left: 23px;
   margin-right: 0;
 }
 
@@ -661,9 +627,8 @@ body {
 
 .simgps label {
   color: #6d6d6d;
-  border: 1px solid rgba(39, 48, 107, 0.267);
   text-align: center;
-  border-radius: 10px;
+
 }
 
 

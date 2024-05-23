@@ -253,24 +253,21 @@
             <div class="container3">
 
                 <div class="datagpstitle">
-                    <span>Datos del GPS</span>
+                    <span id="marcagps"></span>
                 </div>
              
                 <div class="idgps">
                     <label>Identificador</label>
+                    <hr class="linehr">
                     <div id="idspangps">
                         <span id="id_spannidgps"></span>
                     </div>
                 </div>
-                <div class="marcagps">
-                    <label>Marca</label>
-                    <div id="marcaspangps">
-                        <span id="id_marcagpsspann"></span>
-                    </div>
-                </div>
+             
 
                 <div class="seriegps">
                     <label>Serie</label>
+                    <hr class="linehr">
                     <div id="seriespangps">
                         <span id="id_seriegpsspann"></span>
                     </div>
@@ -278,6 +275,7 @@
 
                 <div class="telefonogps">
                     <label>Telefono GPS</label>
+                    <hr class="linehr">
                     <div id="telefonospangps">
                         <span id="id_telefonogpsspann"></span>
                     </div>
@@ -285,10 +283,13 @@
 
                 <div class="simgps">
                     <label>SIM</label>
+                    <hr class="linehr">
                     <div id="simspangps">
                         <span id="id_simgpsspann"></span>
                     </div>
                 </div>
+
+             
             </div>
         </div>
 

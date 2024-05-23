@@ -31,9 +31,17 @@ $(document).ready(function () {
 
     }); // Cierra la DataTable
 
+
+    //para limpiar text area de notas al seleccionar nuevo registro---------------------------------------------------------------
+    $('#tablafontsize tbody').on('click', 'tr', cleanTxtArea);
+
+    function cleanTxtArea(){
+        document.querySelector('#txtAreaNotes').value = ' ';
+    }
+   // ----------------------------------------------------------------------------------------------------------------------------
     //para mostrar elemtos recuperados
+
     $('#tablafontsize tbody').on('click', 'tr', function () {
-        document.querySelector('#txtAreaNotes').value = '000000';
 
         var rowData = table.row(this).data();
 
@@ -47,7 +55,7 @@ $(document).ready(function () {
         document.querySelector('#id_colorvhspann').textContent = rowData[11];
         document.querySelector('#id_aniospann').textContent = rowData[12];
         document.querySelector('#id_spannidgps').textContent = rowData[0];
-        document.querySelector('#id_marcagpsspann').textContent = rowData[13];
+        document.querySelector('#marcagps').textContent = 'Datos de GPS: '  + rowData[13];
         document.querySelector('#id_seriegpsspann').textContent = rowData[14];
         document.querySelector('#id_telefonogpsspann').textContent = rowData[15];
         document.querySelector('#id_simgpsspann').textContent = rowData[16];
@@ -176,6 +184,7 @@ $(document).ready(function () {
 
 
     $('#table2 tbody').on('click', 'tr', function () {
+
         var rowData2 = table2.row(this).data();
 
         console.log('de la fila', rowData2);
@@ -204,7 +213,7 @@ $(document).ready(function () {
                     contador1 = contador1 + contador;
                 });
 
-                document.querySelector('#txtAreaNotes').textContent = contador1;
+                document.querySelector('#txtAreaNotes').value = contador1;
 
 
             },
@@ -232,15 +241,26 @@ $(document).ready(function () {
 
 
 document.querySelector('#addUpdateNote').addEventListener('click', function () {
-    var temp_ready_send_idrecords = document.querySelector('#temp_id_record').value // variable lista para enviar y guardar mis datos
+    var temp_ready_send_idrecords = document.querySelector('#SelectRecord').value //document.querySelector('#temp_id_record').value // variable lista para enviar y guardar mis datos
     var temp_ready_send_note = document.querySelector('#txtEditSpanNotes').value
     var temp_ready_send_user = document.querySelector('#inputUser').value
+    var temp_ready_send_status;
+
+    if (flexRadioDefault1.checked == true) {
+        temp_ready_send_status = 'Activo';
+    } else {
+        temp_ready_send_status = 'Finalizado'
+    }
+
     var url = "UpdateNotes";
     var dataUpNote = {
         id_mr_records: temp_ready_send_idrecords,
         usuario: temp_ready_send_user,
-        mr_note: temp_ready_send_note
+        mr_note: temp_ready_send_note,
+        newstatus: temp_ready_send_status
     };
+
+
 
     fetch(url, {
         method: "POST",
@@ -251,7 +271,7 @@ document.querySelector('#addUpdateNote').addEventListener('click', function () {
     })
         .then((res) => res.json())
         .catch((error) => console.error("Error", error))
-        .then((response) => console.log("Success:", response), ReloadNote());
+        .then((response) => console.log("Success:", response));
 });
 
 
@@ -309,6 +329,15 @@ function mostrarInfo(numero) {
             infcustomer3.classList.add('slide-in-right'); // Aplicar la animación a infcustomer3
             break;
         default:
+
+ infcustomer1.style.display = 'grid';
+            infcustomer2.style.display = 'none';
+            infcustomer3.style.display = 'none';
+            iconcliente.style.opacity = '1';
+            iconcar.style.opacity = '0.5';
+            icongps.style.opacity = '0.5';
+            infcustomer1.classList.add('slide-in-right'); // Aplicar la animación a infcustomer1
+
             break;
     }
 }
