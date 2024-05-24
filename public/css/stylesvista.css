@@ -9,14 +9,14 @@ body {
 
 /*START CONTAINTER MAIN*/
 #container {
+  position: fixed;
   font-family: "Quicksand", sans-serif; 
   font-optical-sizing: auto; 
- 
-
   height: 85vh !important;
- 
   display: grid;
-  margin: 25px !important;
+  margin-left: 25px !important;
+  margin-right: 25px !important;
+  padding-top: 85px;
   grid-template-columns: 1.5fr 2fr 100px;
   /* 2 fracciones de columnas*/
   grid-template-rows: repeat(3 auto);

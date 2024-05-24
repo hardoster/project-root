@@ -241,12 +241,14 @@ $(document).ready(function () {
 
 
 document.querySelector('#addUpdateNote').addEventListener('click', function () {
-    var temp_ready_send_idrecords = document.querySelector('#SelectRecord').value //document.querySelector('#temp_id_record').value // variable lista para enviar y guardar mis datos
+    const temp_ready_send_idrecords = document.querySelector('#SelectRecord').value //document.querySelector('#temp_id_record').value // variable lista para enviar y guardar mis datos
     var temp_ready_send_note = document.querySelector('#txtEditSpanNotes').value
     var temp_ready_send_user = document.querySelector('#inputUser').value
-    var temp_ready_send_status;
+    let temp_ready_send_status;
 
-    if (flexRadioDefault1.checked == true) {
+    const flexRadioDefault1 = document.querySelector('#flexRadioDefault1');
+
+    if (flexRadioDefault1 && flexRadioDefault1.checked) {
         temp_ready_send_status = 'Activo';
     } else {
         temp_ready_send_status = 'Finalizado';
@@ -261,10 +263,10 @@ document.querySelector('#addUpdateNote').addEventListener('click', function () {
         mr_note: temp_ready_send_note,
     };
 
-    var responseStatus ={
+    const responseStatus = {
         id_mr_records: temp_ready_send_idrecords,
         status: temp_ready_send_status
-    }
+    };
 
     fetch(url1, {
         method: "POST",
@@ -285,8 +287,8 @@ document.querySelector('#addUpdateNote').addEventListener('click', function () {
         },
     })
     .then((res) => res.json())
-    .catch((error) => console.error("Error", error))
-    .then((response) => console.log("Success:", response));
+    .then((response) => console.log("Success:", response))
+    .catch((error) => console.error("Error:", error));
     });
 
 
@@ -387,6 +389,9 @@ $(document).ready(function () {
     document.querySelector('#BtnSendNote').disabled = true;
 
     document.querySelector('#addUpdateNote').style.display = 'none';
+
+    document.querySelector('#txtAreaNotes').disabled = true;
+
 
 
 
