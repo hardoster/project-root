@@ -29,6 +29,8 @@
 </header>
 
 <body>
+<div id="fakeLoader"></div>
+
 
     <?php 
     
@@ -860,6 +862,8 @@
         </div>
 
 
+        <!--ALERTAS-->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!--JQUERY-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>

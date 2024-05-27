@@ -37,6 +37,9 @@ $(document).ready(function () {
 
     function cleanTxtArea(){
         document.querySelector('#txtAreaNotes').value = ' ';
+        document.querySelector('#txtEditSpanNotes').value = ' ';
+        
+        document.querySelector('#addUpdateNote').style.display = 'none'
     }
    // ----------------------------------------------------------------------------------------------------------------------------
     //para mostrar elemtos recuperados
@@ -71,6 +74,11 @@ $(document).ready(function () {
         document.querySelector('#idgpsspann').textContent = rowData[19];
         valgpsSelect = document.querySelector('#idgpsspann').innerHTML;
         console.log(valgpsSelect)
+
+        document.querySelector('#table2').style = 'width: 100%';
+        document.getElementById('btnclienteinf').style.opacity = '1';
+
+
 
 
         $.ajax({
@@ -116,6 +124,7 @@ $(document).ready(function () {
 
 
         //activar contenedores de informacion
+        document.querySelector('.container1').style.display = 'grid';
         document.querySelector('.infcustomer1').style.display = 'grid';
         document.querySelector('.iconsinf').style.display = 'grid';
         document.querySelector('#infcustomer4').style.display = 'grid';
@@ -233,7 +242,12 @@ $(document).ready(function () {
             document.querySelector('#addUpdateNote').style.display = 'none';
         }
 
+          // Remover la clase 'selectedRecordTb2' de todas las filas
+          $('#table2 tbody tr').removeClass('selectedRecordTb2');
 
+          // Añadir la clase 'selectedRecordTb2' a la fila actualmente seleccionada
+          $(this).addClass('selectedRecordTb2');
+    
     });
 
 
@@ -279,16 +293,39 @@ document.querySelector('#addUpdateNote').addEventListener('click', function () {
         .catch((error) => console.error("Error", error))
         .then((response) => console.log("Success:", response));
 
-    fetch(url2, {
-        method: "POST",
-        body: JSON.stringify(responseStatus),
-        headers:{
-            "Content-Type": "application/json",
-        },
-    })
-    .then((res) => res.json())
-    .then((response) => console.log("Success:", response))
-    .catch((error) => console.error("Error:", error));
+        fetch(url2, {
+            method: "POST",
+            body: JSON.stringify(responseStatus),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+        .then((res) => res.json())
+        .then((response) => {
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Registro guardado correctamente",
+                showConfirmButton: false,
+                timer: 4500
+            });
+        })
+        .catch((error) => 
+        
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "algo no salio como se esperaba!",
+                footer: error
+              })
+        
+        );
+        
+
+   
+
+    document.querySelector('#txtEditSpanNotes').value = ' ';
+    location.reload();
     });
 
 
@@ -547,6 +584,7 @@ function keyupValuesTextArea() {
 
 document.querySelector('#BtnSendNote').addEventListener('click', function (event) {
 
+
     codetecnico = document.querySelector('#floatingInputc1').value + '/' + document.querySelector('#floatingInputh1').value
     console.log(codetecnico);
 
@@ -614,7 +652,21 @@ document.querySelector('#BtnSendNote').addEventListener('click', function (event
         type: 'hidden',
         name: 'statusNoteadd',
         value: statusNote
+
     }).appendTo('#FormAddNoteppal');
+
+    const placacar = document.querySelector('#id_spanPlacaTitle').textContent;
+        Swal.fire({
+      position: "top-end",
+      icon: "success",
+      
+      title: "Registro guardado correctamente " + '\n' + placacar,
+      showConfirmButton: false,
+      timer: 4500
+    });
+    
+    document.querySelector('#txtEditSpanNotes').value = ' ';
+
 
 });
 
@@ -759,6 +811,32 @@ $(document).ready(function () {
 
 
 });
+
+//for Btn_NewData show FormNotesAdd-------------------------------------------------------------------------------------------------------
+document.querySelector('#Btn_NewData').addEventListener('click', function(){
+    document.querySelector('#FormNotesAdd').style.display = 'grid';
+});
+
+
+//for show div info vehiculos---------------------------------------------------------------------------------------------------------------
+
+ document.getElementById('btnvehiculosinf').addEventListener('click', function(){
+
+    document.querySelector('.container2').style.display = 'grid'; 
+
+ });
+
+//for show div info gps information----------------------------------------------------------------------------------------------------------
+
+
+document.getElementById('btngpsinf').addEventListener('click', function(){
+
+    document.querySelector('.container3').style.display = 'grid'; 
+
+ });
+
+
+
 
 
 

@@ -44,7 +44,7 @@ class InsertNote extends BaseController
 
             );
 
-            $insertModelNote->insert($dataNote);
+        
         if (($insertModelNote)->insert($dataNote)) {
             return redirect()->to(site_url('/inicio'))->with('success', '¡Registro exitoso! Ahora puedes iniciar sesión.');
         } else {

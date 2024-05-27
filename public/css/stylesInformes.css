@@ -1,0 +1,16 @@
+body{
+    margin:0;
+    padding: 0;
+}
+
+
+#container{
+    position: fixed;
+    font-family: "Quicksand", sans-serif; 
+    font-optical-sizing: auto; 
+    height: 85vh !important;
+    margin-left: 25px !important;
+    margin-right: 25px !important;
+    padding-top: 85px;
+
+}
