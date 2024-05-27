@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 
     <!--CSS MAIN-->
-    <link rel="stylesheet" href="../public/css/stylesvista.css">
+    <link rel="stylesheet" href="../public/css/stylesInformes.css">
     <!--CSS NAVBAR-->
     <link rel="stylesheet" href="../public/css/navbarppal.css">
     <!--AWESOME PARA ICONOS-->
@@ -27,6 +27,50 @@
     <?php require_once('layoutnavbar.php') ?>
 </header>
 <body>
+
+<div id="container">
+
+    <div class="ReportPreviewContainer">
+    <p>lsasda</p>
+    </div>
+
+
+
+    <div class="ReportOptionsContainer">
+
+<p>sdasda</p>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!--ALERTAS-->
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!--JQUERY-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+        <!--JS MAIN LOCAL-->
+        <script src="../public/js/tablas.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <!--DATATABLE JS-->
+        <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+
 
 </body>
 </html>
