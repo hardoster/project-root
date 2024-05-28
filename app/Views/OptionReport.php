@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-
+    <script src="https://kit.fontawesome.com/abdd954b71.js" crossorigin="anonymous"></script>
     <!--CSS MAIN-->
     <link rel="stylesheet" href="../public/css/stylesOptionReport.css">
     <!--CSS NAVBAR-->
@@ -31,9 +31,50 @@
 <div id="container">
 
     <div class="ReportPreviewContainer">
+
             <div class="bannerPreview">
-            <img id="BannerPal" src="../public/img/LoadingReport.svg" alt="Descripción de la imagen">
-            <span class="txtbaner">Aqui se mostrara tu reporte!</span>
+                <img id="BannerPal" src="../public/img/SelectionReportType.svg" alt="Descripción de la imagen">
+            </div>
+
+            <div class="titleBanner">
+                <div class="titleB">
+                <span class="titlebannerSpan">Reportes</span>
+                <span class="subtitlebannerSpan">Selecciona el tipo de reporte</span>
+            </div>
+
+            <div class="RpActivaciones  shadowBoxOptios">
+                <i class="fa-solid fa-land-mine-on BoxIconSize"></i>
+                <span class="titleBoxMenu">Activaciones</span>
+                <span class="subtitleBoxMenu">Reporte de eventos</span>    
+            </div>
+
+            <a class="titleBoxMenu" style="text-decoration: none;" href="<?php echo site_url('/TecReport'); ?>">
+            <div class="RpTecnicos  shadowBoxOptios">
+                <i class="fa-solid fa-screwdriver-wrench BoxIconSize"></i>
+                <span class="titleBoxMenu">Trabajos</span>
+                <span class="subtitleBoxMenu">Trabajos realizados</span>    
+            </div>
+            </a>
+            
+            <div class="RpOperador  shadowBoxOptios">
+                <i class="fa-solid fa-user-tie BoxIconSize"></i>
+                <span class="titleBoxMenu">Administrativo</span>
+                <span class="subtitleBoxMenu">Seguimientos</span>    
+            </div>
+
+            <div class="RpReaccion  shadowBoxOptios">
+                <i class="fa-solid fa-shield BoxIconSize"></i>
+                <span class="titleBoxMenu">Eventos</span>
+                <span class="subtitleBoxMenu">Eventos confirmados</span>    
+            </div>
+
+            <div class="RpTodos  shadowBoxOptios">
+                <i class="fa-solid fa-file-lines BoxIconSize"></i>
+                <span class="titleBoxMenu">Todos</span>
+                <span class="subtitleBoxMenu">Todos los registros</span>        
+            </div>
+      
+            </div>
     </div>
 
 </div>

@@ -10,7 +10,7 @@ $routes->get('/', 'Home::index');
 
 $routes->get('/inicio', 'Inicio::cargartablappal'); // inicio general
 $routes->get('/optionReport', 'OptionReport::ViewOptionReport'); // vista opciones de reporte
-$routes->get('/informes', 'informesController::informesfn'); //en desuso
+$routes->get('/TecReport', 'TecReport::TecReportView'); //en desuso
 
 
 

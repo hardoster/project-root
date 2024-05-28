@@ -464,6 +464,7 @@ document.querySelector('.newnotebtn').addEventListener('click', function () {
 
 document.querySelector('#svgClose').addEventListener('click', function () {
     POPUPNOTE.style.display = 'none'
+    document.querySelector('.nav-bar').style.zIndex = 1;
 });
 
 
@@ -815,6 +816,7 @@ $(document).ready(function () {
 //for Btn_NewData show FormNotesAdd-------------------------------------------------------------------------------------------------------
 document.querySelector('#Btn_NewData').addEventListener('click', function(){
     document.querySelector('#FormNotesAdd').style.display = 'grid';
+    document.querySelector('.nav-bar').style.zIndex = 0;
 });
 
 

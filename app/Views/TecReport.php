@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 
     <!--CSS MAIN-->
-    <link rel="stylesheet" href="../public/css/stylesInformes.css">
+    <link rel="stylesheet" href="../public/css/stylesTecReport.css">
     <!--CSS NAVBAR-->
     <link rel="stylesheet" href="../public/css/navbarppal.css">
     <!--AWESOME PARA ICONOS-->
@@ -41,30 +41,48 @@
      
 
     <div class="ReportOptionsContainer">
-    <span class="OptionTitle">Opciones de reporte</span>
+
+        <div class="titleReportOptionsContainer">
+        <span class="OptionTitle">Opciones de reporte</span>
+        <span class="OptionSubTitle">Ajuste su reporte segun sus necesidades</span>
+        </div>
+
+        <div class="ReportForm">
+
         <form action="reporte.php" method="POST">
 
-        <label for="">Tipo de reporte</label>
-        <select name="tipoReporte" id="tiporeporte">
+        <label for="">Tipo de busqueda</label>
+        <select name="tipoBusqueda" id="tipoBusqueda" class="form-select" aria-label="Default select example">
+        <option value="1">Buscar por cliente</option>
+        <option value="2">Buscar por placa</option>
+        </select>
+
+
+        <label for="" style="margin-top: 20px;">Tipo de reporte</label>
+        <select name="tipoReporte" id="tiporeporte" class="form-select" aria-label="Default select example">
         <option value="1">Trabajos realizados</option>
         <option value="2">Segimientos Administrativos</option>
         <option value="3">Eventos confirmados</option>
         <option value="4">Activaciones</option>
         <option value="5">Todos los registros</option>
-        <input type="text" name="Placa" id="Placa"></input>
-
-        <label for="">trabajo</label>
-
-        <select name="trabajo" id="trabajo">
-        <option value="1">Tecnicos</option>
-        <option value="2">Operador</option>
-        <option value="3">Reaccion</option>
-
         </select>
 
-        <button type="submit">Generar Reporte</button>
+        <label for="Placa" style="margin-top: 20px;">Numero de placa</label>
+        <input type="text" name="Placa" id="Placa" class="form-control"></input>
+
+        <label for="Placa" style="margin-top: 20px;">Desde</label>
+        <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+        <br>
+        <label for="Placa" style="margin-top: 20px;">Hasta</label>
+        <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+
+
+        <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Generar</button>
+        <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Descargar</button>
 
         </form>
+        </div>
+        
     </div>
 
 

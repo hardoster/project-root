@@ -12,11 +12,11 @@ body{
     position: fixed;
     font-family: "Quicksand", sans-serif; 
     font-optical-sizing: auto; 
-    height: 85vh !important;
-    margin-left: 25px !important;
-    margin-right: 25px !important;
+    height: 97vh;
+    width: 97vw; 
+    margin-left: 25px;
+    margin-right: 25px;
     padding-top: 85px;
-
 }
     
 
@@ -37,15 +37,42 @@ body{
 
 .ReportOptionsContainer{
     grid-area: ReportOptionsContainer;
-    padding: 10px;
+    padding: 20px;
     display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 1.6fr;
+    grid-template-areas: "titleReportOptionsContainer"
+                        "ReportForm";
     width: 40vh;
     height: 85vh;
     box-shadow: 0px 0px 13px 8px rgba(0,0,0,0.1);
     border-radius: 12px;
 
+
 }
 /*-----------------------------------------------------------------------*/
+/*div titulo option report-----------------------------------------------*/
+.titleReportOptionsContainer{
+display: flex;
+align-items: center;
+justify-content: flex-start;
+flex-direction: column;
+padding-top: 15px;
+height: 10%;
+}
+
+.OptionSubTitle{
+    margin-top: 4px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    font-size: 14px;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    color: rgb(107, 107, 107);
+}
+
 /*imagen---------------------------------------------------------------*/
 #BannerPal{
     width: 60vh;
@@ -66,4 +93,9 @@ body{
 }
 
 /*----------------------------------------------------------------------*/
-
+.ReportForm{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    
+}

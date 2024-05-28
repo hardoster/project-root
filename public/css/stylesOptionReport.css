@@ -9,7 +9,7 @@ body{
     position: fixed;
     font-family: "Quicksand", sans-serif;
     font-optical-sizing: auto;
-    height: 85vh;
+    height: 97vh;
     width: 97vw; 
     margin-left: 25px;
     margin-right: 25px;
@@ -18,7 +18,7 @@ body{
 }
 
 .ReportPreviewContainer {
-    display: flex;
+    display: grid;
     height: 100%; 
     width: 100%;
     padding: 10px;
@@ -26,6 +26,94 @@ body{
     margin-right: 12px;
     margin-left: 12px;
     border-radius: 12px;
+    
+    grid-template-columns: 1.5fr 0.5fr;
+    grid-template-rows: auto;
+    grid-template-areas: "bannerPreview   titleBanner";
+    grid-gap: 10px;
+}
+
+.bannerPreview{
+    display: grid;
+    grid-area: bannerPreview;
+    align-items: center;
     justify-content: center;
-  
+}
+
+.titleBanner{
+    display: grid;
+    background-color: rgb(248, 248, 248);
+    grid-area: titleBanner;
+    box-shadow: -4px 0px 19px 0px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    padding: 20px;
+ 
+    align-items: center;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:    "titleB         titleB"
+                            "RpActivaciones RpTecnicos"
+                            "RpOperador     RpReaccion"
+                            "RpTodos        RpRegresar";
+
+}
+
+
+#BannerPal{
+    width: 100%;
+    height: 100%;
+}
+
+.titlebannerSpan{
+    font-size: 25px;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    color: rgb(107, 107, 107);
+}
+.subtitlebannerSpan{
+    font-size: 14px;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    color: rgb(107, 107, 107);
+}
+
+.titleBoxMenu{
+    font-size: 16px;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    color: rgb(107, 107, 107);
+}
+.shadowBoxOptios{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20vh;
+    height: 20vh;
+    box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.1);
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.shadowBoxOptios:hover{
+    box-shadow: 0px 0px 13px 0px rgba(41, 21, 223, 0.288);
+    border-radius: 16px;
+
+}
+
+.BoxIconSize{
+    font-size: 35px;
+    color: rgb(107, 107, 107);
+}
+
+.subtitleBoxMenu{
+    font-size: 12px;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    color: rgb(107, 107, 107);
 }
