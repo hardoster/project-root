@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 
     <!--CSS MAIN-->
-    <link rel="stylesheet" href="../public/css/stylesInformes.css">
+    <link rel="stylesheet" href="../public/css/stylesOptionReport.css">
     <!--CSS NAVBAR-->
     <link rel="stylesheet" href="../public/css/navbarppal.css">
     <!--AWESOME PARA ICONOS-->
@@ -31,42 +31,12 @@
 <div id="container">
 
     <div class="ReportPreviewContainer">
-    <div class="bannerPreview">
-    <img id="BannerPal" src="../public/img/LoadingReport.svg" alt="Descripción de la imagen">
-    <span class="txtbaner">Aqui se mostrara tu reporte!</span>
+            <div class="bannerPreview">
+            <img id="BannerPal" src="../public/img/LoadingReport.svg" alt="Descripción de la imagen">
+            <span class="txtbaner">Aqui se mostrara tu reporte!</span>
     </div>
 
 </div>
-
-     
-
-    <div class="ReportOptionsContainer">
-    <span class="OptionTitle">Opciones de reporte</span>
-        <form action="reporte.php" method="POST">
-
-        <label for="">Tipo de reporte</label>
-        <select name="tipoReporte" id="tiporeporte">
-        <option value="1">Trabajos realizados</option>
-        <option value="2">Segimientos Administrativos</option>
-        <option value="3">Eventos confirmados</option>
-        <option value="4">Activaciones</option>
-        <option value="5">Todos los registros</option>
-        <input type="text" name="Placa" id="Placa"></input>
-
-        <label for="">trabajo</label>
-
-        <select name="trabajo" id="trabajo">
-        <option value="1">Tecnicos</option>
-        <option value="2">Operador</option>
-        <option value="3">Reaccion</option>
-
-        </select>
-
-        <button type="submit">Generar Reporte</button>
-
-        </form>
-    </div>
-
 
 </div>
 

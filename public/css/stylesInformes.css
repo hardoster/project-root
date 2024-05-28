@@ -2,8 +2,8 @@ body{
     margin:0;
     padding: 0;
 }
-
-
+ 
+/*Contenedopr principal*/
 #container{
     display: grid;
     grid-template-columns: 1.80fr 0.2fr;
@@ -21,7 +21,7 @@ body{
     
 
 
-
+/*contenedores 2 padres----------------------------------------------*/
 .ReportPreviewContainer{
     grid-area: ReportPreviewContainer;
     display: grid;
@@ -31,6 +31,8 @@ body{
     box-shadow: 0px 0px 13px 8px rgba(0,0,0,0.1);
     margin-right: 12px ;
     border-radius: 12px;
+    justify-content: center;
+
 }
 
 .ReportOptionsContainer{
@@ -43,9 +45,25 @@ body{
     border-radius: 12px;
 
 }
-
+/*-----------------------------------------------------------------------*/
+/*imagen---------------------------------------------------------------*/
 #BannerPal{
-    width: 300px;
-
-
+    width: 60vh;
 }
+/*------------------------------------------------------------------------*/
+
+/*contenedor de banner --------------------------------------------------*/
+.bannerPreview{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.bannerPreview .txtbaner{
+    margin-top: 20px;
+    font-size: 19px;
+    color: rgb(83, 83, 83);
+}
+
+/*----------------------------------------------------------------------*/
+
