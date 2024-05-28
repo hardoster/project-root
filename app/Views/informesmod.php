@@ -31,14 +31,31 @@
 <div id="container">
 
     <div class="ReportPreviewContainer">
-    <p>lsasda</p>
-    </div>
+    <img id="BannerPal" src="../../public/img/LoadingReport.svg" alt="Descripción de la imagen">
 
+</div>
 
+     
 
     <div class="ReportOptionsContainer">
+    <span class="OptionTitle">Opciones de reporte</span>
+        <form action="reporte.php" method="POST">
 
-<p>sdasda</p>
+        <label for="">Placa</label>
+        <input type="text" name="Placa" id="Placa"></input>
+
+        <label for="">trabajo</label>
+
+        <select name="trabajo" id="trabajo">
+        <option value="1">Tecnicos</option>
+        <option value="2">Operador</option>
+        <option value="3">Reaccion</option>
+
+        </select>
+
+        <button type="submit">Generar Reporte</button>
+
+        </form>
     </div>
 
 
