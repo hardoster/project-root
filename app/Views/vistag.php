@@ -89,7 +89,7 @@
                                 <!--3-->
                                 <td><?= $car['fecha_gps_malo'] ?></td>
                                 <!--4-->
-                                <td><?= $car['estado'] ?></td>
+                                <td><?php if($car['estado'] == 1){echo 'Activo';}else{echo 'Inactivo';}  ?></td>
                                 <!--5-->
                                 <td>
                   
@@ -326,7 +326,7 @@
                     <input type="hidden" name="idregister" id="temp_id_record" value= "0">
                     <!--almacenara temporalmente el id del registro a mostrar para luego insertarlo-->
                     
-                    <span class="spannButtonGeneralSUB" id="addUpdateNote">Agregar</span>
+                    <button class="spannButtonGeneralSUB" id="addUpdateNote">Agregar</button>
                 </div>
                 <div class="ContainerControlBtn newnotebtn">
                     <span id="Btn_NewData" class="spannButtonGeneralSUB">nuevo</span>

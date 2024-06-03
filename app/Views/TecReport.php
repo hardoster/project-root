@@ -19,7 +19,7 @@
     <!--DATA TABLE DE JQUERY-->
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />
 
-
+ 
     <title>Document</title>
 </head>
 
@@ -37,9 +37,6 @@
     </div>
 
 </div>
-
-     
-
     <div class="ReportOptionsContainer">
 
         <div class="titleReportOptionsContainer">
@@ -66,15 +63,20 @@
         <option value="4">Activaciones</option>
         <option value="5">Todos los registros</option>
         </select>
-
-        <label for="Placa" style="margin-top: 20px;">Numero de placa</label>
-        <input type="text" name="Placa" id="Placa" class="form-control"></input>
+        <div id="placaInput">
+        <label for="" style="margin-top: 20px;">Numero de placa</label>
+        <input type="text" name="Placa" id="Placa"></input>
+        </div>
+        <div id="CuentaInput">
+        <label for="cuenta" style="margin-top: 20px;">Nombre de la cuenta</label>
+        <input type="text" name="cuenta" id="cuenta"></input>
+        </div>
 
         <label for="Placa" style="margin-top: 20px;">Desde</label>
-        <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+        <input type="date" id="start" name="trip-start" value="2024-03-26" min="2020-01-01" max="2025-12-31" />
         <br>
         <label for="Placa" style="margin-top: 20px;">Hasta</label>
-        <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+        <input type="date" id="start" name="trip-start" value="2024-03-26" min="2020-01-01" max="2025-12-31" />
 
 
         <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Generar</button>
@@ -88,22 +90,6 @@
 
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  <!--ALERTAS-->
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!--JQUERY-->
@@ -111,9 +97,13 @@
         <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
         <!--JS MAIN LOCAL-->
         <script src="../public/js/tablas.js"></script>
+        <script src="../public/js/reports.js"></script>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <!--DATATABLE JS-->
         <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+        <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+
 
 
 </body>

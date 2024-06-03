@@ -23,7 +23,7 @@ $(document).ready(function () {
         }, //para agregar otra propiedad a la datatable
 
         columnDefs: [{
-            targets: [4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], //  indice a ocultar de la comulma
+            targets: [ 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], //  indice a ocultar de la comulma
             visible: false // ocultar columna
         }]
 
@@ -155,6 +155,9 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
+
+    keyupValuesTextArea2();
+
     var table2 = $('#table2').DataTable({
         language: {
             "decimal": "",
@@ -191,7 +194,24 @@ $(document).ready(function () {
     }); // Cierra la DataTable
 
 
-
+    
+    function keyupValuesTextArea2() {
+        var textarea = document.querySelector('#txtEditSpanNotes');
+        var btnUpdateN = document.querySelector('#addUpdateNote');
+    
+        textarea.addEventListener('keyup', function () {
+            var textLength = this.value.length;
+    
+            if (textLength > 5) {
+                btnUpdateN.disabled = false;
+            } else {
+                btnUpdateN.disabled = true;
+            }
+        });
+    }
+    
+  
+    
     $('#table2 tbody').on('click', 'tr', function () {
 
         var rowData2 = table2.row(this).data();
@@ -218,7 +238,7 @@ $(document).ready(function () {
                     var mr_note = nota.mr_note;
                     var usuario = nota.usuario;
 
-                    var contador = date_add + ' ' + usuario + ' ' + mr_note + '\n' + '\n';
+                    var contador = date_add + ' | ' + usuario + ' | ' + mr_note + '\n' + '\n';
                     contador1 = contador1 + contador;
                 });
 
@@ -229,12 +249,14 @@ $(document).ready(function () {
             error: function (xhr, status, error) {
                 console.error('Error:', error);
             }
+
         });
 
         if (rowData2[8] == "Activo") {
             flexRadioDefault1.checked = true;
             flexRadioDefault2.checked = false;
             document.querySelector('#addUpdateNote').style.display = 'flex';
+            document.querySelector('#addUpdateNote').disabled = true;
 
         } else {
             flexRadioDefault1.checked = false;

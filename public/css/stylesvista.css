@@ -646,7 +646,7 @@ body {
   grid-area: infcustomer4;
   margin-top: 0px;
   display: none;
-  grid-template-columns: 1fr 1fr 0.4fr;
+  grid-template-columns: 1.8fr 0.8fr 0.4fr;
 
   grid-template-areas: "spannotes editspannotev areabtnnotes";
 
@@ -735,6 +735,11 @@ body {
 #areabtnnotes hr{
   margin: auto;
   width: 68%;
+}
+
+#addUpdateNote{
+  background-color: white;
+  border: none;
 }
 
 
