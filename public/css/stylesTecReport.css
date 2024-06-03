@@ -27,6 +27,8 @@ body{
 .CuentaInput{
     display: none;
 }
+
+
 /*contenedores 2 padres----------------------------------------------*/
 .ReportPreviewContainer{
     grid-area: ReportPreviewContainer;
@@ -83,6 +85,7 @@ height: 10%;
 #BannerPal{
     width: 60vh;
 }
+
 /*------------------------------------------------------------------------*/
 
 /*contenedor de banner --------------------------------------------------*/

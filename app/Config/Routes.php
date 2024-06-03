@@ -10,7 +10,11 @@ $routes->get('/', 'Home::index');
 
 $routes->get('/inicio', 'Inicio::cargartablappal'); // inicio general
 $routes->get('/optionReport', 'OptionReport::ViewOptionReport'); // vista opciones de reporte
-$routes->get('/TecReport', 'TecReport::TecReportView'); //en desuso
+
+//reportes
+$routes->get('/TecReport', 'TecReport::TecReportView'); //vista reportes tecnicos
+$routes->get('/TecReport/CustomerReport', 'CustomerReportView::CustomerReportView'); //obtener registros por fecha y por cliente
+$routes->post('/TecReport/CustomerReportPost', 'TecReport::CustomerReport'); //obtener registros por fecha y por cliente
 
 
 

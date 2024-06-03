@@ -14,14 +14,17 @@ $(document).ready(function () {
         // Muestra u oculta inputs según el valor seleccionado
         if (selectedOption == 1) {
             cuentaInput.style.display = 'flex';
-            document.querySelector('#cuenta').value = '';
+            document.querySelector('#cliente_id').value = '';
             placaInput.style.display = 'none';
         } else if (selectedOption == 2) {
             cuentaInput.style.display = 'none';
             document.querySelector('#Placa').value = '';
             placaInput.style.display = 'flex';
+        }else {
+            console.error("Uno o más elementos no se encontraron en el DOM.");
         }
     });
+
 
 
 
@@ -41,7 +44,15 @@ $(document).ready(function () {
 
         this.submit(); // Enviar el formulario después de modificar la acción
     });
-} else {
-    console.error("Uno o más elementos no se encontraron en el DOM.");
-}
+
+
+
+
+
+
+
+
+
+
+
 });

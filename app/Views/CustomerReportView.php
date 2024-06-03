@@ -28,66 +28,48 @@
 </header>
 <body>
 
-<div id="container">
-    <div class="SECTIONPNE">
-        <P>EN CONSTUCCION</P>
-    </div>
-    <div class="ReportOptionsContainer">
-
-        <div class="titleReportOptionsContainer">
-        <span class="OptionTitle">Opciones de reporte</span>
-        <span class="OptionSubTitle">Ajuste su reporte segun sus necesidades</span>
-        </div>
-
-        <div class="ReportForm">
-
-        <form action="TecReport/CustomerReportPost" method="POST">
-
-        <label for="">Tipo de busqueda</label>
-        <select name="tipoBusqueda" id="tipoBusqueda" class="form-select" aria-label="Default select example">
-        <option value="1">Buscar por cliente</option>
-        <option value="2">Buscar por placa</option>
-        </select>
-
-
-        <label for="" style="margin-top: 20px;">Tipo de reporte</label>
-        <select name="tipoReporte" id="tiporeporte" class="form-select" aria-label="Default select example">
-        <option value="1">Trabajos realizados</option>
-        <option value="2">Segimientos Administrativos</option>
-        <option value="3">Eventos confirmados</option>
-        <option value="4">Activaciones</option>
-        <option value="5">Todos los registros</option>
-        </select>
-        <div id="placaInput">
-        <label for="" style="margin-top: 20px;">Numero de placa</label>
-        <input type="text" name="Placa" id="Placa"></input>
-        </div>
-        <div id="CuentaInput" style="margin-top: 20px;">
-        <label for="cuenta">Nombre de la cuenta</label>
-        <input type="text" name="cuenta" id="cuenta">
-    </div>
-
-        <label for="start1" style="margin-top: 20px;">Desde</label>
-        <input type="date" id="start1" name="date_start" value="2024-05-01" min="2020-01-01" max="2025-12-31" />
-        <br>
-        <label for="start" style="margin-top: 20px;">Hasta</label>
-        <input type="date" id="start" name="date_end" value="2024-05-26" min="2020-01-01" max="2025-12-31" />
-
-
-        <button type="submit" class="btn btn-primary" id="btnGenerar" style="margin-top: 20px;">Generar</button>
-     
-
-        </form>
-     
-
-        </div>
+    <div id="container">
+        <div id="ReportOptionsContainer">
         
+            <table id="tableReports" class="table table-hover" style="width:100%">
+            <thead id="thead-fixed">
+                <tr>
+                    <th>Registro</th>
+                    <th>Nota</th>
+                    <th>Usuario</th>
+                    <th>Fecha nota</th>
+                    <th>Código</th>
+                    <th>Estado</th>
+                    <th>Fecha registro</th>
+                    <th>Placa</th>
+                    <th>Cuenta</th>
+                    <th>Disposición</th>
+                    <th>Categoría</th>
+                    <th>Técnico</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <?php foreach ($reportData as $data) : ?>
+                        <tr>
+                            <td><?= $data->id_mr_records ?></td>
+                            <td><?= $data->mr_note ?></td>
+                            <td><?= $data->usuario ?></td>
+                            <td><?= $data->notes_date_add ?></td>
+                            <td><?= $data->TecCode ?></td>
+                            <td><?= $data->status ?></td>
+                            <td><?= $data->records_date_add ?></td>
+                            <td><?= $data->placa ?></td>
+                            <td><?= $data->nombre_cuenta ?></td>
+                            <td><?= $data->mr_dispositionName ?></td>
+                            <td><?= $data->mr_CategoryDisposition_name ?></td>
+                            <td><?= $data->Nombre ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+       
+        </div>
     </div>
-
-    
-
-
-</div>
 
  <!--ALERTAS-->
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
