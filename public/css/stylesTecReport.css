@@ -6,9 +6,10 @@ body{
 /*Contenedopr principal*/
 #container{
     display: grid;
-    grid-template-columns: 1fr 0.2fr;
-    grid-template-rows: auto;
-    grid-template-areas: "ReportPreviewContainer   ReportOptionsContainer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 1.6fr;
+    grid-template-areas: "titleReportOptionsContainer"
+                        "tableReports";
     position: fixed;
     font-family: "Quicksand", sans-serif; 
     font-optical-sizing: auto; 
@@ -17,6 +18,7 @@ body{
     margin-left: 25px;
     margin-right: 25px;
     padding-top: 85px;
+    justify-items: center;
 }
      
 
@@ -43,18 +45,11 @@ body{
 
 }
 
-.ReportOptionsContainer{
+#ReportOptionsContainer{
     grid-area: ReportOptionsContainer;
-    padding: 20px;
+    padding: 0px;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.4fr 1.6fr;
-    grid-template-areas: "titleReportOptionsContainer"
-                        "ReportForm";
-    width: 40vh;
-    height: 85vh;
-    box-shadow: 0px 0px 13px 8px rgba(0,0,0,0.1);
-    border-radius: 12px;
 
 
 }
@@ -68,6 +63,20 @@ flex-direction: column;
 padding-top: 15px;
 height: 10%;
 }
+
+.tableReports{
+    grid-area: tableReports;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-top: 15px;
+    overflow: auto;
+    width: 85%;
+    padding: 0px 10px 0px 10px;
+}
+
+
 
 .OptionSubTitle{
     margin-top: 4px;
@@ -108,3 +117,91 @@ height: 10%;
     align-items: flex-start;
     
 }
+/*-----------------------------------------------------------------------*/
+.fontfixsize14{
+    font-size: 14px;
+}
+
+.titulos24{
+    font-size: 40px;
+    font-weight: lighter;
+}
+
+.titulo24blue{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.subtitulos13{
+    font-size: 13px;
+    color: gray;
+    font-weight: lighter;
+}
+
+.btnExportar{
+    margin-top: 15px;
+    border-radius: 15px;
+    background-color: #2E7D32    ;
+    color: white;
+    padding: 6px 10px 6px 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/************************************************************************************************************************************/
+
+/*Contenedopr principal*/
+#container2{
+    display: grid;
+    grid-template-columns: 1.6fr 0.4fr;
+    grid-template-rows: auto;
+    grid-template-areas: "Section1TecReport  Section2TecReport";
+    position: fixed;
+    font-family: "Quicksand", sans-serif; 
+    font-optical-sizing: auto; 
+    height: 97vh;
+    width: 97vw; 
+    margin-left: 25px;
+    margin-right: 25px;
+    padding-top: 85px;
+    justify-items: center;
+}
+
+.Section1TecReport{
+    margin-top: 5%;
+
+}
+
+.Section2TecReport{
+
+
+}
+
+
+
+
+
+
+
+
+
+

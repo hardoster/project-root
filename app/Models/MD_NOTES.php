@@ -30,7 +30,7 @@ class MD_NOTES extends Model
 
 
 //reportes por cliente  
-    public function getCustomerReport($cuenta, $dateStart, $dateEnd)
+    public function getCustomerReport($cuenta,$Placa, $dateStart, $dateEnd, $tipoReporte)
     { 
         $db = \Config\Database::connect();
         $builder = $this->db->table($this->table);
@@ -54,9 +54,17 @@ class MD_NOTES extends Model
         $builder->join('tbempleados', 'tb_mr_records.id_empleado = tbempleados.id_empleado');
         $builder->join('tb_mr_disposition', 'tb_mr_records.id_mr_disposition = tb_mr_disposition.id_mr_disposition');
         $builder->join('tb_mr_categorydisposition', 'tb_mr_disposition.id_mr_categorydisposition = tb_mr_categorydisposition.id_mr_categorydisposition');
-        $builder->where('tbclientes.id_cliente', $cuenta);
+        $builder->groupStart()
+        ->where('tbclientes.nombre_cuenta', $cuenta)
+        ->orWhere('tbvehiculos.Placa', $Placa)
+        ->groupEnd();
         $builder->where('tb_mr_records.date_add >=', $dateStart);
         $builder->where('tb_mr_records.date_add <=', $dateEnd);
+        
+        if (in_array($tipoReporte, [1, 2, 3])) {
+            $builder->where('tb_mr_categorydisposition.id_mr_categorydisposition', $tipoReporte);
+        }
+
         $builder->orderBy('tb_mr_notes.id_mr_records');
     
         return $builder->get()->getResult();

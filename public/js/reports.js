@@ -47,12 +47,33 @@ $(document).ready(function () {
 
 
 
+});
 
 
 
 
-
-
-
-
+$(document).ready(function () {
+    var table = $('#tableReports').DataTable({
+        pageLength: 3,
+        language: {
+            "decimal": "",
+            "emptyTable": "No hay información",
+            "info": " _START_ a _END_ de _TOTAL_",
+            "infoEmpty": "",
+            "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": " _MENU_ ",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscar:",
+            "zeroRecords": "Sin resultados encontrados",
+            "paginate": {
+                "first": "Primero",
+                "last": "Ultimo",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            }
+        }, 
+    });
 });

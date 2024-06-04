@@ -13,7 +13,7 @@ $routes->get('/optionReport', 'OptionReport::ViewOptionReport'); // vista opcion
 
 //reportes
 $routes->get('/TecReport', 'TecReport::TecReportView'); //vista reportes tecnicos
-$routes->get('/TecReport/CustomerReport', 'CustomerReportView::CustomerReportView'); //obtener registros por fecha y por cliente
+$routes->post('/CustomerReport', 'CustomerReportView::CustomerReport'); //obtener registros por fecha y por cliente
 $routes->post('/TecReport/CustomerReportPost', 'TecReport::CustomerReport'); //obtener registros por fecha y por cliente
 
 

@@ -28,20 +28,21 @@
 </header>
 <body>
 
-<div id="container">
-    <div class="SECTIONPNE">
-        <P>EN CONSTUCCION</P>
-    </div>
-    <div class="ReportOptionsContainer">
+<div id="container2">
+    <div class="Section1TecReport">
+    <img src="../../public/img/SelectionReportType.svg" alt="Descripción de la imagen" style="width:300px;height:auto;">
 
-        <div class="titleReportOptionsContainer">
+    </div>
+    <div class="Section2TecReport">
+
+        <div class="titleReportTecReport">
         <span class="OptionTitle">Opciones de reporte</span>
         <span class="OptionSubTitle">Ajuste su reporte segun sus necesidades</span>
         </div>
 
         <div class="ReportForm">
 
-        <form action="TecReport/CustomerReportPost" method="POST">
+        <form action="CustomerReport" method="POST">
 
         <label for="">Tipo de busqueda</label>
         <select name="tipoBusqueda" id="tipoBusqueda" class="form-select" aria-label="Default select example">
@@ -65,7 +66,7 @@
         <div id="CuentaInput" style="margin-top: 20px;">
         <label for="cuenta">Nombre de la cuenta</label>
         <input type="text" name="cuenta" id="cuenta">
-    </div>
+        </div>
 
         <label for="start1" style="margin-top: 20px;">Desde</label>
         <input type="date" id="start1" name="date_start" value="2024-05-01" min="2020-01-01" max="2025-12-31" />
@@ -88,6 +89,10 @@
 
 
 </div>
+
+<script>
+    
+</script>
 
  <!--ALERTAS-->
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

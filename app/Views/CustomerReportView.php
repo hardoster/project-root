@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,60 +20,72 @@
     <!--DATA TABLE DE JQUERY-->
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />
 
- 
+
     <title>Document</title>
 </head>
 
 <header>
     <?php require_once('layoutnavbar.php') ?>
 </header>
+
 <body>
 
     <div id="container">
-        <div id="ReportOptionsContainer">
-        
-            <table id="tableReports" class="table table-hover" style="width:100%">
-            <thead id="thead-fixed">
-                <tr>
-                    <th>Registro</th>
-                    <th>Nota</th>
-                    <th>Usuario</th>
-                    <th>Fecha nota</th>
-                    <th>Código</th>
-                    <th>Estado</th>
-                    <th>Fecha registro</th>
-                    <th>Placa</th>
-                    <th>Cuenta</th>
-                    <th>Disposición</th>
-                    <th>Categoría</th>
-                    <th>Técnico</th>
-                </tr>
-            </thead>
-                <tbody>
-                    <?php foreach ($reportData as $data) : ?>
-                        <tr>
-                            <td><?= $data->id_mr_records ?></td>
-                            <td><?= $data->mr_note ?></td>
-                            <td><?= $data->usuario ?></td>
-                            <td><?= $data->notes_date_add ?></td>
-                            <td><?= $data->TecCode ?></td>
-                            <td><?= $data->status ?></td>
-                            <td><?= $data->records_date_add ?></td>
-                            <td><?= $data->placa ?></td>
-                            <td><?= $data->nombre_cuenta ?></td>
-                            <td><?= $data->mr_dispositionName ?></td>
-                            <td><?= $data->mr_CategoryDisposition_name ?></td>
-                            <td><?= $data->Nombre ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-       
-        </div>
-    </div>
+    
 
- <!--ALERTAS-->
- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <div class="titleReportOptionsContainer">
+                <div class="flex"><span class="titulos24">Reporte <span class="titulo24blue">GPS</span></span></div>
+                <div class="flex"><span class="subtitulos13">Puedes exportar tu reporte a excel</span></div>
+                <div class="flex"><span class="subtitulos13">precionando el boton "Exportar"</span></div>
+                <div id="btnExportar" class="btnExportar"><span>Exportar</span></div>
+            </div>
+
+
+            <div class="tableReports">
+                <table id="tableReports" class="table table-hover subtitulos13">
+                    <thead>
+                        <tr>
+                            <th>Registro</th>
+                            <th>Nota</th>
+                            <th>Usuario</th>
+                            <th>Fecha nota</th>
+                            <th>Código</th>
+                            <th>Estado</th>
+                            <th>Fecha registro</th>
+                            <th>Placa</th>
+                            <th>Cuenta</th>
+                            <th>Disposición</th>
+                            <th>Categoría</th>
+                            <th>Técnico</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($reportData as $data) : ?>
+                            <tr>
+                                <td><?= $data->id_mr_records ?></td>
+                                <td><?= $data->mr_note ?></td>
+                                <td><?= $data->usuario ?></td>
+                                <td><?= $data->notes_date_add ?></td>
+                                <td><?= $data->TecCode ?></td>
+                                <td><?= $data->status ?></td>
+                                <td><?= $data->records_date_add ?></td>
+                                <td><?= $data->placa ?></td>
+                                <td><?= $data->nombre_cuenta ?></td>
+                                <td><?= $data->mr_dispositionName ?></td>
+                                <td><?= $data->mr_CategoryDisposition_name ?></td>
+                                <td><?= $data->Nombre ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+
+
+    
+
+
+        <!--ALERTAS-->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!--JQUERY-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
@@ -88,4 +101,5 @@
 
 
 </body>
+
 </html>
