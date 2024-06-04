@@ -22,11 +22,11 @@ body{
 }
      
 
-.placaInput{
+#placaInput{
     display: none;
 }
 
-.CuentaInput{
+#CuentaInput{
     display: none;
 }
 
@@ -111,12 +111,7 @@ height: 10%;
 }
 
 /*----------------------------------------------------------------------*/
-.ReportForm{
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    
-}
+
 /*-----------------------------------------------------------------------*/
 .fontfixsize14{
     font-size: 14px;
@@ -127,9 +122,13 @@ height: 10%;
     font-weight: lighter;
 }
 
+.titulos50{
+    font-size: 50px;
+    font-weight: lighter;
+}
 .titulo24blue{
     font-size: 40px;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 .subtitulos13{
@@ -172,9 +171,10 @@ height: 10%;
 /*Contenedopr principal*/
 #container2{
     display: grid;
-    grid-template-columns: 1.6fr 0.4fr;
-    grid-template-rows: auto;
-    grid-template-areas: "Section1TecReport  Section2TecReport";
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.3fr 1.7fr;
+    grid-template-areas: "Section1TecReport"
+                          "Section2TecReport";
     position: fixed;
     font-family: "Quicksand", sans-serif; 
     font-optical-sizing: auto; 
@@ -187,14 +187,52 @@ height: 10%;
 }
 
 .Section1TecReport{
-    margin-top: 5%;
+    grid-area: Section1TecReport;
+  
 
 }
 
 .Section2TecReport{
+    grid-area: Section2TecReport;
+    
+    display: grid;
+    grid-template-columns: 33.33fr 33.33fr 33.33fr;
+    grid-gap: 5px;
+    grid-template-rows: auto;
+    grid-template-areas: "tipoBusquedaContainer  tipoReporteContainer  placaInputContainer"
+                         "cuentaInputContainer   DateStartContainer    buttonSubmitContainer"  ;
 
 
 }
+
+.boxOption{
+    box-shadow: 0px 0px 10px 4px rgba(0,0,0,0.1);
+    height: 100px;
+    width: 100px;
+    border-radius: 15px;
+}
+
+
+
+.tipoBusquedaContainer{
+    grid-area: tipoBusquedaContainer;
+}
+.tipoReporteContainer{
+    grid-area: tipoReporteContainer;
+}
+.placaInputContainer{
+    grid-area: placaInputContainer;
+}
+.cuentaInputContainer{
+    grid-area: cuentaInputContainer;
+}
+.DateStartContainer{
+    grid-area: DateStartContainer;
+}
+.buttonSubmitContainer{
+    grid-area: buttonSubmitContainer;
+}
+
 
 
 

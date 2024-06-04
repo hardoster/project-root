@@ -15,14 +15,23 @@ class CustomerReportView extends BaseController{
         $date_start = $this->request->getPost('date_start');
         $date_end = $this->request->getPost('date_end');
 
+
+          // Verifica si los valores no son nulos y son cadenas antes de convertir
+          if (is_string($date_start) && is_string($date_end)) {
+            // Convierte las fechas al formato 'Y-m-d H:i:s'
+            $date_start = date('Y-m-d H:i:00', strtotime($date_start));
+            $date_end = date('Y-m-d H:i:59', strtotime($date_end));
+        } else {
+            // Maneja el error si las fechas no son válidas
+            return redirect()->back()->with('error', 'Las fechas no son válidas.');
+        }
+
+
         $reportData = $model->getCustomerReport($cuenta, $placa, $date_start, $date_end, $tipoReporte);
 
    
         return view('CustomerReportView', ['reportData' => $reportData]);
     }
-   
-
-    
 }
 
 ?>

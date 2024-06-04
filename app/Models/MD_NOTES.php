@@ -62,7 +62,7 @@ class MD_NOTES extends Model
         $builder->where('tb_mr_records.date_add <=', $dateEnd);
         
         if (in_array($tipoReporte, [1, 2, 3])) {
-            $builder->where('tb_mr_categorydisposition.id_mr_categorydisposition', $tipoReporte);
+            $builder->where('tb_mr_categorydisposition.id_mr_categoryDisposition', $tipoReporte);
         }
 
         $builder->orderBy('tb_mr_notes.id_mr_records');

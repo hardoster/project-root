@@ -30,63 +30,65 @@
 
 <div id="container2">
     <div class="Section1TecReport">
-    <img src="../../public/img/SelectionReportType.svg" alt="Descripción de la imagen" style="width:300px;height:auto;">
-
+    
+        <div class="t1 "><span class="titulos50">Reportes <span>GPS</span></span></div>
+        <div class="t2"><span class="fontfixsize14">Selecciona las opciones para tu reporte</span></div>
+    
     </div>
+    
     <div class="Section2TecReport">
 
-        <div class="titleReportTecReport">
-        <span class="OptionTitle">Opciones de reporte</span>
-        <span class="OptionSubTitle">Ajuste su reporte segun sus necesidades</span>
-        </div>
+            <form action="CustomerReport" method="POST">
 
-        <div class="ReportForm">
+                <div class="tipoBusquedaContainer boxOption">
+                    <label for="">Tipo de busqueda</label>
+                    <select name="tipoBusqueda" id="tipoBusqueda" class="form-select" aria-label="Default select example">
+                    <option value="1">Buscar por cliente</option>
+                    <option value="2">Buscar por placa</option>
+                    </select>
+                </div>
 
-        <form action="CustomerReport" method="POST">
+                <div class="tipoReporteContainer boxOption">
+                    <label for="" style="margin-top: 20px;">Tipo de reporte</label>
+                    <select name="tipoReporte" id="tiporeporte" class="form-select" aria-label="Default select example">
+                    <option value="1">Trabajos realizados</option>
+                    <option value="2">Administrativo</option>
+                    <option value="3">Eventos confirmados</option>
+                    <option value="5">Todos los registros</option>
+                    </select>
+                </div>
+            
+                <div class="placaInputContainer boxOption">
+                    <div id="placaInput">
+                        <label for="" style="margin-top: 20px;">Numero de placa</label>
+                        <input type="text" name="Placa" id="Placa"></input>
+                    </div>
+                </div>
 
-        <label for="">Tipo de busqueda</label>
-        <select name="tipoBusqueda" id="tipoBusqueda" class="form-select" aria-label="Default select example">
-        <option value="1">Buscar por cliente</option>
-        <option value="2">Buscar por placa</option>
-        </select>
+                <div class="cuentaInputContainer boxOption">
+                    <div id="CuentaInput" style="margin-top: 20px;">
+                        <label for="cuenta">Nombre de la cuenta</label>
+                        <input type="text" name="cuenta" id="cuenta">
+                    </div>
+                </div>
 
+                <div class="DateStartContainer boxOption">
+                    <label for="start1" style="margin-top: 20px;">Desde</label>
+                    <input type="datetime-local" id="start1" name="date_start" value="2024-05-01T00:00" min="2020-01-01T00:00" max="2025-12-31T23:59" required />
+                    <br>
+                    <label for="start2" style="margin-top: 20px;">Hasta</label>
+                    <input type="datetime-local" id="start2" name="date_end" value="2024-05-26T23:59" min="2020-01-01T00:00" max="2025-12-31T23:59" required />
+                </div>
+            
 
-        <label for="" style="margin-top: 20px;">Tipo de reporte</label>
-        <select name="tipoReporte" id="tiporeporte" class="form-select" aria-label="Default select example">
-        <option value="1">Trabajos realizados</option>
-        <option value="2">Segimientos Administrativos</option>
-        <option value="3">Eventos confirmados</option>
-        <option value="4">Activaciones</option>
-        <option value="5">Todos los registros</option>
-        </select>
-        <div id="placaInput">
-        <label for="" style="margin-top: 20px;">Numero de placa</label>
-        <input type="text" name="Placa" id="Placa"></input>
-        </div>
-        <div id="CuentaInput" style="margin-top: 20px;">
-        <label for="cuenta">Nombre de la cuenta</label>
-        <input type="text" name="cuenta" id="cuenta">
-        </div>
-
-        <label for="start1" style="margin-top: 20px;">Desde</label>
-        <input type="date" id="start1" name="date_start" value="2024-05-01" min="2020-01-01" max="2025-12-31" />
-        <br>
-        <label for="start" style="margin-top: 20px;">Hasta</label>
-        <input type="date" id="start" name="date_end" value="2024-05-26" min="2020-01-01" max="2025-12-31" />
-
-
-        <button type="submit" class="btn btn-primary" id="btnGenerar" style="margin-top: 20px;">Generar</button>
+                <div class="buttonSubmitContainer">
+                    <button type="submit" class="btn btn-primary" id="btnGenerar" style="margin-top: 20px;">Generar</button>
+                </div>
+            </form>
      
-
-        </form>
-     
-
-        </div>
+    
         
     </div>
-
-    
-
 
 </div>
 
