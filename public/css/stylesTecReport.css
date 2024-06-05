@@ -113,6 +113,11 @@ height: 10%;
 /*----------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------*/
+.fontfixsize16{
+    font-size: 16px;
+    font-weight: 500;
+}
+
 .fontfixsize14{
     font-size: 14px;
 }
@@ -146,6 +151,22 @@ height: 10%;
 }
 
 
+.titulos50thin{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    font-weight:100;
+}
+
+.titulos50Bols{
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.flrow{
+    display: flex;
+    flex-direction: column;
+}
+
 
 
 
@@ -167,14 +188,12 @@ height: 10%;
 
 
 /************************************************************************************************************************************/
-
 /*Contenedopr principal*/
 #container2{
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.3fr 1.7fr;
-    grid-template-areas: "Section1TecReport"
-                          "Section2TecReport";
+    grid-template-columns: 0.5fr 0.5fr;
+    grid-template-rows: auto;
+    grid-template-areas: "Section1TecReport   Section2TecReport";
     position: fixed;
     font-family: "Quicksand", sans-serif; 
     font-optical-sizing: auto; 
@@ -186,52 +205,42 @@ height: 10%;
     justify-items: center;
 }
 
+.boxOption{
+    box-shadow: 0px 0px 10px 4px rgba(0,0,0,0.1);
+    height: 150px;
+    width: 200px;
+    border-radius: 15px;
+}
+
+
 .Section1TecReport{
-    grid-area: Section1TecReport;
-  
+grid-area: Section1TecReport;
+display: flex;
+flex-direction: column;
+margin-left: 24vh;
+
 
 }
 
 .Section2TecReport{
     grid-area: Section2TecReport;
-    
-    display: grid;
-    grid-template-columns: 33.33fr 33.33fr 33.33fr;
-    grid-gap: 5px;
-    grid-template-rows: auto;
-    grid-template-areas: "tipoBusquedaContainer  tipoReporteContainer  placaInputContainer"
-                         "cuentaInputContainer   DateStartContainer    buttonSubmitContainer"  ;
-
-
+    margin-top: 2vh;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+        border-radius: 25px;
+        width: 47vh;
+        height: 80vh;
+        padding: 25px;
 }
 
-.boxOption{
-    box-shadow: 0px 0px 10px 4px rgba(0,0,0,0.1);
-    height: 100px;
-    width: 100px;
-    border-radius: 15px;
+.imgbanner2{
+    width: 450px;
+}
+
+.tipobusquedacontainer{
+    padding-top: 30px;
 }
 
 
-
-.tipoBusquedaContainer{
-    grid-area: tipoBusquedaContainer;
-}
-.tipoReporteContainer{
-    grid-area: tipoReporteContainer;
-}
-.placaInputContainer{
-    grid-area: placaInputContainer;
-}
-.cuentaInputContainer{
-    grid-area: cuentaInputContainer;
-}
-.DateStartContainer{
-    grid-area: DateStartContainer;
-}
-.buttonSubmitContainer{
-    grid-area: buttonSubmitContainer;
-}
 
 
 

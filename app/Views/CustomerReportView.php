@@ -37,7 +37,7 @@
                 <div class="flex"><span class="titulos24">Reporte <span class="titulo24blue">GPS</span></span></div>
                 <div class="flex"><span class="subtitulos13">Puedes exportar tu reporte a excel</span></div>
                 <div class="flex"><span class="subtitulos13">precionando el boton "Exportar"</span></div>
-                <div id="btnExportar" class="btnExportar"><span>Exportar</span></div>
+                <div id="btnExportar" class="btnExportar"><button onclick="exportTableToExcel()">Exportar</button></div>
             </div>
 
 
@@ -92,6 +92,7 @@
         <!--JS MAIN LOCAL-->
         <script src="../public/js/tablas.js"></script>
         <script src="../public/js/reports.js"></script>
+        <script src="../public/js/ExportarExcel.js"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <!--DATATABLE JS-->
