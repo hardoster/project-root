@@ -20,7 +20,7 @@
     <!--DATA TABLE DE JQUERY-->
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />
 
-
+ 
     <title>Document</title>
 </head>
 
@@ -37,7 +37,9 @@
                 <div class="flex"><span class="titulos24">Reporte <span class="titulo24blue">GPS</span></span></div>
                 <div class="flex"><span class="subtitulos13">Puedes exportar tu reporte a excel</span></div>
                 <div class="flex"><span class="subtitulos13">precionando el boton "Exportar"</span></div>
-                <div id="btnExportar" class="btnExportar"><button onclick="exportTableToExcel()">Exportar</button></div>
+                <div id="btnExportar" class="btnExportar">    <button id="exportButton">Exportar</button>
+</div>
+
             </div>
 
 
@@ -60,6 +62,9 @@
                         </tr>
                     </thead>
                     <tbody>
+
+
+
                         <?php foreach ($reportData as $data) : ?>
                             <tr>
                                 <td><?= $data->id_mr_records ?></td>

@@ -2,75 +2,61 @@
 
 namespace App\Controllers;
 
+
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-use PhpOffice\PhpSpreadsheet\IOFactory;
-
-use DomDocument;
+use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
+use CodeIgniter\HTTP\Response;
 
 class ExcelController extends BaseController
 {
     public function __construct()
     {
         // Incluir el autoloader de PhpSpreadsheet
-        require_once APPPATH . 'ThirdParty/php_spreadsheet_loader.php';
+        require_once APPPATH . 'ThirdParty/PhpSpreadsheet/src/PhpSpreadsheet/Bootstrap.php';
     }
-
-
 
     public function export()
     {
-        $html = $this->request->getPost('html');
 
-        if (is_null($html) || !is_string($html)) {
-            return $this->response->setStatusCode(400, 'Invalid HTML content');
+        $jsonData = $this->request->getPost('jsonData');
+
+        if (!is_string($jsonData)) {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'El JSON no es una cadena de texto válida']);
+        }
+        $dataArray = json_decode($jsonData, true);
+
+
+        $spreadsheet = new Spreadsheet();
+        $hojaActiva = $spreadsheet->getActiveSheet();
+        $hojaActiva->setTitle('Reporte de trabajos realizados');
+
+        // Array de títulos de las columnas
+        $titulos = [
+            'Registro', 'Nota', 'Usuario', 'Fecha_Nota', 'Codigo',
+            'Estado', 'Fecha Registro', 'Placa', 'Cuenta', 'Disposicion',
+            'Categoria', 'Tecnico'
+        ];
+
+        // Ancho de las columnas
+        $anchoColumnas = [
+            8, 25, 11, 10, 18, 23, 27, 9, 100, 100, 100, 100
+        ];
+
+        // Establecer los títulos de las columnas y el ancho de las columnas
+        foreach ($titulos as $index => $titulo) {
+            $columna = chr(65 + $index); // Convertir el índice en la letra de la columna
+            $hojaActiva->setCellValue($columna . '1', $titulo);
+            $hojaActiva->getColumnDimension($columna)->setWidth($anchoColumnas[$index]);
         }
 
-        $dom = new DomDocument();
-        @$dom->loadHTML($html);
-        $rows = $dom->getElementsByTagName('tr');
-
-        $excel = new Spreadsheet();
-        $hojaActiva = $excel->getActiveSheet();
-        $hojaActiva->setTitle('Reporte de trabajos realizados');
-        $hojaActiva->getColumnDimension('A')->setWidth(8);
-        $hojaActiva->setCellValue('A1','Registro');
-        $hojaActiva->getColumnDimension('B')->setWidth(25);
-        $hojaActiva->setCellValue('B1','Nota');
-        $hojaActiva->getColumnDimension('C')->setWidth(11);
-        $hojaActiva->setCellValue('C1','Usuario');
-        $hojaActiva->getColumnDimension('D')->setWidth(10);
-        $hojaActiva->setCellValue('D1','Fecha_Nota');  
-        $hojaActiva->getColumnDimension('E')->setWidth(18);
-        $hojaActiva->setCellValue('E1','Codigo');
-        $hojaActiva->getColumnDimension('F')->setWidth(23);
-        $hojaActiva->setCellValue('F1','Estado');
-        $hojaActiva->getColumnDimension('G')->setWidth(27);
-        $hojaActiva->setCellValue('G1','Fecha Registro');
-        $hojaActiva->getColumnDimension('H')->setWidth(9);
-        $hojaActiva->setCellValue('H1','Placa');
-        $hojaActiva->getColumnDimension('I')->setWidth(100);
-        $hojaActiva->setCellValue('I1','Cuenta');
-        $hojaActiva->getColumnDimension('J')->setWidth(100);
-        $hojaActiva->setCellValue('J1','Disposicion');
-        $hojaActiva->getColumnDimension('K')->setWidth(100);
-        $hojaActiva->setCellValue('K1','Categoria');
-        $hojaActiva->getColumnDimension('L')->setWidth(100);
-        $hojaActiva->setCellValue('L1','Tecnico');
-        
-        $fila = 2;
-
+        // Guardar el archivo Excel en el servidor
         $writer = new Xlsx($spreadsheet);
+        $fileName = 'excel_file.xlsx';
+        $filePath = WRITEPATH . 'uploads/' . $fileName;
+        $writer->save($filePath);
 
-        $fileName = 'exported_table_' . date('Ymd_His') . '.xls';
-
-        header('Content-Type: application/vnd.ms-excel');
-        header('Content-Disposition: attachment;filename="myfile.xls"');
-        header('Cache-Control: max-age=0');
-
-
-        $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
-        $writer->save('php://output');
-        exit;
+        // Devolver el archivo Excel al cliente
+        return $this->response->download($filePath, null)->setFileName($fileName);
     }
 }

@@ -2,6 +2,10 @@
 
 namespace App\Controllers;
 use App\Models\MD_NOTES;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use CodeIgniter\HTTP\Response;
+
 
 class CustomerReportView extends BaseController{
 
@@ -26,12 +30,12 @@ class CustomerReportView extends BaseController{
             return redirect()->back()->with('error', 'Las fechas no son válidas.');
         }
 
-
         $reportData = $model->getCustomerReport($cuenta, $placa, $date_start, $date_end, $tipoReporte);
-
-   
+        $session = session();
+        $session->set('reportData', $reportData);
         return view('CustomerReportView', ['reportData' => $reportData]);
     }
-}
+   
 
-?>
+
+}
