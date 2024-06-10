@@ -11,6 +11,7 @@ use Psr\Log\LoggerInterface;
 
 /**
  * Class BaseController
+ 
  *
  * BaseController provides a convenient place for loading components
  * and performing functions that are needed by all your controllers.
@@ -22,21 +23,14 @@ use Psr\Log\LoggerInterface;
 abstract class BaseController extends Controller
 {
     /**
-     * Instance of the main Request object.
-     *
+
      * @var CLIRequest|IncomingRequest
      */
     protected $request;
-    
-
     /**
-     * An array of helpers to be loaded automatically upon
-     * class instantiation. These helpers will be available
-     * to all other controllers that extend BaseController.
-     *
      * @var array
      */
-    protected $helpers = [];
+    protected $helpers = ['url'];
 
     /**
      * Be sure to declare properties for any property fetch you initialized.

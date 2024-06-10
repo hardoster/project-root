@@ -276,7 +276,7 @@
                 </div>
 
                 <div class="telefonogps">
-                    <label>Telefono GPS</label>
+                <label>Teléfono GPS</label>
                     <hr class="linehr">
                     <div id="telefonospangps">
                         <span id="id_telefonogpsspann"></span>
@@ -329,7 +329,7 @@
                     <button class="spannButtonGeneralSUB" id="addUpdateNote">Agregar</button>
                 </div>
                 <div class="ContainerControlBtn newnotebtn">
-                    <span id="Btn_NewData" class="spannButtonGeneralSUB">nuevo</span>
+                    <span id="Btn_NewData" class="spannButtonGeneralSUB">Nuevo</span>
                 </div>
             </div>
 
@@ -343,16 +343,16 @@
                     <table id="table2" class="table table-hover">
                         <thead>
                             <tr>
-                                <th>Placa</th>
-                                <th>Cliente</th>
-                                <th>Identificador</th>
-                                <th>Disposicion</th>
-                                <th>Categoria</th>
-                                <th>Codigo</th>
-                                <th>Employee name</th>
-                                <th>Fecha</th>
-                                <th>Estado</th>
-                                <th>id_mr_records</th>
+                            <th>Placa</th>
+                            <th>Cliente</th>
+                            <th>Identificador</th>
+                            <th>Disposición</th>
+                            <th>Categoría</th>
+                            <th>Código</th>
+                            <th>Nombre del Empleado</th>
+                            <th>Fecha</th>
+                            <th>Estado</th>
+                            <th>id_mr_records</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -382,13 +382,13 @@
                     <hr>
                 </div>
                 <div class="tecnicosbtn">
-                    <span id="btnFilterTec">Tecnicos</span>
+                    <span id="btnFilterTec">Técnicos</span>
                 </div>
                 <div class="operadorbtn">
                     <span id="btnOperadorFilter">Operador</span>
                 </div>
                 <div class="reaccionbtn">
-                    <span id="btnFilterReaccion">Reaccion</span>
+                    <span id="btnFilterReaccion">Reacción</span>
                 </div>
             </div>
         </div>
@@ -750,46 +750,46 @@
                     <form id="FormAddNoteppal" method="post" action="<?= site_url('/Inicio/AddNotes')?>">
                         <div class="form-floating mb-3">
                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                            <option selected>Seleccione la disposicion</option>
+                            <option selected>Seleccione la disposición</option>
                             <?php foreach ($datos3 as $indexOP1 => $value1) : ?>
                                 <option value="<?= $indexOP1 + 1 ?>"><?= $value1['id_mr_categoryDisposition'] . ' - ' . $value1['mr_CategoryDisposition_name'] ?></option>
                             <?php endforeach; ?>
                         </select>
 
 
-                            <label for="floatingSelect">Disposicion</label>
+                            <label for="floatingSelect">Disposición</label>
                         </div>
                         <!--CATEGORIAS SON 3 EN TOTAL-->
                         <!--TECNICOS-->
                         <div class="form-floating mb-3 tecnicoscmb">
                         <select class="form-select" name="dispositionSelected" id="floatingSelect1" aria-label="Floating label select example">
-                            <option selected>Selecciona una categoria</option>
+                            <option selected>Selecciona una categoría</option>
                             <?php foreach ($datos4 as $indexOP4 => $valueP) : ?>
                                 <option value="<?= $valueP['id_mr_disposition'] ?>"><?= $valueP['mr_dispositionName']?></option>
                             <?php endforeach; ?>
                         </select>
 
-                            <label for="floatingSelect1">Categoria</label>
+                            <label for="floatingSelect1">Categoría</label>
                         </div>
 
                         <!--OPERADOR-->
                         <div class="form-floating mb-3   operadorcmb">
                             <select class="form-select" name="dispositionSelected" id="floatingSelect2" aria-label="Floating label select example">
-                                <option selected>Selecciona una categoria</option>
+                                <option selected>Selecciona una categoría</option>
                                 <?php foreach ($datos5 as $indexOP4 => $valueP) : ?>
                                     <option value="<?= $valueP['id_mr_disposition'] ?>"><?= $valueP['mr_dispositionName']?></option>                                <?php endforeach; ?>
                             </select>
-                            <label for="floatingSelect2">Categoria</label>
+                            <label for="floatingSelect2">Categoría</label>
                         </div>
 
                         <!--REACCION-->
                         <div class="form-floating mb-3 reaccioncmb">
                             <select class="form-select" name="dispositionSelected" id="floatingSelect3" aria-label="Floating label select example">
-                                <option selected>Selecciona una categoria</option>
+                                <option selected>Selecciona una categoría</option>
                                 <?php foreach ($datos6 as $indexOP4 => $valueP) : ?>
                                     <option value="<?= $valueP['id_mr_disposition'] ?>"><?= $valueP['mr_dispositionName']?></option>                                <?php endforeach; ?>
                             </select>
-                            <label for="floatingSelect3">Categoria</label>
+                            <label for="floatingSelect3">categoría</label>
                         </div>
 
 
@@ -814,7 +814,7 @@
                         <div id="IdocultarCodigo" class="form-code-sheet ocultarcodigo">
                             <div class="form-floating mb-3 code-size">
                                 <input type="text" class="form-control" id="floatingInputc1" placeholder="name@example.com">
-                                <label for="floatingInputc1">Codigo</label>
+                                <label for="floatingInputc1">Código</label>
                             </div>
 
                             <div class="form-floating mb-3 sheet-size">

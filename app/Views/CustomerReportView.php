@@ -19,8 +19,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-xwfpv40gDwuMH5Q11c5XNPtxh+ToSibU++v2Z5AtnJhzphoJmWTvPeOyFZTh5m6v" crossorigin="anonymous">
     <!--DATA TABLE DE JQUERY-->
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx-style/dist/xlsx-style.full.min.js"></script>
 
- 
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
     <title>Document</title>
 </head>
 
@@ -28,7 +30,7 @@
     <?php require_once('layoutnavbar.php') ?>
 </header>
 
-<body>
+<body> 
 
     <div id="container">
     
@@ -37,17 +39,17 @@
                 <div class="flex"><span class="titulos24">Reporte <span class="titulo24blue">GPS</span></span></div>
                 <div class="flex"><span class="subtitulos13">Puedes exportar tu reporte a excel</span></div>
                 <div class="flex"><span class="subtitulos13">precionando el boton "Exportar"</span></div>
-                <div id="btnExportar" class="btnExportar">    <button id="exportButton">Exportar</button>
-</div>
+                <div id="btnExportar" class="btnExportar">    <button class="btnExportarOn" onclick="exportToExcel()">Exportar</button>
+                </div>
 
             </div>
 
 
             <div class="tableReports">
                 <table id="tableReports" class="table table-hover subtitulos13">
-                    <thead>
+                    <thead class="thheadfixed">
                         <tr>
-                            <th>Registro</th>
+                            <th class="boxThHead">Registro</th>
                             <th>Nota</th>
                             <th>Usuario</th>
                             <th>Fecha nota</th>
@@ -62,9 +64,6 @@
                         </tr>
                     </thead>
                     <tbody>
-
-
-
                         <?php foreach ($reportData as $data) : ?>
                             <tr>
                                 <td><?= $data->id_mr_records ?></td>
@@ -91,6 +90,7 @@
 
         <!--ALERTAS-->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
         <!--JQUERY-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
@@ -104,6 +104,7 @@
         <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
         <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
 
 
 </body>

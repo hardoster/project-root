@@ -31,8 +31,8 @@
 <div id="container2">
     
             <div class="Section1TecReport">
-                <img src="../public/img/LoadingReport.svg" class="imgbanner2" alt=" ">
-                <div class="t1 "><span class="titulos50">Reportes <span>GPS</span></span></div>
+            <img src="<?php echo base_url('public/img/LoadingReport.svg'); ?>" class="imgbanner2" alt=" ">
+            <div class="t1 "><span class="titulos50">Reportes <span>GPS</span></span></div>
                 <div class="t2"><span class="fontfixsize16">Selecciona las opciones para tu reporte</span></div>
                 <div class="t3"><span class="fontfixsize14">recuerda seleccionar todos los campos para generar correctamente</span></div>
             </div>
@@ -43,7 +43,7 @@
                     <SPAN class="fontfixsize16">selecciona las condiciones</SPAN>
                     </div>
                     <div class="tipobusquedacontainer">
-                    <label for="">Tipo de busqueda</label>
+                    <label for="">Tipo de búsqueda</label>
                     <select name="tipoBusqueda" id="tipoBusqueda" class="form-select" aria-label="Default select example">
                     <option value="1">Buscar por cliente</option>
                     <option value="2">Buscar por placa</option>

@@ -7,7 +7,7 @@ body {
   background-color: #f4f3f3 !important;
 }
 
-/*START CONTAINTER MAIN*/
+/* Estilo principal */
 #container {
   position: fixed;
   font-family: "Quicksand", sans-serif; 
@@ -18,17 +18,28 @@ body {
   margin-right: 25px !important;
   padding-top: 85px;
   grid-template-columns: 1.5fr 2fr 100px;
-  /* 2 fracciones de columnas*/
-  grid-template-rows: repeat(3 auto);
+  grid-template-rows: 0.5fr 0.2fr 0.5fr;
   column-gap: 20px;
   row-gap: 10px;
+  grid-template-areas: 
+    "tablep infcustomer1 iconsinf"
+    "tablep infcustomer4 infcustomer4"
+    "tablep tableregistros tableregistros";
+}
 
-    grid-template-areas: "tablep     infcustomer1 iconsinf"
-                         "tablep    infcustomer4  infcustomer4"
-                         "tablep    tableregistros tableregistros";
-
-   
-
+/* Estilos para pantallas medianas (tablets, etc.) */
+@media (max-width: 768px) {
+  #container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto auto;
+    grid-template-areas: 
+      "tablep"
+      "infcustomer1"
+      "iconsinf"
+      "infcustomer4"
+      "tableregistros"
+      "tableregistros";
+  }
 }
 
 /*FINISH CONTAINTER MAIN*/
@@ -647,7 +658,7 @@ body {
   margin-top: 0px;
   display: none;
   grid-template-columns: 1.8fr 0.8fr 0.4fr;
-
+height: 23vh;
   grid-template-areas: "spannotes editspannotev areabtnnotes";
 
 }
@@ -769,7 +780,7 @@ body {
   border-bottom-left-radius: 15px !important;
   border-radius: 10px !important;
   overflow: auto;
-  height: 32vh !important;
+  height: 26vh !important;
 
 }
 
@@ -786,7 +797,7 @@ body {
 
 .filtrosarea {
 
-  height: 32vh !important;
+  height: 26vh !important;
 
   grid-area: filtrosarea;
   background-color: #FFFFFF;
