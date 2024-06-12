@@ -98,4 +98,12 @@ class Security extends BaseConfig
      * @deprecated `Config\Cookie` $samesite property is used.
      */
     public string $samesite = 'Lax';
+
+    //El filtrado XSS ayuda a prevenir ataques en los que un atacante intenta insertar código malicioso (scripts) en tu aplicación a través de formularios u otros campos de entrada
+    public $filter = true;
+
+    //escapado automático" que escapa automáticamente las salidas de datos para prevenir ataques XSS.
+    public $autoEscape = true;
+
+
 }

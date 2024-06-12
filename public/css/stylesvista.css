@@ -18,7 +18,7 @@ body {
   margin-right: 25px !important;
   padding-top: 85px;
   grid-template-columns: 1.5fr 2fr 100px;
-  grid-template-rows: 0.5fr 0.2fr 0.5fr;
+  grid-template-rows: 0.2fr 0.2fr 0.5fr;
   column-gap: 20px;
   row-gap: 10px;
   grid-template-areas: 
@@ -87,6 +87,7 @@ body {
 /*END VISTA MIENTRAS SELECCIONAN UNA PLACA DE LA TABLA*/
 /*iconos para ocultar y mostrar*/
 #container .iconsinf {
+  height: 27vh;
   grid-area: iconsinf;
   box-shadow: 1px 0px 15px 0px rgba(120, 120, 120, 0.3);
   border-radius: 15px;
@@ -196,6 +197,7 @@ body {
 }
 
 #container .infcustomer1 {
+  height: 28vh;
   transform-origin: left;
   grid-area: infcustomer1;
 }
@@ -210,7 +212,7 @@ body {
   grid-template-columns: 0.8fr 0.4fr 0.8fr;
   grid-template-rows: 0.2fr auto auto;
   column-gap: 20px;
-  row-gap: 15px;
+  row-gap: 6px;
   grid-template-areas: "accounttitle  accounttitle  accounttitle"
     "formgroup1  formgroup2  formgroup3"
     "formgroup4  formgroup4  formgroup3";
@@ -244,6 +246,7 @@ body {
 
 .container1 .formgroup4 {
   display: flex;
+  height: 8vh;
   flex-direction: column;
   grid-area: formgroup4;
   font-size: 12px;
@@ -258,16 +261,15 @@ body {
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
   font-weight: 600;
-
-  margin-bottom: 5px;
 }
 
 #id_spannameaccount {
+  overflow: auto;
   display: flex;
   width: auto;
   background-color: #F5F5F5;
   border: #E0E0E0 1px solid;
-  height: 100%;
+  height: 5vh;
   border-radius: 5px;
   padding-left: 10px;
   padding: 3px 5px 3px 5px;
@@ -286,7 +288,6 @@ body {
   font-weight: 600;
   /*-------------------------------*/
 
-  margin-bottom: 5px;
 }
 
 #id_spantypecustomer {
@@ -668,6 +669,7 @@ height: 23vh;
 #spannotes {
   box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.1);
   border-radius: 10px;
+  height: 18vh;
   grid-area: spannotes;
   padding: 12px;
   font-size: 12px;
@@ -683,6 +685,7 @@ height: 23vh;
 }
 
 #editspannotev{
+  height: 18vh;
   box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.1);
     border-radius: 10px;
     grid-area: spannotes;
@@ -780,7 +783,7 @@ height: 23vh;
   border-bottom-left-radius: 15px !important;
   border-radius: 10px !important;
   overflow: auto;
-  height: 26vh !important;
+  height: 31vh !important;
 
 }
 
@@ -797,7 +800,7 @@ height: 23vh;
 
 .filtrosarea {
 
-  height: 26vh !important;
+  height: 31vh !important;
 
   grid-area: filtrosarea;
   background-color: #FFFFFF;
